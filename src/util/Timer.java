@@ -1,10 +1,15 @@
+package util;
+
+import java.util.logging.Logger;
+
 public class Timer {
     private int timeSeconds;
-    private boolean isRunning;
+    private boolean enCours;
+    Logger logger = Logger.getLogger(getClass().getName());
 
     public Timer(int initialTime) {
         this.timeSeconds = initialTime;
-        this.isRunning = false;
+        this.enCours = false;
     }
 
     public int getTimeSeconds() {
@@ -12,15 +17,15 @@ public class Timer {
     }
 
     public void startTimer() {
-        isRunning = true;
+        enCours = true;
 
         Thread timerThread = new Thread(() -> {
-            while (isRunning && timeSeconds > 0) {
+            while (enCours && timeSeconds > 0) {
                 try {
                     // Pause une seconde
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
-                    System.err.println("Timer thread interrupted: " + e.getMessage());
+                    logger.severe("Thread Timer interrompu: " + e.getMessage());
                 }
                 timeSeconds--;
             }
@@ -30,8 +35,10 @@ public class Timer {
     }
 
     public void stopTimer() {
-        isRunning = false;
+        enCours = false;
     }
+
+    public void resumeTimer() { }
 
     public void resetTimer(int initialTime) {
         stopTimer();

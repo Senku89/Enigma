@@ -1,19 +1,25 @@
+package util;
+
 public class Score {
-    private int score;
+    private int nbscore;
 
     public Score() {
-        this.score = 0;
+        this.nbscore = 0;
     }
 
     public int getScore() {
+        return nbscore;
+    }
+
+    public int setScore(int score) {
         return score;
     }
 
     public void increaseScore(int points) {
-        score += points;
+        nbscore += points;
     }
 
     public void resetScore() {
-        score = 0;
+        nbscore = 0;
     }
 }
