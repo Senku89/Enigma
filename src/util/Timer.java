@@ -5,7 +5,8 @@ import java.util.logging.Logger;
 public class Timer {
     private int timeSeconds;
     private boolean enCours;
-    Logger logger = Logger.getLogger(getClass().getName());
+    private Logger logger = Logger.getLogger(getClass().getName());
+    private Thread timerThread;
 
     public Timer(int initialTime) {
         this.timeSeconds = initialTime;
@@ -17,31 +18,51 @@ public class Timer {
     }
 
     public void startTimer() {
-        enCours = true;
+        if (!enCours) {
+            enCours = true;
 
-        Thread timerThread = new Thread(() -> {
-            while (enCours && timeSeconds > 0) {
-                try {
-                    // Pause une seconde
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    logger.severe("Thread Timer interrompu: " + e.getMessage());
+            timerThread = new Thread(() -> {
+                while (enCours && timeSeconds > 0) {
+                    try {
+                        // Pause une seconde
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        logger.severe("Thread Timer interrompu: " + e.getMessage());
+                    }
+                    timeSeconds--;
                 }
-                timeSeconds--;
-            }
-        });
 
-        timerThread.start();
+                // Ajouter une action à effectuer lorsque le temps est écoulé
+                if (timeSeconds == 0) {
+                    timerExpired();
+                }
+            });
+
+            timerThread.start();
+        }
     }
 
     public void stopTimer() {
         enCours = false;
+        if (timerThread != null && timerThread.isAlive()) {
+            timerThread.interrupt();
+        }
     }
 
-    public void resumeTimer() { }
+    public void resumeTimer() {
+        if (!enCours) {
+            startTimer();
+        }
+    }
 
     public void resetTimer(int initialTime) {
         stopTimer();
         timeSeconds = initialTime;
+    }
+
+    // Ajouter une méthode à appeler lorsque le temps est écoulé
+    private void timerExpired() {
+        logger.info("Temps écoulé!");
+        // Actions supplémentaires à effectuer lorsque le temps est écoulé
     }
 }
