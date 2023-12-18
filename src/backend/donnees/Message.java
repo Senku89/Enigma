@@ -1,4 +1,4 @@
-package src;
+package src.backend.donnees;
 
 public class Message {
         private String txtChiffre;

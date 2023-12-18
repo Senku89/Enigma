@@ -1,12 +1,12 @@
-package src;
+package src.backend.donnees;
 
 import java.util.List;
 
-public class TestDonnes {
+public class TestDonnees {
         public static void TestCSV() {
             String filePath;
 
-            filePath = "/Users/nadir/Documents/Master1/gestionPro/MDP.csv";
+            filePath = "resources/MDP.csv";
             List<Password> instances = CSVReader.readCSVPassword(filePath);
 
             // Afficher les données
@@ -15,7 +15,7 @@ public class TestDonnes {
                 System.out.println("niveau: " + instance.getlvl());
                 System.out.println("-----------");
             }
-            filePath = "/Users/nadir/Documents/Master1/gestionPro/Q-R-crypto.csv";
+            filePath = "resources/Q-R-crypto.csv";
             List<Question> instances2 = CSVReader.readCSVQuestion(filePath);
 
             // Afficher les données
@@ -24,7 +24,7 @@ public class TestDonnes {
                 System.out.println("reponse: " + instance2.getreponse());
                 System.out.println("-----------");
             }
-            filePath = "/Users/nadir/Documents/Master1/gestionPro/decryptage/classeur1.csv";
+            filePath = "resources/classeur1.csv";
             List<Message> instances3 = CSVReader.readCSVMessage(filePath);
 
             // Afficher les données
@@ -33,7 +33,7 @@ public class TestDonnes {
                 System.out.println("dechiffre: " + instance3.getDechiffre());
                 System.out.println("-----------");
             }
-            filePath = "/Users/nadir/Documents/Master1/gestionPro/jeufinal.csv";
+            filePath = "resources/jeufinal.csv";
             List<Indice> instances4 = CSVReader.readCSVIndice(filePath);
 
             // Afficher les données
