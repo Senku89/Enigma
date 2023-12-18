@@ -70,8 +70,69 @@ public class CSVReader {
 
         return listQuestion;
     }
+    public static List<Message> readCSVMessage(String filePath) {
+        List<Message> listMessage = new ArrayList<>();
 
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                // Split the CSV line into columns
+                String[] ligne = line.split(";");
 
+                // Vérifier si la ligne a le bon nombre de colonnes (dans cet exemple, 3 colonnes)
+                if (ligne.length >= 2) {
+                    String chiffrer = ligne[1].trim();
+                    String dechiffrer = ligne[0].trim();
+
+                    // Create a new DataInstance and store the columns
+                    Message message = new Message(chiffrer, dechiffrer);
+                    listMessage.add(message);
+                } else {
+                    // Gérer le cas où la ligne n'a pas le bon nombre de colonnes
+                    System.err.println("La ligne ne contient pas le bon nombre de colonnes: " + line);
+                }
+            }
+
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return listMessage;
+    }
+    public static List<Indice> readCSVIndice(String filePath) {
+        List<Indice> listIndice = new ArrayList<>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                // Split the CSV line into columns
+                String[] ligne = line.split(";");
+
+                // Vérifier si la ligne a le bon nombre de colonnes (dans cet exemple, 3 colonnes)
+                if (ligne.length >= 5) {
+                    String reponse = ligne[4].trim();
+                    String indice0 = ligne[0].trim();
+                    String indice1 = ligne[1].trim();
+                    String indice2 = ligne[2].trim();
+                    String indice3 = ligne[3].trim();
+
+                    // Create a new DataInstance and store the columns
+                    Indice indice = new Indice(reponse, indice0,indice1,indice2,indice3);
+                    listIndice.add(indice);
+                } else {
+                    // Gérer le cas où la ligne n'a pas le bon nombre de colonnes
+                    System.err.println("La ligne ne contient pas le bon nombre de colonnes: " + line);
+                }
+            }
+
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return listIndice;
+    }
 }
 
 
