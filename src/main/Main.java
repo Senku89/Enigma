@@ -1,6 +1,7 @@
-package src.main;
+package main;
 
-import static src.backend.donnees.TestDonnees.TestCSV;
+import static backend.donnees.TestDonnees.TestCSV;
+import static backend.donnees.TestDonnees.TestCSV;
 
 public class Main
 {

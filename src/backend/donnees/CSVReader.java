@@ -1,4 +1,4 @@
-package src.backend.donnees;
+package backend.donnees;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
