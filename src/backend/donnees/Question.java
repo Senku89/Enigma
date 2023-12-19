@@ -1,10 +1,8 @@
 package backend.donnees;
 
-
 import java.util.ArrayList;
 import java.util.List;
 public class Question {
-
     private String enonce;
     private ArrayList<String> reponse;
 
@@ -13,14 +11,15 @@ public class Question {
         this.reponse = reponse; // revoir
     }
 
-    public String getenonce() {
+    public String getEnonce() {
         return enonce;
     }
 
-    public ArrayList<String> getreponse() {
+    public ArrayList<String> getReponse() {
         return reponse;
     }
-    // Vous pouvez ajouter d'autres méthodes getters au besoin
+
+    // Setters si besoin
 
     @Override
     public String toString() {

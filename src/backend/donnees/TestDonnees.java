@@ -20,8 +20,8 @@ public class TestDonnees {
 
             // Afficher les données
             for (Question instance2 : instances2) {
-                System.out.println("enonce " + instance2.getenonce());
-                System.out.println("reponse: " + instance2.getreponse());
+                System.out.println("enonce " + instance2.getEnonce());
+                System.out.println("reponse: " + instance2.getReponse());
                 System.out.println("-----------");
             }
             filePath = "resources/classeur1.csv";

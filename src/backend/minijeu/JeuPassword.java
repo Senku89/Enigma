@@ -1,5 +1,7 @@
 package backend.minijeu;
 
 public class JeuPassword extends Minijeu {
-    //NADIR
+
+    //Ajouter attribut ListePasswords<Password>
+
 }
