@@ -9,7 +9,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class CSVReader {
+    static String errCSV = "Erreur lecture fichier CSV";
+    static String errNBColonnes = "La ligne ne contient pas le bon nombre de colonnes: ";
     private static final Logger logger = Logger.getLogger(CSVReader.class.getName());
+    private CSVReader(){}
     public static List<Password> readCSVPassword(String filePath) {
 
         List<Password> listPasswords = new ArrayList<>();
@@ -28,15 +31,16 @@ public class CSVReader {
                     // Create a new DataInstance and store the columns
                     Password passwords = new Password(mot, level);
                     listPasswords.add(passwords);
+
                 } else {
                     // Gérer le cas où la ligne n'a pas le bon nombre de colonnes
-                    System.err.println("La ligne ne contient pas le bon nombre de colonnes: " + line);
+                    logger.severe(errNBColonnes+line);
                 }
             }
 
         }
         catch (IOException e) {
-            logger.log(Level.SEVERE, "Erreur lecture fichier CSV", e);
+            logger.log(Level.SEVERE, errCSV, e);
         }
 
         return listPasswords;
@@ -63,13 +67,13 @@ public class CSVReader {
                     listQuestion.add(question1);
                 } else {
                     // Gérer le cas où la ligne n'a pas le bon nombre de colonnes
-                    System.err.println("La ligne ne contient pas le bon nombre de colonnes: " + line);
+                    logger.severe(errNBColonnes+line);
                 }
             }
 
         }
         catch (IOException e) {
-            logger.log(Level.SEVERE, "Erreur lecture fichier CSV", e);
+            logger.log(Level.SEVERE, errCSV, e);
         }
 
         return listQuestion;
@@ -93,13 +97,13 @@ public class CSVReader {
                     listMessage.add(message);
                 } else {
                     // Gérer le cas où la ligne n'a pas le bon nombre de colonnes
-                    System.err.println("La ligne ne contient pas le bon nombre de colonnes: " + line);
+                    logger.severe(errNBColonnes+line);
                 }
             }
 
         }
         catch (IOException e) {
-            logger.log(Level.SEVERE, "Erreur lecture fichier CSV", e);
+            logger.log(Level.SEVERE, errCSV, e);
         }
 
         return listMessage;
@@ -126,13 +130,13 @@ public class CSVReader {
                     listIndice.add(indice);
                 } else {
                     // Gérer le cas où la ligne n'a pas le bon nombre de colonnes
-                    System.err.println("La ligne ne contient pas le bon nombre de colonnes: " + line);
+                    logger.severe(errNBColonnes+line);
                 }
             }
 
         }
         catch (IOException e) {
-            logger.log(Level.SEVERE, "Erreur lecture fichier CSV", e);
+            logger.log(Level.SEVERE, errCSV, e);
         }
         return listIndice;
     }
