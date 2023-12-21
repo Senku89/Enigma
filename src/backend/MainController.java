@@ -14,7 +14,7 @@ public class MainController {
     public MainController() {
         try {
             listeMinijeux.add(new JeuQuiz("resources/Q-R-crypto.csv"));
-            //listeMinijeux.add(new JeuPassword("resources/MDP.csv")); FINIR
+            listeMinijeux.add(new JeuPassword("resources/MDP.csv"));
             //listeMinijeux.add(new JeuDechiffrement("resources/classeur1.csv")); FINIR
             //listeMinijeux.add(new JeuFinal("resources/jeufinal.csv")); FINIR
         }catch(Exception e){
