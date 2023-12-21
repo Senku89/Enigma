@@ -6,16 +6,16 @@ import backend.donnees.Password;
 import java.util.List;
 
 public class JeuPassword extends Minijeu {
-    List<Password> ListPasswords;
+    List<Password> listPasswords;
 
     // Constructeur pour initialiser le JeuPassword avec les données recuperees du le fichir CSV
     public JeuPassword(String filePath) {
-        ListPasswords = CSVReader.readCSVPassword(filePath);
+        listPasswords = CSVReader.readCSVPassword(filePath);
     }
 
     // Methode pour test si le password a le niveau correcte
     public boolean testPasswordLevel(String pLevel, int pNiveau) {
-        for (Password password : ListPasswords) {
+        for (Password password : listPasswords) {
             // Assuming case-sensitive comparison for passwords
             if (password.getmdp().equals(pLevel) && password.getlvl() == pNiveau) {
                 return true; // Password et son niveau correctes
