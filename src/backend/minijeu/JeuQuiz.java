@@ -13,7 +13,7 @@ public class JeuQuiz extends Minijeu {
         listQuestions = CSVReader.readCSVQuestion(filePath);
     }
 
-    // Methode pour verifier la reponse si est correcte
+    // Methode pour verifier la réponse si est correcte
     public boolean checkReponse(String reponse, int questionIndex) {
         // S'assurer qu'on est avec la bonne indice
         if (questionIndex < 0 || questionIndex >= listQuestions.size()) {
@@ -21,11 +21,12 @@ public class JeuQuiz extends Minijeu {
             return false;
         }
 
-        // Obtenir la reponse correcte qui est la derniere
+        // Obtenir la réponse correcte qui est la dernière
         String reponseCorrecte = listQuestions.get(questionIndex).getReponse().get(3);
 
-        // Comparer la bonne reponse avec celui passée en parametre (comparaison case-sensitive)
+        // Comparer la bonne réponse avec celui passe en paramètre (comparaison case-sensitive)
         return reponse.equals(reponseCorrecte);
     }
 
+    // SauvegardeRésultat
 }
