@@ -1,5 +1,5 @@
 ﻿Enonce;Reponse 1;Reponse 2;Reponse 3;Reponse Correcte
-Comment la cryptographie aide-t-elle à garder les messages secrets ?;En utilisant des couleurs ;En transformant les mots en images;En envoyant des messages à haute vitesse;En changeant les mots dans un langage secret
+Comment la cryptographie aide-t-elle à garder les messages secrets ?;En utilisant des couleurs;En transformant les mots en images;En envoyant des messages à haute vitesse;En changeant les mots dans un langage secret
 Quel est l'outil utilisé pour décoder un message crypté ?;Loupe;Gomme;Stylo;Clé
 Quel est le nom du message original avant d'être crypté ?;Message secret;Message mystère;Message codé;Message clair
 Quel type de cryptographie utilise des images pour cacher des messages ?;Cryptographie imaginaire;Cryptographie graphique;Cryptographie picturale;Cryptographie visuelle
@@ -7,5 +7,5 @@ Quel est le terme utilisé pour le destinataire d'un message crypté ?;Détectiv
 Quel est le nom du processus de transformation d'un message clair en un message crypté ?;Cryptanalyse;Décryptage;Encodage;Cryptage
 Quel type de cryptographie utilise des codes pour représenter chaque lettre ?;Cryptographie numérique;Cryptographie textuelle;Cryptographie symbolique;Cryptographie alphabétique
 Qu'est-ce qu'une clé en cryptographie ?;Un outil pour ouvrir des coffres-forts;Une image utilisée pour crypter les messages;Un mot de passe;Transformer un message crypté en un message clair
-"Que signifie le terme ""décryptage"" en cryptographie ?";Un code secret pour décoder un message;Détecter les erreurs dans un message;Cacher un message;Créer un code secret
+Que signifie le terme ""décryptage"" en cryptographie ?;Un code secret pour décoder un message;Détecter les erreurs dans un message;Cacher un message;Créer un code secret
 Quel est l'objectif principal de la cryptographie ?;Envoyer des messages très rapidement;Créer des messages amusants;Rendre les messages illisibles pour tout le monde;Protéger les messages contre les inconnus

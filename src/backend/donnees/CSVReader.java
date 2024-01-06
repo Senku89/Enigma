@@ -1,22 +1,29 @@
-package src.backend.donnees;
+package backend.donnees;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class CSVReader {
+    static String errCSV = "Erreur lecture fichier CSV";
+    static String errNBColonnes = "La ligne ne contient pas le bon nombre de colonnes: ";
+    private static final Logger logger = Logger.getLogger(CSVReader.class.getName());
+    private CSVReader(){}
     public static List<Password> readCSVPassword(String filePath) {
+
         List<Password> listPasswords = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = br.readLine()) != null) {
-                // Split the CSV line into columns
+                // Split le csv en colonnes
                 String[] ligne = line.split(";");
 
-                // Vérifier si la ligne a le bon nombre de colonnes (dans cet exemple, 3 colonnes)
+                // Vérifier si la ligne a le bon nombre de colonnes
                 if (ligne.length >= 2) {
                     String mot = ligne[0].trim();
                     int level = Integer.parseInt(ligne[1].trim());
@@ -24,15 +31,16 @@ public class CSVReader {
                     // Create a new DataInstance and store the columns
                     Password passwords = new Password(mot, level);
                     listPasswords.add(passwords);
+
                 } else {
                     // Gérer le cas où la ligne n'a pas le bon nombre de colonnes
-                    System.err.println("La ligne ne contient pas le bon nombre de colonnes: " + line);
+                    logger.severe(errNBColonnes+line);
                 }
             }
 
         }
         catch (IOException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, errCSV, e);
         }
 
         return listPasswords;
@@ -43,10 +51,10 @@ public class CSVReader {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = br.readLine()) != null) {
-                // Split the CSV line into columns
+                // Split le csv en colonnes
                 String[] ligne = line.split(";");
 
-                // Vérifier si la ligne a le bon nombre de colonnes (dans cet exemple, 3 colonnes)
+                // Vérifier si la ligne a le bon nombre de colonnes
                 if (ligne.length >= 5) {
                     String enonce = ligne[0].trim();
                     ArrayList<String> question = new ArrayList<>();
@@ -59,13 +67,13 @@ public class CSVReader {
                     listQuestion.add(question1);
                 } else {
                     // Gérer le cas où la ligne n'a pas le bon nombre de colonnes
-                    System.err.println("La ligne ne contient pas le bon nombre de colonnes: " + line);
+                    logger.severe(errNBColonnes+line);
                 }
             }
 
         }
         catch (IOException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, errCSV, e);
         }
 
         return listQuestion;
@@ -76,10 +84,10 @@ public class CSVReader {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = br.readLine()) != null) {
-                // Split the CSV line into columns
+                // Split le csv en colonnes
                 String[] ligne = line.split(";");
 
-                // Vérifier si la ligne a le bon nombre de colonnes (dans cet exemple, 3 colonnes)
+                // Vérifier si la ligne a le bon nombre de colonnes
                 if (ligne.length >= 2) {
                     String chiffrer = ligne[1].trim();
                     String dechiffrer = ligne[0].trim();
@@ -89,13 +97,13 @@ public class CSVReader {
                     listMessage.add(message);
                 } else {
                     // Gérer le cas où la ligne n'a pas le bon nombre de colonnes
-                    System.err.println("La ligne ne contient pas le bon nombre de colonnes: " + line);
+                    logger.severe(errNBColonnes+line);
                 }
             }
 
         }
         catch (IOException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, errCSV, e);
         }
 
         return listMessage;
@@ -106,10 +114,10 @@ public class CSVReader {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = br.readLine()) != null) {
-                // Split the CSV line into columns
+                // Split le csv en colonnes
                 String[] ligne = line.split(";");
 
-                // Vérifier si la ligne a le bon nombre de colonnes (dans cet exemple, 3 colonnes)
+                // Vérifier si la ligne a le bon nombre de colonnes
                 if (ligne.length >= 5) {
                     String reponse = ligne[4].trim();
                     String indice0 = ligne[0].trim();
@@ -117,23 +125,19 @@ public class CSVReader {
                     String indice2 = ligne[2].trim();
                     String indice3 = ligne[3].trim();
 
-                    // Create a new DataInstance and store the columns
+                    // Creation d'une nouvelle DataInstance pour garder les colonnes
                     Indice indice = new Indice(reponse, indice0,indice1,indice2,indice3);
                     listIndice.add(indice);
                 } else {
                     // Gérer le cas où la ligne n'a pas le bon nombre de colonnes
-                    System.err.println("La ligne ne contient pas le bon nombre de colonnes: " + line);
+                    logger.severe(errNBColonnes+line);
                 }
             }
 
         }
         catch (IOException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, errCSV, e);
         }
-
         return listIndice;
     }
 }
-
-
-

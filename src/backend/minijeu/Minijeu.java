@@ -2,5 +2,8 @@ package backend.minijeu;
 
 public class Minijeu {
 
-    //Constructeur pour le moment rien
+    // Attribut Score et Timer?
+
+    //Constructeur avec objet Score et objet Timer?
+
 }

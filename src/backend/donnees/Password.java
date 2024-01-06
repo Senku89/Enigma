@@ -1,8 +1,7 @@
-package src.backend.donnees;
+package backend.donnees;
 
 
 public class Password {
-
     private String mdp;
     private int lvl;
 
@@ -19,8 +18,7 @@ public class Password {
         return lvl;
     }
 
-
-    // Vous pouvez ajouter d'autres méthodes getters au besoin
+    // Setters si besoin
 
     @Override
     public String toString() {
