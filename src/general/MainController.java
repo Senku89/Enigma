@@ -19,6 +19,6 @@ public class MainController{
 
 		ResultatsFinauxGraphic rfg = new ResultatsFinauxGraphic(f);
 
-		f.setPanelActif(rfg);
+		f.setPanelActif(jdg);
 	}
 }

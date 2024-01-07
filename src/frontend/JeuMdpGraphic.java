@@ -4,6 +4,9 @@ import general.Init;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -23,12 +26,16 @@ public class JeuMdpGraphic extends MiniJeuGraphic{
 	int libelleTitreHeight = 35, mdpWidth = 140, mdpHeight = 20;
 	int spacingHeightMdp = 20, spacingWidthMdp = 50, margin = 20;
 
+	JTextArea mdpChoisi;
+
 	public JeuMdpGraphic(Fenetre fenetre){
 		super(fenetre);
 		// System.out.println("mpg graphic");
 		this.setLayout(null);
 		this.setOpaque(false);
 		this.setBounds(0, 0, fenetre.getWidth(), fenetre.getHeight());
+
+		this.addMouseListener(new SourisListener(this));
 
 		bgImage = new JLabel(new ImageIcon(Init.imagefondjeumdp));
 		bgImage.setBounds(0, 0, fenetre.getWidth(), fenetre.getHeight());
@@ -83,6 +90,13 @@ public class JeuMdpGraphic extends MiniJeuGraphic{
 		this.add(zoneLibelleTousMdp, new Integer(2));
 
 		boutonValider = new Bouton("Valider", zoneMdpMoyen.getX()-5, zoneScore.getY(), zoneMdpMoyen.getWidth()+10, 40);
+		boutonValider.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				// Methode Valider
+				System.out.println("Valider");
+			}
+		});
 		this.add(boutonValider, new Integer(1));
 
 		motsDePasseListe = new ArrayList<>();
@@ -117,5 +131,22 @@ public class JeuMdpGraphic extends MiniJeuGraphic{
 		for(JTextArea mdp : motsDePasseListe){
 			this.add(mdp, new Integer(2));
 		}
-	}	
+	}
+
+	public boolean choisirMdp(MouseEvent e){
+		for(JTextArea mdp : motsDePasseListe){
+			if(e.getX() >= mdp.getX() && e.getY() >= mdp.getY() && e.getX() < mdp.getX()+mdp.getWidth() && e.getY() < mdp.getY() + mdp.getHeight()){
+				mdpChoisi = mdp;
+				return true;
+			}
+		}
+		
+		return false;
+	}
+
+	public void deplacerMdp(MouseEvent e){
+		mdpChoisi.setBounds(e.getX(), e.getY(), mdpChoisi.getWidth(), mdpChoisi.getHeight());
+		fenetre.repaintFenetre();
+		mdpChoisi = null;
+	}
 }
