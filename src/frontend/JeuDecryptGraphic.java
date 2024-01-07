@@ -3,6 +3,8 @@ package frontend;
 import general.Init;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -61,6 +63,14 @@ public class JeuDecryptGraphic extends MiniJeuGraphic{
 		this.add(devine, new Integer(1));
 
 		boutonValider = new Bouton("Valider", (zoneChiffre.getWidth()/2)-60+zoneChiffre.getHeight(), devine.getY()+devine.getHeight()+30, 160, 50);
+		boutonValider.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				String reponse = devine.getText().toLowerCase();
+				// Methode Valider avec comme paramètre la réponse
+				System.out.println("Valider : "+reponse);
+			}
+		});
 		this.add(boutonValider, new Integer(1));
 	}	
 }

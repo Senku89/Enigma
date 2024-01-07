@@ -4,10 +4,13 @@ import general.Init;
 
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.JTextField;
 
 public class JeuFinalGraphic extends MiniJeuGraphic{
@@ -17,12 +20,16 @@ public class JeuFinalGraphic extends MiniJeuGraphic{
 	JTextArea zoneIndices, zoneIndice1, zoneIndice2, zoneIndice3;
 	JTextField zoneMotFinal;
 	Bouton boutonValider;
+	JTextField zoneMotFinal;
+	Bouton boutonValider;
 
 	int spacingHeight = 20, hauteurZoneCentrale = 320;
+	int paddingWidth = 30, paddingHeight = 15, beetweenIntituleAndIndice = 10, indiceHeight = 25;
 	int paddingWidth = 30, paddingHeight = 15, beetweenIntituleAndIndice = 10, indiceHeight = 25;
 
 	Color foregroundIntituleIndice = Color.BLACK, backgroundIntituleIndice = new Color(0, 0, 0, 0);
 	Color foregroundIndiceTrouve = Color.BLACK, backgroundIndiceTrouve = new Color(225, 225, 240, 255);
+	Color foregroundIndicePasTrouve = Color.WHITE, backgroundIndicePasTrouve = new Color(50, 50, 50, 255);
 	Color foregroundIndicePasTrouve = Color.WHITE, backgroundIndicePasTrouve = new Color(50, 50, 50, 255);
 	Font fontIntituleIndice = new Font("Helvetica", Font.BOLD, 20), fontIndice = new Font("Helvetica", Font.BOLD, 15);
 
@@ -65,6 +72,7 @@ public class JeuFinalGraphic extends MiniJeuGraphic{
 		this.add(zoneIndices, new Integer(2));
 
 		textIndice1 = new JTextArea("Indice Quiz");
+		textIndice1.setBounds(zoneCentrale.getX()+paddingWidth, zoneIndices.getY()+zoneIndices.getHeight()+paddingHeight, 400, 25);
 		textIndice1.setBounds(zoneCentrale.getX()+paddingWidth, zoneIndices.getY()+zoneIndices.getHeight()+paddingHeight, 400, 25);
 		textIndice1.setForeground(foregroundIntituleIndice);
 		textIndice1.setBackground(backgroundIntituleIndice);
@@ -114,6 +122,14 @@ public class JeuFinalGraphic extends MiniJeuGraphic{
 		this.add(zoneMotFinal, new Integer(1));
 
 		boutonValider = new Bouton("Valider", zoneCentrale.getX()+zoneCentrale.getWidth()/2-boutonQuitter.getWidth()/2, boutonQuitter.getY(), boutonQuitter.getWidth(), boutonQuitter.getHeight());
+		boutonValider.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				String reponse = zoneMotFinal.getText().toLowerCase();
+				// Methode Valider avec comme paramètre la réponse
+				System.out.println("Valider : "+reponse);
+			}
+		});
 		this.add(boutonValider, new Integer(1));
 
 	}	

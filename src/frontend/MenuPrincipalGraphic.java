@@ -4,6 +4,8 @@ import general.Init;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -12,7 +14,7 @@ import javax.swing.JTextArea;
 
 public class MenuPrincipalGraphic extends JLayeredPane{
 	
-	Fenetre fenetreRef;
+	Fenetre fenetre;
 	Bouton boutonJouer, boutonQuitter;
 	JLabel bgImage;
 	JLabel title;
@@ -22,11 +24,11 @@ public class MenuPrincipalGraphic extends JLayeredPane{
 		super();
 		// System.out.println("mpg graphic");
 
-		this.fenetreRef = fenetre;
+		this.fenetre = fenetre;
 
 		this.setLayout(null);
 		this.setOpaque(false);
-		this.setBounds(0, 0, fenetreRef.getWidth(), fenetreRef.getHeight());
+		this.setBounds(0, 0, fenetre.getWidth(), fenetre.getHeight());
 
 		bgImage = new JLabel(new ImageIcon(Init.imagefondmenuprincipal));
 		bgImage.setBounds(0, 0, this.getWidth(), this.getHeight());
@@ -42,7 +44,23 @@ public class MenuPrincipalGraphic extends JLayeredPane{
 		textIntro.setFont(new Font("Helvetica", Font.PLAIN, 20));
 
 		boutonJouer = new Bouton("Jouer", 250, 450, 150, 30);
+		boutonJouer.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				// Methode lancer le jeu
+				System.out.println("Jouer");
+			}
+		});
+
 		boutonQuitter = new Bouton("Sortir", 600, 450, 150, 30);
+		boutonQuitter.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				// Methode pour tout arrêter
+				System.out.println("Quitter");
+				fenetre.dispose();
+			}
+		});
 
 		this.add(title, new Integer(1));
 		this.add(textIntro, new Integer(1));
