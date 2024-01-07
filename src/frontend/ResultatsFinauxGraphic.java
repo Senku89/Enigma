@@ -4,6 +4,8 @@ import general.Init;
 
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -111,6 +113,13 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		int boutonMenuWidth = 300;
 		boutonMenu = new Bouton("Menu Principal", zoneCentrale.getX()+zoneCentrale.getWidth()/2-boutonMenuWidth/2, zoneCentrale.getY()+zoneCentrale.getHeight()+spacingHeight, boutonMenuWidth, 40);
 		boutonMenu.setFont(new Font("Helvetica", Font.BOLD, 20));
+		boutonMenu.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				// Methode retour menu
+				System.out.println("Menu Principal");
+			}
+		});
 		this.add(boutonMenu, new Integer(1));
 	}
 }

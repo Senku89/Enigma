@@ -3,6 +3,8 @@ package frontend;
 import general.Init;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -55,6 +57,38 @@ public class JeuQuizGraphic extends MiniJeuGraphic{
 		repC = new Bouton("C)", repA.getX(), repB.getY()+repHeight+paddingHeight, repA.getWidth(), repHeight);	
 		repD = new Bouton("D)", repA.getX(), repC.getY()+repHeight+paddingHeight, repA.getWidth(), repHeight);
 	
+		repA.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				// Methode choix réponse A
+				System.out.println("A");
+			}
+		});
+
+		repB.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				// Methode choix réponse B
+				System.out.println("B");
+			}
+		});
+
+		repC.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				// Methode choix réponse C
+				System.out.println("C");
+			}
+		});
+
+		repD.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				// Methode choix réponse D
+				System.out.println("D");
+			}
+		});
+
 		this.add(repA, new Integer(2));
 		this.add(repB, new Integer(2));
 		this.add(repC, new Integer(2));
