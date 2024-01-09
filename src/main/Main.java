@@ -4,7 +4,7 @@ import frontend.Fenetre;
 
 import javax.swing.*;
 
-import static src.backend.donnees.TestDonnees.TestCSV;
+import static backend.donnees.TestDonnees.TestCSV;
 
 public class Main
 {
