@@ -10,23 +10,26 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JTextArea;
+import javax.swing.JButton;
 
 import java.util.ArrayList;
 
 public class JeuMdpGraphic extends MiniJeuGraphic{
 	
-	ZoneTexte zoneMdpFaible, zoneMdpMoyen, zoneMdpFort, zoneTousMdp;
-	ZoneTexte zoneLibelleFaible, zoneLibelleMoyen, zoneLibelleFort, zoneLibelleTousMdp;
-	Bouton boutonValider;
-	ArrayList<JTextArea> motsDePasseListe;
+	private ZoneTexte zoneMdpFaible, zoneMdpMoyen, zoneMdpFort, zoneTousMdp;
+	private ZoneTexte zoneLibelleFaible, zoneLibelleMoyen, zoneLibelleFort, zoneLibelleTousMdp;
+	private Bouton boutonValider;
+	private ArrayList<JButton> motsDePasseListe;
+	private JButton mdpSelectionne;
+	private ArrayList<ZoneTexte> zones;
+	private int[] zonesHeights;
+	private ArrayList<ArrayList<JButton>> tableauResultat;
 
-	int zoneHeight = 350, spacingWidthSmall = 10, spacingWidthLarge = 50, spacingHeight = 50; 
-	int smallZoneWidth = 150, largeZoneWidth = 370;
-	int libelleTitreHeight = 35, mdpWidth = 140, mdpHeight = 20;
-	int spacingHeightMdp = 20, spacingWidthMdp = 50, margin = 20;
-
-	JTextArea mdpChoisi;
+	private int zoneHeight = 350, spacingWidthSmall = 10, spacingWidthLarge = 50, spacingHeight = 50; 
+	private int smallZoneWidth = 150, largeZoneWidth = 370;
+	private int libelleTitreHeight = 35, mdpWidth = 140, mdpHeight = 20;
+	private int spacingHeightMdp = 20, spacingWidthMdp = 50, marginZoneMdps = 20;
+	private int marginZones = 5, paddingZonesHeight = 10; 
 
 	public JeuMdpGraphic(Fenetre fenetre){
 		super(fenetre);
@@ -34,8 +37,7 @@ public class JeuMdpGraphic extends MiniJeuGraphic{
 		this.setLayout(null);
 		this.setOpaque(false);
 		this.setBounds(0, 0, fenetre.getWidth(), fenetre.getHeight());
-
-		this.addMouseListener(new SourisListener(this));
+		// this.addMouseListener(new SourisListener(this));
 
 		bgImage = new JLabel(new ImageIcon(Init.imagefondjeumdp));
 		bgImage.setBounds(0, 0, fenetre.getWidth(), fenetre.getHeight());
@@ -93,15 +95,29 @@ public class JeuMdpGraphic extends MiniJeuGraphic{
 		boutonValider.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e){
-				// Methode Valider
-				System.out.println("Valider");
+
+				ArrayList<ArrayList<String>> reponses = new ArrayList<>();
+
+				int indice = 0;
+
+				for(ArrayList<JButton> liste : tableauResultat){
+					reponses.add(new ArrayList<>());
+
+					for(JButton mdp : liste){
+						reponses.get(indice).add(mdp.getText());
+					}
+
+					indice++;
+				}
+
+				// Methode prise en compte des réponse avec comme paramètre la liste de liste "reponses"
 			}
 		});
 		this.add(boutonValider, new Integer(1));
 
 		motsDePasseListe = new ArrayList<>();
 
-		int xTmp = zoneTousMdp.getX()+margin;
+		int xTmp = zoneTousMdp.getX()+marginZoneMdps;
 		int yTmp = zoneTousMdp.getY()+libelleTitreHeight+spacingHeightMdp;
 
 		int nbMdps = 12;
@@ -109,11 +125,12 @@ public class JeuMdpGraphic extends MiniJeuGraphic{
 
 		for(int i = 1; i <= nbMdps; i++){
 			
-			JTextArea nouveauMdp = new JTextArea("MDP "+i);
+			JButton nouveauMdp = new JButton("MDP "+i);
 			nouveauMdp.setBounds(xTmp, yTmp, mdpWidth, mdpHeight);
 			nouveauMdp.setForeground(Color.BLACK);
 			nouveauMdp.setBackground(Color.WHITE);
 			nouveauMdp.setFont(new Font("Helvetica", Font.PLAIN, 15));
+			nouveauMdp.addMouseListener(new SourisListener(this, nouveauMdp));
 
 			yTmp += mdpHeight + spacingHeightMdp;
 
@@ -126,27 +143,84 @@ public class JeuMdpGraphic extends MiniJeuGraphic{
 				yTmp = zoneTousMdp.getY()+libelleTitreHeight+spacingHeightMdp;
 				cpt = 0;
 			}
+
+			this.add(nouveauMdp, new Integer(2));
 		}
 
-		for(JTextArea mdp : motsDePasseListe){
-			this.add(mdp, new Integer(2));
+		zones = new ArrayList<>();
+		zones.add(zoneMdpFaible);
+		zones.add(zoneMdpMoyen);
+		zones.add(zoneMdpFort);
+
+		zonesHeights = new int[3];
+		for(int i = 0; i < 3; i++){
+			zonesHeights[i] = zones.get(i).getY() + libelleTitreHeight + paddingZonesHeight;
+		}
+
+		tableauResultat = new ArrayList<>();
+		for(int i =0; i < 3; i++){
+			tableauResultat.add(new ArrayList<>());
 		}
 	}
 
-	public boolean choisirMdp(MouseEvent e){
-		for(JTextArea mdp : motsDePasseListe){
-			if(e.getX() >= mdp.getX() && e.getY() >= mdp.getY() && e.getX() < mdp.getX()+mdp.getWidth() && e.getY() < mdp.getY() + mdp.getHeight()){
-				mdpChoisi = mdp;
-				return true;
+	public void selectionMdp(JButton mdp){
+		this.mdpSelectionne = mdp;
+	}
+
+	private int selectionZone(int x, int y){
+		int zoneTexteX, zoneTexteY, zoneTexteX2, zoneTexteY2;
+		int cpt = 0;
+		for(ZoneTexte zone : zones){
+			zoneTexteX = zone.getX();
+			zoneTexteY = zone.getY();
+			zoneTexteX2 = zone.getX()+zone.getWidth();
+			zoneTexteY2 = zone.getY()+zone.getHeight();
+			if(x >= zoneTexteX && y >= zoneTexteY && x <= zoneTexteX2 && y <= zoneTexteY2){
+				return cpt;
+			}
+			cpt++;
+		}
+		return -1;
+	}
+
+	private void rearrangement(){
+		for(int i = 0; i < 3; i++){
+			if(tableauResultat.get(i).contains(mdpSelectionne)){
+				int indice = tableauResultat.get(i).indexOf(mdpSelectionne);
+				tableauResultat.get(i).remove(mdpSelectionne);
+				for(int j = indice; j < tableauResultat.get(i).size(); j++){
+					JButton mdp = tableauResultat.get(i).get(j);
+					mdp.setBounds(mdp.getX(), mdp.getY()-(mdp.getHeight()+paddingZonesHeight), mdp.getWidth(), mdp.getHeight());
+				}
+				return;
 			}
 		}
-		
-		return false;
 	}
 
-	public void deplacerMdp(MouseEvent e){
-		mdpChoisi.setBounds(e.getX(), e.getY(), mdpChoisi.getWidth(), mdpChoisi.getHeight());
-		fenetre.repaintFenetre();
-		mdpChoisi = null;
+	private int getLastHeight(int indice){
+		ArrayList<JButton> listeZone = tableauResultat.get(indice);
+		if(listeZone.isEmpty()){
+			return zones.get(indice).getY() + libelleTitreHeight + paddingZonesHeight;
+		} else {
+			return listeZone.get(listeZone.size()-1).getY() + mdpSelectionne.getHeight() + paddingZonesHeight;
+		}
+	}
+
+	public void deplacerMdp(int x, int y){
+		int newX = mdpSelectionne.getX()+x;
+		int newY = mdpSelectionne.getY()+y;
+
+		int indiceZone = selectionZone(newX, newY);
+		
+		if(indiceZone >= 0){
+			ZoneTexte zoneSelectionnee = zones.get(indiceZone);
+
+			rearrangement();
+			mdpSelectionne.setBounds(zoneSelectionnee.getX()+marginZones, getLastHeight(indiceZone), mdpSelectionne.getWidth(), mdpSelectionne.getHeight());
+			tableauResultat.get(indiceZone).add(mdpSelectionne);
+			fenetre.repaintFenetre();
+		}
+	
+		mdpSelectionne = null;
 	}
 }
