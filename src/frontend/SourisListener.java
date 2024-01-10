@@ -3,28 +3,34 @@ package frontend;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
 
-import javax.swing.JLayeredPane;
+import javax.swing.JButton;
 
 public class SourisListener extends MouseAdapter{
 
-	JeuMdpGraphic panel;
-	boolean mdpChoisi;
-
+	private JeuMdpGraphic panel;
+	private JButton mdp;
+	
+	// Constructeur du listener sur le panel
 	public SourisListener(JeuMdpGraphic panel){
 		this.panel = panel;
-		this.mdpChoisi = false;
+		this.mdp = null;
+	}
+
+	// Constructeur du listener sur les mots de passe
+	public SourisListener(JeuMdpGraphic panel, JButton mdp){
+		this.panel = panel;
+		this.mdp = mdp;
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e){
-		mdpChoisi = panel.choisirMdp(e);
+		if(mdp != null){
+			panel.selectionMdp(mdp);
+		}
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e){
-		if(mdpChoisi){
-			panel.deplacerMdp(e);
-			mdpChoisi = false;
-		}
+			panel.deplacerMdp(e.getX(), e.getY());
 	}
 }
