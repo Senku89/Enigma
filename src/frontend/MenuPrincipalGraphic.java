@@ -49,7 +49,7 @@ public class MenuPrincipalGraphic extends JLayeredPane{
 			@Override
 			public void actionPerformed(ActionEvent e){
 				// Methode lancer le jeu
-				mainController.nextJeu(0);
+				//mainController.nextJeu(0);
 				System.out.println("Jouer");
 			}
 		});

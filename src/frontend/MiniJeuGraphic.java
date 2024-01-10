@@ -32,7 +32,7 @@ public class MiniJeuGraphic extends JLayeredPane{
 			@Override
 			public void actionPerformed(ActionEvent e){
 				// Methode retour menu principal
-				mainController.retourMenuPrincipal();
+				//mainController.retourMenuPrincipal();
 				System.out.println("Quitter");
 			}
 		});
