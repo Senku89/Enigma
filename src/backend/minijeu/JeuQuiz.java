@@ -11,7 +11,7 @@ import java.util.List;
 public class JeuQuiz extends Minijeu {
    JeuQuizGraphic jeuQuizGraphic;
    List<Question> listQuestions;
-   private static int nQuestion;
+   int nQuestion;
 
     // Constructeur pour initialiser le JeuQuiz avec les données dans le fichier CSV
     public JeuQuiz(String filePath) {
@@ -35,7 +35,7 @@ public class JeuQuiz extends Minijeu {
     }
 
     // Envoyer les questions a afficher
-    public List<String> affichageQuestion(int questionIndex){
+    public List<String> affichageQuestion(int questionIndex) {
         // S'assurer qu'on est avec le bon indice
         if (questionIndex < 0 || questionIndex >= listQuestions.size()) {
             System.err.println("Index de la question invalide");
@@ -45,6 +45,9 @@ public class JeuQuiz extends Minijeu {
         // Obtenir la question actuelle
         Question question = listQuestions.get(questionIndex);
 
+        // Obtenir l'énoncé de la question
+        String enonce = question.getEnonce();
+
         // Obtenir les réponses de la question
         List<String> reponses = new ArrayList<>(question.getReponse());
 
@@ -53,9 +56,13 @@ public class JeuQuiz extends Minijeu {
 
         // Créer une liste contenant l'énoncé et les réponses randomisées
         List<String> quiz = new ArrayList<>();
-        quiz.add(listQuestions.get(questionIndex).getEnonce());
-        quiz.add(question.getEnonce());
+        quiz.add(enonce);
         quiz.addAll(reponses);
+
+        // Print the content of the quiz ArrayList
+        for (String element : quiz) {
+            System.out.println(element);
+        }
 
         // Retourner la liste complète
         return quiz;

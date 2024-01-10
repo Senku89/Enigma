@@ -6,12 +6,15 @@ import general.Init;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class JeuQuizGraphic extends MiniJeuGraphic{
-	JeuQuiz jeuQuiz;
+	JeuQuiz jeuQuiz = new JeuQuiz("resources/Q-R-crypto.csv");
+	int index;
 	ZoneTexte zoneNum;
 	ZoneTexte zoneCentrale;
 	ZoneTexte zoneQuestion;
@@ -35,34 +38,38 @@ public class JeuQuizGraphic extends MiniJeuGraphic{
 		this.add(titre, new Integer(1));
 
 		this.add(boutonQuitter, new Integer(1));
-
 		this.add(zoneScore, new Integer(1));
-
 		this.add(zoneTimer, new Integer(1));
-
 		this.add(iconeTimer, new Integer(2));
 
 		zoneNum = new ZoneTexte(" 1/10", 70, 190, 45, 20);
 		zoneNum.setFont(new Font("Helvetica", Font.BOLD, 15));
 		this.add(zoneNum, new Integer(1));
 
-		zoneQuestion = new ZoneTexte("Question : ", titre.getX(), titre.getY()+titre.getHeight()+espacement, zoneTimer.getX()+zoneTimer.getWidth()-titre.getX(), zoneNum.getY()-paddingHeight-titre.getY()-titre.getHeight());
+		// Charger les questions
+		List list = new ArrayList<String>();
+		list.addAll(jeuQuiz.affichageQuestion(index));
+
+		// Énonce
+		zoneQuestion = new ZoneTexte((String) list.get(0), titre.getX(), titre.getY()+titre.getHeight()+espacement, zoneTimer.getX()+zoneTimer.getWidth()-titre.getX(), zoneNum.getY()-paddingHeight-titre.getY()-titre.getHeight());
 		zoneQuestion.setFont(new Font("Helvetica", Font.BOLD, 20));
 		this.add(zoneQuestion, new Integer(1));
 
 		zoneCentrale = new ZoneTexte("", 195, 220, 620, 270);
 		this.add(zoneCentrale, new Integer(1));
 
-		repA = new Bouton("A)", zoneCentrale.getX()+paddingWidth, zoneCentrale.getY()+paddingHeight, zoneCentrale.getWidth()-2*30, repHeight);
-		repB = new Bouton("B)", repA.getX(), repA.getY()+repHeight+paddingHeight, repA.getWidth(), repHeight);	
-		repC = new Bouton("C)", repA.getX(), repB.getY()+repHeight+paddingHeight, repA.getWidth(), repHeight);	
-		repD = new Bouton("D)", repA.getX(), repC.getY()+repHeight+paddingHeight, repA.getWidth(), repHeight);
+		// Reponses
+		repA = new Bouton((String) list.get(1), zoneCentrale.getX()+paddingWidth, zoneCentrale.getY()+paddingHeight, zoneCentrale.getWidth()-2*30, repHeight);
+		repB = new Bouton((String) list.get(2), repA.getX(), repA.getY()+repHeight+paddingHeight, repA.getWidth(), repHeight);
+		repC = new Bouton((String) list.get(3), repA.getX(), repB.getY()+repHeight+paddingHeight, repA.getWidth(), repHeight);
+		repD = new Bouton((String) list.get(4), repA.getX(), repC.getY()+repHeight+paddingHeight, repA.getWidth(), repHeight);
 	
 		repA.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e){
 				// Methode choix réponse A
-				jeuQuiz.checkReponse(repA.getText(),0);
+				jeuQuiz.checkReponse(repA.getText(), index);
+				index++;
 				System.out.println("A");
 			}
 		});

@@ -8,7 +8,7 @@ public class Question {
 
     public Question(String enonce, ArrayList<String> reponse) {
         this.enonce = enonce;
-        this.reponse = reponse; // revoir
+        this.reponse = reponse;
     }
 
     public String getEnonce() {
