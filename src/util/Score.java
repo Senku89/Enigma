@@ -1,7 +1,11 @@
 package util;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Score {
     private int nbscore;
+    private static List listeScore = new ArrayList<Score>();
 
     public Score() {
         this.nbscore = 0;

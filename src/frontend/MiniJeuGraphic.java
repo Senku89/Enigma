@@ -1,6 +1,7 @@
 package frontend;
 
 import general.Init;
+import general.MainController;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -11,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 
 public class MiniJeuGraphic extends JLayeredPane{
-	
+	private MainController mainController;
 	protected Fenetre fenetre;
 	protected JLabel bgImage;
 	protected JLabel iconeTimer;
@@ -31,6 +32,7 @@ public class MiniJeuGraphic extends JLayeredPane{
 			@Override
 			public void actionPerformed(ActionEvent e){
 				// Methode retour menu principal
+				mainController.retourMenuPrincipal();
 				System.out.println("Quitter");
 			}
 		});

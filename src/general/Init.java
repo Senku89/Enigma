@@ -13,7 +13,6 @@ public class Init{
 
 	public static Color couleurfondbouton = new Color(60, 60, 60);
 	public static Color couleurtextbouton = new Color(250, 250, 250);
-
 	public static Color couleurfondzonetext = new Color(225, 225, 240, 242);
 
 	public static String texteIntro = "Welcome Everyone";

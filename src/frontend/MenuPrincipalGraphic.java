@@ -1,11 +1,13 @@
 package frontend;
 
 import general.Init;
+import general.MainController;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -13,7 +15,6 @@ import javax.swing.JLayeredPane;
 import javax.swing.JTextArea;
 
 public class MenuPrincipalGraphic extends JLayeredPane{
-	
 	Fenetre fenetre;
 	Bouton boutonJouer, boutonQuitter;
 	JLabel bgImage;
@@ -48,6 +49,7 @@ public class MenuPrincipalGraphic extends JLayeredPane{
 			@Override
 			public void actionPerformed(ActionEvent e){
 				// Methode lancer le jeu
+				mainController.nextJeu(0);
 				System.out.println("Jouer");
 			}
 		});

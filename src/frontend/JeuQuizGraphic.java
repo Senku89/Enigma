@@ -1,5 +1,6 @@
 package frontend;
 
+import backend.minijeu.JeuQuiz;
 import general.Init;
 
 import java.awt.Font;
@@ -10,7 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class JeuQuizGraphic extends MiniJeuGraphic{
-	
+	JeuQuiz jeuQuiz;
 	ZoneTexte zoneNum;
 	ZoneTexte zoneCentrale;
 	ZoneTexte zoneQuestion;
@@ -61,6 +62,7 @@ public class JeuQuizGraphic extends MiniJeuGraphic{
 			@Override
 			public void actionPerformed(ActionEvent e){
 				// Methode choix réponse A
+				jeuQuiz.checkReponse(repA.getText(),0);
 				System.out.println("A");
 			}
 		});
