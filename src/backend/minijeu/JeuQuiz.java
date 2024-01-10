@@ -9,9 +9,9 @@ import java.util.Collections;
 import java.util.List;
 
 public class JeuQuiz extends Minijeu {
-   JeuQuizGraphic jeuQuizGraphic;
-   List<Question> listQuestions;
-   int nQuestion;
+    private JeuQuizGraphic jeuQuizGraphic;
+    public List<Question> listQuestions;
+    private int nQuestion;
 
     // Constructeur pour initialiser le JeuQuiz avec les données dans le fichier CSV
     public JeuQuiz(String filePath) {
@@ -21,20 +21,36 @@ public class JeuQuiz extends Minijeu {
 
     // Methode pour verifier la réponse si est correcte
     public boolean checkReponse(String reponse, int questionIndex) {
-        // S'assurer qu'on est avec la bonne indice
-        if (questionIndex < 0 || questionIndex >= listQuestions.size()) {
+        // S'assurer que la liste de questions n'est pas nulle et que l'indice est valide
+        if (listQuestions == null || questionIndex < 0 || questionIndex >= listQuestions.size()) {
             System.err.println("Index de la question invalide");
             return false;
         }
 
         // Obtenir la réponse correcte qui est la dernière
-        String reponseCorrecte = listQuestions.get(questionIndex).getReponse().get(4);
+        String reponseCorrecte = listQuestions.get(questionIndex).reponse.get(0);
 
-        // Comparer la bonne réponse avec celui passe en paramètre (comparaison case-sensitive)
-        return reponse.equals(reponseCorrecte);
+        // S'assurer que la réponse correcte n'est pas nulle
+        if (reponseCorrecte == null) {
+            System.err.println("Réponse correcte non disponible pour la question spécifiée");
+            return false;
+        }
+
+        // Comparer la réponse avec la réponse correcte en ignorant la casse
+        return reponse.equalsIgnoreCase(reponseCorrecte);
     }
 
-    // Envoyer les questions a afficher
+    public int gererReponse(String reponse, int questionIndex) {
+        //questionIndex++;
+        if (checkReponse(reponse, questionIndex)){
+            System.out.println("Reponse Correcte");
+            //Augmenter score
+        }else
+            System.out.println("Reponse Incorrecte");
+        return questionIndex;
+    }
+
+    // Envoyer les questions à afficher
     public List<String> affichageQuestion(int questionIndex) {
         // S'assurer qu'on est avec le bon indice
         if (questionIndex < 0 || questionIndex >= listQuestions.size()) {
@@ -51,13 +67,13 @@ public class JeuQuiz extends Minijeu {
         // Obtenir les réponses de la question
         List<String> reponses = new ArrayList<>(question.getReponse());
 
-        // Randomiser l'ordre des réponses
-        Collections.shuffle(reponses);
-
         // Créer une liste contenant l'énoncé et les réponses randomisées
         List<String> quiz = new ArrayList<>();
-        quiz.add(enonce);
         quiz.addAll(reponses);
+        // Randomiser l'ordre des réponses
+        Collections.shuffle(quiz);
+        // Ajouter l'énoncé au début de la liste
+        quiz.add(0, enonce);
 
         // Print the content of the quiz ArrayList
         for (String element : quiz) {
@@ -69,4 +85,11 @@ public class JeuQuiz extends Minijeu {
     }
 
     // SauvegardeRésultat
+
+    public int getNQuestion() {
+        return nQuestion;
+    }
+    public void setNQuestion(int nQuestion) {
+        this.nQuestion = nQuestion;
+    }
 }

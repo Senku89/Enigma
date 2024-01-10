@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 
 public class JeuQuizGraphic extends MiniJeuGraphic{
 	JeuQuiz jeuQuiz = new JeuQuiz("resources/Q-R-crypto.csv");
-	int index;
+	int index=0; // A modifier apres pour charger chaque question
 	ZoneTexte zoneNum;
 	ZoneTexte zoneCentrale;
 	ZoneTexte zoneQuestion;
@@ -68,8 +68,8 @@ public class JeuQuizGraphic extends MiniJeuGraphic{
 			@Override
 			public void actionPerformed(ActionEvent e){
 				// Methode choix réponse A
-				jeuQuiz.checkReponse(repA.getText(), index);
-				index++;
+				index=jeuQuiz.gererReponse(repA.getText(), index);
+				// Sauter question Suivant
 				System.out.println("A");
 			}
 		});
@@ -78,6 +78,8 @@ public class JeuQuizGraphic extends MiniJeuGraphic{
 			@Override
 			public void actionPerformed(ActionEvent e){
 				// Methode choix réponse B
+				index=jeuQuiz.gererReponse(repB.getText(), index);
+				// Sauter question Suivant
 				System.out.println("B");
 			}
 		});
@@ -86,6 +88,8 @@ public class JeuQuizGraphic extends MiniJeuGraphic{
 			@Override
 			public void actionPerformed(ActionEvent e){
 				// Methode choix réponse C
+				index=jeuQuiz.gererReponse(repC.getText(), index);
+				// Sauter question Suivant
 				System.out.println("C");
 			}
 		});
@@ -94,6 +98,8 @@ public class JeuQuizGraphic extends MiniJeuGraphic{
 			@Override
 			public void actionPerformed(ActionEvent e){
 				// Methode choix réponse D
+				index=jeuQuiz.gererReponse(repD.getText(), index);
+				// Sauter question Suivant
 				System.out.println("D");
 			}
 		});

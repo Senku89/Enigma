@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 public class Question {
     private String enonce;
-    private ArrayList<String> reponse;
+    public ArrayList<String> reponse;
 
     public Question(String enonce, ArrayList<String> reponse) {
         this.enonce = enonce;
