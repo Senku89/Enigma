@@ -4,6 +4,7 @@ import backend.donnees.CSVReader;
 import backend.donnees.Password;
 
 import java.util.List;
+import java.util.ArrayList;
 
 public class JeuPassword extends Minijeu {
     List<Password> listPasswords;
@@ -24,5 +25,17 @@ public class JeuPassword extends Minijeu {
         return false; // Password et son niveau incorrectes
     }
 
+    public List<String> getPasswords(){
+        List<String> listeMdp = new ArrayList<>();
+
+        for(Password mdp : listPasswords){
+            listeMdp.add(mdp.getmdp());
+        }
+
+        return listeMdp;
+    }
+
     // SauvegardeRésultat
 }
+
+

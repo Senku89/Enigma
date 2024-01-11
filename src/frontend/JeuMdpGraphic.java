@@ -2,6 +2,8 @@ package frontend;
 
 import general.Init;
 
+import backend.minijeu.JeuPassword;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -16,6 +18,8 @@ import java.util.ArrayList;
 
 public class JeuMdpGraphic extends MiniJeuGraphic{
 	
+	private JeuPassword jeuPassword = new JeuPassword("resources/MDP.csv");
+
 	private ZoneTexte zoneMdpFaible, zoneMdpMoyen, zoneMdpFort, zoneTousMdp;
 	private ZoneTexte zoneLibelleFaible, zoneLibelleMoyen, zoneLibelleFort, zoneLibelleTousMdp;
 	private Bouton boutonValider;
@@ -123,9 +127,9 @@ public class JeuMdpGraphic extends MiniJeuGraphic{
 		int nbMdps = 12;
 		int cpt = 0;
 
-		for(int i = 1; i <= nbMdps; i++){
+		for(String mdp : jeuPassword.getPasswords()){
 			
-			JButton nouveauMdp = new JButton("MDP "+i);
+			JButton nouveauMdp = new JButton(mdp);
 			nouveauMdp.setBounds(xTmp, yTmp, mdpWidth, mdpHeight);
 			nouveauMdp.setForeground(Color.BLACK);
 			nouveauMdp.setBackground(Color.WHITE);
