@@ -1,8 +1,9 @@
 package frontend;
 
-import general.Init;
-
 import backend.minijeu.JeuPassword;
+
+import general.Init;
+import general.MainController;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 
 public class JeuMdpGraphic extends MiniJeuGraphic{
 	
-	private JeuPassword jeuPassword = new JeuPassword(Init.mdpcsv);
+	private JeuPassword jeuPassword;
 
 	private ZoneTexte zoneMdpFaible, zoneMdpMoyen, zoneMdpFort, zoneTousMdp;
 	private ZoneTexte zoneLibelleFaible, zoneLibelleMoyen, zoneLibelleFort, zoneLibelleTousMdp;
@@ -35,8 +36,10 @@ public class JeuMdpGraphic extends MiniJeuGraphic{
 	private int spacingHeightMdp = 20, spacingWidthMdp = 50, marginZoneMdps = 20;
 	private int marginZones = 5, paddingZonesHeight = 10; 
 
-	public JeuMdpGraphic(Fenetre fenetre){
-		super(fenetre);
+	public JeuMdpGraphic(MainController mainController, Fenetre fenetre){
+		super(mainController, fenetre);
+
+		jeuPassword = new JeuPassword(Init.mdpcsv);
 		// System.out.println("mpg graphic");
 		this.setLayout(null);
 		this.setOpaque(false);
@@ -114,7 +117,8 @@ public class JeuMdpGraphic extends MiniJeuGraphic{
 					indice++;
 				}
 
-				// Methode prise en compte des réponse avec comme paramètre la liste de liste "reponses"
+				jeuPassword.getResultat(reponses);
+				fenetre.dispose();
 			}
 		});
 		this.add(boutonValider, new Integer(1));

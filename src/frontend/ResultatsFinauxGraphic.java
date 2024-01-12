@@ -1,6 +1,7 @@
 package frontend;
 
 import general.Init;
+import general.MainController;
 
 import java.awt.Font;
 import java.awt.Color;
@@ -13,7 +14,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JTextArea;
 
 public class ResultatsFinauxGraphic extends JLayeredPane{
-	
+	MainController mainController;
 	Fenetre fenetre;
 	JLabel bgImage;
 	JTextArea intituleQuiz, intituleMdp, intituleDechiffrement, intituleFinal;
@@ -30,10 +31,10 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 
 	Font intituleFont = new Font("Helvetica", Font.BOLD, 20), scoreFont = new Font("Helvetica", Font.BOLD, 15);
 
-	public ResultatsFinauxGraphic(Fenetre fenetre){
+	public ResultatsFinauxGraphic(MainController mainController, Fenetre fenetre){
 		super();
 		// System.out.println("rfg");
-
+		this.mainController = mainController;
 		this.fenetre = fenetre;
 
 		this.setLayout(null);

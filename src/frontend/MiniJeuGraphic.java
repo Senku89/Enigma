@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 
 public class MiniJeuGraphic extends JLayeredPane{
-	private MainController mainController;
+	protected MainController mainController;
 	protected Fenetre fenetre;
 	protected JLabel bgImage;
 	protected JLabel iconeTimer;
@@ -23,7 +23,8 @@ public class MiniJeuGraphic extends JLayeredPane{
 
 	int espacement = 10;
 
-	public MiniJeuGraphic(Fenetre fenetre){
+	public MiniJeuGraphic(MainController mainController, Fenetre fenetre){
+		this.mainController = mainController;
 		this.fenetre = fenetre;
 
 		boutonQuitter = new Bouton("Quitter", 813, 500, 150, 40);

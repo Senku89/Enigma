@@ -15,16 +15,18 @@ import javax.swing.JLayeredPane;
 import javax.swing.JTextArea;
 
 public class MenuPrincipalGraphic extends JLayeredPane{
+	MainController mainController;
 	Fenetre fenetre;
 	Bouton boutonJouer, boutonQuitter;
 	JLabel bgImage;
 	JLabel title;
 	JTextArea textIntro;
 
-	public MenuPrincipalGraphic(Fenetre fenetre){
+	public MenuPrincipalGraphic(MainController mainController, Fenetre fenetre){
 		super();
 		// System.out.println("mpg graphic");
 
+		this.mainController = mainController;
 		this.fenetre = fenetre;
 
 		this.setLayout(null);

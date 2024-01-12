@@ -13,13 +13,14 @@ public class MainController{
 		private static List<Minijeu> listeMinijeux = new ArrayList<>();
 		Logger logger = Logger.getLogger(getClass().getName());
 		private static Score score;
-		Fenetre f = new Fenetre();
-		MenuPrincipalGraphic mpg = new MenuPrincipalGraphic(f);
-		JeuQuizGraphic jqg = new JeuQuizGraphic(f);
-		JeuMdpGraphic jmg = new JeuMdpGraphic(f);
-		JeuDecryptGraphic jdg = new JeuDecryptGraphic(f);
-		JeuFinalGraphic jfg = new JeuFinalGraphic(f);
-		ResultatsFinauxGraphic rfg = new ResultatsFinauxGraphic(f);
+
+		Fenetre f;
+		MenuPrincipalGraphic mpg;
+		JeuQuizGraphic jqg;
+		JeuMdpGraphic jmg;
+		JeuDecryptGraphic jdg;
+		JeuFinalGraphic jfg;
+		ResultatsFinauxGraphic rfg;
 
 		// Constructeur
 		public MainController() {
@@ -32,11 +33,22 @@ public class MainController{
 				logger.severe("Error sur l'initialisation des Mini-jeux : " + e.getMessage());
 			}
 			score = new Score();
+
+			f = new Fenetre();
+
+			mpg = new MenuPrincipalGraphic(this, f);
+
+			jqg = new JeuQuizGraphic(this, f);
+			jmg = new JeuMdpGraphic(this, f);
+			jdg = new JeuDecryptGraphic(this, f);
+			jfg = new JeuFinalGraphic(this, f);
+
+			rfg = new ResultatsFinauxGraphic(this, f);
 		}
 
 		// Lancer le Menu Principal
 		public void startMenuPrincipal(){
-			f.setPanelActif(mpg);
+			f.setPanelActif(jmg);
 		}
 
 		
@@ -55,8 +67,6 @@ public class MainController{
 
 		public void nextJeu(int i){
 			listeMinijeux.get(i);
-			f.setPanelActif(jqg);
+			f.setPanelActif(jmg);
 		}
-		 
-
 }

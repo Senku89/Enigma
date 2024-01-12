@@ -15,14 +15,14 @@ public class JeuPassword extends Minijeu {
     }
 
     // Methode pour test si le password a le bon niveau
-    public boolean testNiveauPassword(String pLevel, int pNiveau) {
+    public boolean testNiveauPassword(String mdp, int pNiveau) {
         for (Password password : listPasswords) {
             // Assuming case-sensitive comparison for passwords
-            if (password.getmdp().equals(pLevel) && password.getlvl() == pNiveau) {
+            if (password.getmdp().equals(mdp) && password.getlvl() == pNiveau) {
                 return true; // Password et son niveau correctes
             }
         }
-        return false; // Password et son niveau incorrectes
+        return false; // Password et son niveau incorrects
     }
 
     public List<String> getPasswords(){
@@ -36,6 +36,22 @@ public class JeuPassword extends Minijeu {
     }
 
     // SauvegardeRésultat
-}
+    public void getResultat(ArrayList<ArrayList<String>> resultats){
+        int score = 0, niveau = 1;
 
+        for(ArrayList<String> liste : resultats){
+            for(String mdp : liste){
+                if(testNiveauPassword(mdp, niveau)){
+                    score++;
+                }
+            }
+            niveau++;
+        }
+
+        int finalscore = (int)((score/listPasswords.size())*100);
+
+        System.out.println(finalscore+"/100");
+    }
+
+}
 

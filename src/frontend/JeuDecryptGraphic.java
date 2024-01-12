@@ -1,6 +1,7 @@
 package frontend;
 
 import general.Init;
+import general.MainController;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -24,8 +25,8 @@ public class JeuDecryptGraphic extends MiniJeuGraphic{
 	Bouton boutonValider;
 	ZoneTexte zoneChiffre;
 
-	public JeuDecryptGraphic(Fenetre fenetre){
-		super(fenetre);
+	public JeuDecryptGraphic(MainController mainController, Fenetre fenetre){
+		super(mainController, fenetre);
 		// System.out.println("mpg graphic");
 		this.setLayout(null);
 		this.setOpaque(false);

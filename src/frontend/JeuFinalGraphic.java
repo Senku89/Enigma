@@ -1,6 +1,7 @@
 package frontend;
 
 import general.Init;
+import general.MainController;
 
 import java.awt.Font;
 import java.awt.Color;
@@ -29,8 +30,8 @@ public class JeuFinalGraphic extends MiniJeuGraphic{
 	Color foregroundIndicePasTrouve = Color.WHITE, backgroundIndicePasTrouve = new Color(50, 50, 50, 255);
 	Font fontIntituleIndice = new Font("Helvetica", Font.BOLD, 20), fontIndice = new Font("Helvetica", Font.BOLD, 15);
 
-	public JeuFinalGraphic(Fenetre fenetre){
-		super(fenetre);
+	public JeuFinalGraphic(MainController mainController, Fenetre fenetre){
+		super(mainController, fenetre);
 		// System.out.println("mpg graphic");
 		this.setLayout(null);
 		this.setOpaque(false);

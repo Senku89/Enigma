@@ -1,7 +1,9 @@
 package frontend;
 
 import backend.minijeu.JeuQuiz;
+
 import general.Init;
+import general.MainController;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -22,8 +24,8 @@ public class JeuQuizGraphic extends MiniJeuGraphic{
 
 	int paddingWidth = 30, paddingHeight = 22, repHeight = 40;
 
-	public JeuQuizGraphic(Fenetre fenetre){
-		super(fenetre);
+	public JeuQuizGraphic(MainController mainController, Fenetre fenetre){
+		super(mainController, fenetre);
 		// System.out.println("mpg graphic");
 		this.setLayout(null);
 		this.setOpaque(false);
