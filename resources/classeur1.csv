@@ -1,7 +1,7 @@
 ﻿mots à trouver;mots crypté
-CRYPTOLOGIE;crypto.png
-CLE;cle.png
-INFORMATIQUE;info.png
-JEU;jeu.png
-CODE;code.png
-ENIGMA;enigma.png
+CLE;resources/images/cle1.png
+INFORMATIQUE;resources/images/cle2.png
+CRYPTOLOGIE;resources/images/cle3.png
+CODE;resources/images/cle4.png
+JEU;resources/images/cle5.png
+ENIGMA;resources/images/cle6.png

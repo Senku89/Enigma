@@ -1,20 +1,20 @@
 package backend.donnees;
 
 public class Message {
-    private String txtChiffre;
-    private String txtDechiffre;
+    private String dechiffre;
+    private String pathImage;
 
-    public Message(String Chiffre , String Dechiffre) {
-        this.txtChiffre = Chiffre ;
-        this.txtDechiffre = Dechiffre;
-    }
-
-    public String getChiffre() {
-        return txtChiffre;
+    public Message(String dechiffre, String image) {
+        this.dechiffre = dechiffre;
+        this.pathImage = image;
     }
 
     public String getDechiffre() {
-            return txtDechiffre;
+        return dechiffre;
+    }
+
+    public String getPathImage() {
+            return pathImage;
         }
 
     // Setters si besoin
@@ -22,8 +22,8 @@ public class Message {
     @Override
     public String toString() {
         return "DataInstance{" +
-                "chiffrer='" + txtChiffre + '\'' +
-                ", dechiffrer='" + txtDechiffre + '\'' +
+                "chiffrer='" + dechiffre + '\'' +
+                ", pathImage='" + pathImage + '\'' +
                 '}';
     }
 }

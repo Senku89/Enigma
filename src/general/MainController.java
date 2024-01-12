@@ -22,8 +22,10 @@ public class MainController{
 		JeuFinalGraphic jfg;
 		ResultatsFinauxGraphic rfg;
 
+
 		// Constructeur
 		public MainController() {
+			
 			/*try {
 				listeMinijeux.add(new JeuQuiz(Init.questionsreponsescsv));
 				listeMinijeux.add(new JeuPassword(Init.mdpcsv));
