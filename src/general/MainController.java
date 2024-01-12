@@ -24,16 +24,6 @@ public class MainController{
 
 		// Constructeur
 		public MainController() {
-			try {
-				listeMinijeux.add(new JeuQuiz(Init.questionsreponsescsv));
-				listeMinijeux.add(new JeuPassword(Init.mdpcsv));
-				listeMinijeux.add(new JeuDechiffrement(Init.classeur1csv));
-				listeMinijeux.add(new JeuFinal(Init.jeufinalcsv));
-			}catch(Exception e){
-				logger.severe("Error sur l'initialisation des Mini-jeux : " + e.getMessage());
-			}
-			score = new Score();
-		}
 
 		// Lancer le Menu Principal
 		public void startMenuPrincipal(){

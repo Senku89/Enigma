@@ -102,8 +102,6 @@ public class CSVReader {
                     continue;
                 }
 
-                
-
                 // Split le csv en colonnes
                 String[] ligne = line.split(";");
 

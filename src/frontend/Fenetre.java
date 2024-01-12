@@ -29,7 +29,7 @@ public class Fenetre extends JFrame{
 		}
 	}
 
-	public void setPanelActif(JLayeredPane panel){
+	public void setPanel(JLayeredPane panel){
 		this.add(panel);
 		this.setContentPane(panel);
 		this.repaintFenetre();
