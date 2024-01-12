@@ -1,3 +1,3 @@
 #!/bin/bash
 
-javac general/*.java && javac frontend/*.java && java general.MainController
+javac src/general/*.java && javac src/frontend/*.java && java src/general/MainController

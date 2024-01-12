@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class JeuQuizGraphic extends MiniJeuGraphic{
-	JeuQuiz jeuQuiz = new JeuQuiz("resources/Q-R-crypto.csv");
+	JeuQuiz jeuQuiz = new JeuQuiz(Init.questionsreponsescsv);
 	int index=0; // A modifier apres pour charger chaque question
 	ZoneTexte zoneNum;
 	ZoneTexte zoneCentrale;

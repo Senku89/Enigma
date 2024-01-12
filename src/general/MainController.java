@@ -2,6 +2,7 @@ package general;
 
 import backend.minijeu.*;
 import frontend.*;
+import general.Init;
 import util.Score;
 
 import java.util.ArrayList;
@@ -23,10 +24,10 @@ public class MainController{
 		// Constructeur
 		public MainController() {
 			try {
-				listeMinijeux.add(new JeuQuiz("resources/Q-R-crypto.csv"));
-				listeMinijeux.add(new JeuPassword("resources/MDP.csv"));
-				listeMinijeux.add(new JeuDechiffrement("resources/classeur1.csv"));
-				listeMinijeux.add(new JeuFinal("resources/jeufinal.csv"));
+				listeMinijeux.add(new JeuQuiz(Init.questionsreponsescsv));
+				listeMinijeux.add(new JeuPassword(Init.mdpcsv));
+				listeMinijeux.add(new JeuDechiffrement(Init.classeur1csv));
+				listeMinijeux.add(new JeuFinal(Init.jeufinalcsv));
 			}catch(Exception e){
 				logger.severe("Error sur l'initialisation des Mini-jeux : " + e.getMessage());
 			}
@@ -38,12 +39,13 @@ public class MainController{
 			f.setPanelActif(mpg);
 		}
 
-		/*
+		
 		//Retour Menu Principal
 		public void retourMenuPrincipal(){
 			f.setPanelActif(mpg);
 			resetAndCreateNewScore();
 		}
+		
 		public static void resetAndCreateNewScore() {
 			// Creer un nouvel Score
 			Score newScore = new Score();
@@ -55,5 +57,6 @@ public class MainController{
 			listeMinijeux.get(i);
 			f.setPanelActif(jqg);
 		}
-		 */
+		 
+
 }

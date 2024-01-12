@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 public class OldMainController {
-    private List<Minijeu> listeMinijeux = new ArrayList<>();
+    /*private List<Minijeu> listeMinijeux = new ArrayList<>();
     Logger logger = Logger.getLogger(getClass().getName());
 
     // Constructeur
@@ -28,5 +28,5 @@ public class OldMainController {
 
     public void setlisteMinijeux(List<Minijeu> listeMinijeux) {
         listeMinijeux = listeMinijeux;
-    }
+    }*/
 }

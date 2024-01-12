@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class JeuMdpGraphic extends MiniJeuGraphic{
 	
-	private JeuPassword jeuPassword = new JeuPassword("resources/MDP.csv");
+	private JeuPassword jeuPassword = new JeuPassword(Init.mdpcsv);
 
 	private ZoneTexte zoneMdpFaible, zoneMdpMoyen, zoneMdpFort, zoneTousMdp;
 	private ZoneTexte zoneLibelleFaible, zoneLibelleMoyen, zoneLibelleFort, zoneLibelleTousMdp;
