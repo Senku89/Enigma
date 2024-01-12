@@ -29,7 +29,7 @@ public class TestDonnees {
 
             // Afficher les données
             for (Message instance3 : instances3) {
-                System.out.println("chiffre " + instance3.getChiffre());
+                System.out.println("chiffre " + instance3.getDechiffre());
                 System.out.println("dechiffre: " + instance3.getDechiffre());
                 System.out.println("-----------");
             }

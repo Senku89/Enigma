@@ -20,22 +20,15 @@ public class MainController{
 		JeuFinalGraphic jfg = new JeuFinalGraphic(f);
 		ResultatsFinauxGraphic rfg = new ResultatsFinauxGraphic(f);
 
+
 		// Constructeur
 		public MainController() {
-			try {
-				listeMinijeux.add(new JeuQuiz("resources/Q-R-crypto.csv"));
-				listeMinijeux.add(new JeuPassword("resources/MDP.csv"));
-				listeMinijeux.add(new JeuDechiffrement("resources/classeur1.csv"));
-				listeMinijeux.add(new JeuFinal("resources/jeufinal.csv"));
-			}catch(Exception e){
-				logger.severe("Error sur l'initialisation des Mini-jeux : " + e.getMessage());
-			}
-			score = new Score();
+
 		}
 
 		// Lancer le Menu Principal
 		public void startMenuPrincipal(){
-			f.setPanelActif(mpg);
+			f.setPanelActif(jdg);
 		}
 
 		/*
