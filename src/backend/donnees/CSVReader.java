@@ -1,5 +1,7 @@
 package backend.donnees;
 
+import general.Init;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -92,6 +94,8 @@ public class CSVReader {
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
 
+            int indiceCle = 0;
+
             while ((line = br.readLine()) != null) {
                 if (firstLine) {
                     firstLine = false;
@@ -103,8 +107,14 @@ public class CSVReader {
 
                 // Vérifier si la ligne a le bon nombre de colonnes
                 if (ligne.length >= 2) {
+
                     String dechiffre = ligne[0].trim();
                     String image = ligne[1].trim();
+
+                    indiceCle++;
+
+                    String dechiffre = ligne[0].trim();
+                    String image = Init.getCle(indiceCle);
 
                     System.out.println(dechiffre);
                     System.out.println(image);
@@ -112,6 +122,7 @@ public class CSVReader {
                     // Create a new DataInstance and store the columns
                     Message message = new Message(dechiffre, image);
                     listMessage.add(message);
+
                 } else {
                     // Gérer le cas où la ligne n'a pas le bon nombre de colonnes
                     logger.severe(errNBColonnes+line);
