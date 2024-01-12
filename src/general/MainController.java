@@ -21,6 +21,7 @@ public class MainController{
 		JeuFinalGraphic jfg = new JeuFinalGraphic(f);
 		ResultatsFinauxGraphic rfg = new ResultatsFinauxGraphic(f);
 
+
 		// Constructeur
 		public MainController() {
 			try {
@@ -36,7 +37,7 @@ public class MainController{
 
 		// Lancer le Menu Principal
 		public void startMenuPrincipal(){
-			f.setPanelActif(mpg);
+			f.setPanelActif(jdg);
 		}
 
 		

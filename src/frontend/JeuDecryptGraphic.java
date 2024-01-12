@@ -1,5 +1,6 @@
 package frontend;
 
+import backend.minijeu.JeuDechiffrement;
 import general.Init;
 
 import java.awt.Font;
@@ -11,7 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class JeuDecryptGraphic extends MiniJeuGraphic{
-	
+	JeuDechiffrement jeuDechiffrement = new JeuDechiffrement("resources/classeur1.csv");
+
 	// Fenetre fenetreRef;
 	// JLabel bgImage;
 	// Bouton boutonQuitter;
@@ -54,7 +56,8 @@ public class JeuDecryptGraphic extends MiniJeuGraphic{
 		zoneChiffre = new ZoneTexte("", titre.getX(), tableau.getY()+100, 350, 60);
 		this.add(zoneChiffre, new Integer(1));
 
-		chiffre = new JLabel(new ImageIcon(Init.getCle(2)));
+		// Image clé
+		chiffre = new JLabel(new ImageIcon(jeuDechiffrement.showImageCle()));
 		chiffre.setBounds(zoneChiffre.getX()+5, zoneChiffre.getY(), 350, 60);
 		this.add(chiffre, new Integer(2));
 
@@ -68,6 +71,7 @@ public class JeuDecryptGraphic extends MiniJeuGraphic{
 			public void actionPerformed(ActionEvent e){
 				String reponse = devine.getText().toLowerCase();
 				// Methode Valider avec comme paramètre la réponse
+				jeuDechiffrement.checkResultat(reponse);
 				System.out.println("Valider : "+reponse);
 			}
 		});

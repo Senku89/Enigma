@@ -9,8 +9,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class JeuQuiz extends Minijeu {
-    private JeuQuizGraphic jeuQuizGraphic;
-    public List<Question> listQuestions;
+    // Si besoin : private JeuQuizGraphic jeuQuizGraphic;
+    public static List<Question> listQuestions;
     private int nQuestion;
 
     // Constructeur pour initialiser le JeuQuiz avec les données dans le fichier CSV
@@ -74,11 +74,6 @@ public class JeuQuiz extends Minijeu {
         Collections.shuffle(quiz);
         // Ajouter l'énoncé au début de la liste
         quiz.add(0, enonce);
-
-        // Print the content of the quiz ArrayList
-        for (String element : quiz) {
-            System.out.println(element);
-        }
 
         // Retourner la liste complète
         return quiz;

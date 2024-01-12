@@ -1,5 +1,7 @@
 package backend.donnees;
 
+import general.Init;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -87,21 +89,39 @@ public class CSVReader {
     }
     public static List<Message> readCSVMessage(String filePath) {
         List<Message> listMessage = new ArrayList<>();
+        String line;
+        boolean firstLine = true;
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-            String line;
+
+            int indiceCle = 0;
+
             while ((line = br.readLine()) != null) {
+                if (firstLine) {
+                    firstLine = false;
+                    continue;
+                }
+
+                
+
                 // Split le csv en colonnes
                 String[] ligne = line.split(";");
 
                 // Vérifier si la ligne a le bon nombre de colonnes
                 if (ligne.length >= 2) {
-                    String chiffrer = ligne[1].trim();
-                    String dechiffrer = ligne[0].trim();
+
+                    indiceCle++;
+
+                    String dechiffre = ligne[0].trim();
+                    String image = Init.getCle(indiceCle);
+
+                    System.out.println(dechiffre);
+                    System.out.println(image);
 
                     // Create a new DataInstance and store the columns
-                    Message message = new Message(chiffrer, dechiffrer);
+                    Message message = new Message(dechiffre, image);
                     listMessage.add(message);
+
                 } else {
                     // Gérer le cas où la ligne n'a pas le bon nombre de colonnes
                     logger.severe(errNBColonnes+line);
