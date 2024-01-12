@@ -118,7 +118,8 @@ public class JeuMdpGraphic extends MiniJeuGraphic{
 				}
 
 				jeuPassword.getResultat(reponses);
-				fenetre.dispose();
+
+				// ##### methode jeuSuivant
 			}
 		});
 		this.add(boutonValider, new Integer(1));
@@ -230,5 +231,9 @@ public class JeuMdpGraphic extends MiniJeuGraphic{
 		}
 	
 		mdpSelectionne = null;
+	}
+
+	public int getScore(){
+		jeuPassword.getScore();
 	}
 }

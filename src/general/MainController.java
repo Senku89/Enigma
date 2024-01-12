@@ -24,14 +24,14 @@ public class MainController{
 
 		// Constructeur
 		public MainController() {
-			try {
+			/*try {
 				listeMinijeux.add(new JeuQuiz(Init.questionsreponsescsv));
 				listeMinijeux.add(new JeuPassword(Init.mdpcsv));
 				listeMinijeux.add(new JeuDechiffrement(Init.classeur1csv));
 				listeMinijeux.add(new JeuFinal(Init.jeufinalcsv));
 			}catch(Exception e){
 				logger.severe("Error sur l'initialisation des Mini-jeux : " + e.getMessage());
-			}
+			}*/
 			score = new Score();
 
 			f = new Fenetre();
@@ -42,19 +42,37 @@ public class MainController{
 			jmg = new JeuMdpGraphic(this, f);
 			jdg = new JeuDecryptGraphic(this, f);
 			jfg = new JeuFinalGraphic(this, f);
-
-			rfg = new ResultatsFinauxGraphic(this, f);
 		}
 
 		// Lancer le Menu Principal
 		public void startMenuPrincipal(){
-			f.setPanelActif(jmg);
+			f.setPanel(mpg);
 		}
 
+		public void startJeuQuiz(){
+			f.setPanel(jqg);
+		}
+
+		public void startJeuMDP(){
+			f.setPanel(jmg);
+		}
+
+		public void startJeuDecrypt(){
+			f.setPanel(jdg);
+		}
+
+		public void startJeuFinal(){
+			f.setPanel(jfg);
+		}
+
+		public void startResultatFinaux(){
+			f.setPanel(rfg);
+		}
 		
 		//Retour Menu Principal
 		public void retourMenuPrincipal(){
-			f.setPanelActif(mpg);
+			rfg = new ResultatsFinauxGraphic(this, f, jqg.getScore(), jmg.getScore(), jdg.getScore());
+			f.setPanel(mpg);
 			resetAndCreateNewScore();
 		}
 		
@@ -63,10 +81,5 @@ public class MainController{
 			Score newScore = new Score();
 			// Remplacer le score actuel avec un nouvel score
 			score = newScore;
-		}
-
-		public void nextJeu(int i){
-			listeMinijeux.get(i);
-			f.setPanelActif(jmg);
 		}
 }

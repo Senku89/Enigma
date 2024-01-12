@@ -110,5 +110,9 @@ public class JeuQuizGraphic extends MiniJeuGraphic{
 		this.add(repB, new Integer(2));
 		this.add(repC, new Integer(2));
 		this.add(repD, new Integer(2));
-	}	
+	}
+
+	public int getScore(){
+		jeuQuiz.getScore();
+	}
 }

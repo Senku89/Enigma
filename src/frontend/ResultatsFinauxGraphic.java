@@ -31,7 +31,7 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 
 	Font intituleFont = new Font("Helvetica", Font.BOLD, 20), scoreFont = new Font("Helvetica", Font.BOLD, 15);
 
-	public ResultatsFinauxGraphic(MainController mainController, Fenetre fenetre){
+	public ResultatsFinauxGraphic(MainController mainController, Fenetre fenetre, int scorequiz, int scoremdp, int scoredecrypt){
 		super();
 		// System.out.println("rfg");
 		this.mainController = mainController;
@@ -59,7 +59,7 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		intituleQuiz.setFont(intituleFont);
 		this.add(intituleQuiz, new Integer(2));
 
-		scoreQuiz = new JTextArea(" 0/100");
+		scoreQuiz = new JTextArea(" "+scorequiz+"/100");
 		scoreQuiz.setBounds(zoneCentrale.getX()+zoneCentrale.getWidth()/2-scoreWidth/2, intituleQuiz.getY()+intituleQuiz.getHeight()+paddingHeight, scoreWidth, scoreHeight);
 		scoreQuiz.setForeground(scoreForeground);
 		scoreQuiz.setBackground(scoreBackground);
@@ -74,7 +74,7 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		intituleMdp.setFont(intituleFont);
 		this.add(intituleMdp, new Integer(2));
 
-		scoreMdp = new JTextArea(" 0/100");
+		scoreMdp = new JTextArea(" "+scoremdp+"/100");
 		scoreMdp.setBounds(zoneCentrale.getX()+zoneCentrale.getWidth()/2-scoreWidth/2, intituleMdp.getY()+intituleMdp.getHeight()+paddingHeight, scoreWidth, scoreHeight);
 		scoreMdp.setForeground(scoreForeground);
 		scoreMdp.setBackground(scoreBackground);
@@ -89,7 +89,7 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		intituleDechiffrement.setFont(intituleFont);
 		this.add(intituleDechiffrement, new Integer(2));
 
-		scoreDechiffrement = new JTextArea(" 0/100");
+		scoreDechiffrement = new JTextArea(" "+scoredecrypt+"/100");
 		scoreDechiffrement.setBounds(zoneCentrale.getX()+zoneCentrale.getWidth()/2-scoreWidth/2, intituleDechiffrement.getY()+intituleDechiffrement.getHeight()+paddingHeight, scoreWidth, scoreHeight);
 		scoreDechiffrement.setForeground(scoreForeground);
 		scoreDechiffrement.setBackground(scoreBackground);
