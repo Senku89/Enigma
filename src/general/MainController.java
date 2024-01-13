@@ -52,7 +52,7 @@ public class MainController{
 		public void startMenuPrincipal(){
 			// f.setPanel(mpg);
 			// startJeuQuiz();
-			startJeuDecrypt();
+			startJeuFinal();
 		}
 
 		public void startJeuQuiz(){

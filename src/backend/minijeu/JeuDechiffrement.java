@@ -21,7 +21,7 @@ public class JeuDechiffrement extends Minijeu{
             Random random = new Random();
             int randomIndex = random.nextInt(listMessages.size());
             currentMessage = listMessages.get(randomIndex);
-            System.out.println(currentMessage.getDechiffre());
+            //System.out.println(currentMessage.getDechiffre());
             //System.out.println(currentMessage.getPathImage());
         }else{
             System.out.println("La liste des Messages a dechiffrer est vide !");

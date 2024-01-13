@@ -138,7 +138,14 @@ public class CSVReader {
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
+            boolean firstLine = true;
+
             while ((line = br.readLine()) != null) {
+                if (firstLine) {
+                    firstLine = false;
+                    continue;
+                }
+
                 // Split le csv en colonnes
                 String[] ligne = line.split(";");
 

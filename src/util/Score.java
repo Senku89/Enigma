@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Score {
     private int nbscore;
-    private static List listeScore = new ArrayList<Score>();
+    public static List<Score> listeScore = new ArrayList<>();
 
     public Score() {
         this.nbscore = 0;
@@ -18,7 +18,6 @@ public class Score {
     public int setScore(int score) {
         return score;
     }
-
     public void increaseScore(int points) {
         nbscore += points;
     }

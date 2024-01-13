@@ -4,7 +4,8 @@ import java.awt.Color;
 
 public class Init{
 	
-	public static String resourcepath = "../resources/";
+	//public static String resourcepath = "../resources/";
+	public static String resourcepath = "resources/";
 
 	public static String imagefondmenuprincipal = resourcepath+"images/menu.png";
 	public static String imagefondjeuquiz = resourcepath+"images/question.png";
@@ -27,4 +28,5 @@ public class Init{
 	public static String getCle(int num){
 		return resourcepath+"images/cle"+num+".png";
 	}
+
 }
