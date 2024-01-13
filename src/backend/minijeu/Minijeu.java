@@ -9,7 +9,7 @@ public class Minijeu {
     //Constructeur avec objet Score et objet Timer?
 
     public int getScore(){
-        return 9;
+        return 100;
     }
 
     public void setScore(int score){

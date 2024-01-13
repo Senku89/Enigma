@@ -234,6 +234,6 @@ public class JeuMdpGraphic extends MiniJeuGraphic{
 	}
 
 	public int getScore(){
-		jeuPassword.getScore();
+		return jeuPassword.getScore();
 	}
 }

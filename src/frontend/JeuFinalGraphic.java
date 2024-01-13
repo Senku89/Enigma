@@ -127,6 +127,9 @@ public class JeuFinalGraphic extends MiniJeuGraphic{
 			}
 		});
 		this.add(boutonValider, new Integer(1));
-
 	}	
+
+	public boolean isMotTrouve(){
+		return true;
+	}
 }

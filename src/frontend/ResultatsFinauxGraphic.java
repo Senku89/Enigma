@@ -23,7 +23,7 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 	Titre titre;
 	ZoneTexte zoneCentrale;
 
-	int intituleHeight = 22, scoreWidth = 55, scoreHeight = 15;
+	int intituleHeight = 22, scoreWidth = 100, scoreHeight = 15;
 	int paddingHeight = 20, spacingHeight = 30;
 
 	Color intituleForeground = Color.BLACK, intituleBackground = new Color(0, 0, 0, 0);
@@ -31,7 +31,7 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 
 	Font intituleFont = new Font("Helvetica", Font.BOLD, 20), scoreFont = new Font("Helvetica", Font.BOLD, 15);
 
-	public ResultatsFinauxGraphic(MainController mainController, Fenetre fenetre, int scorequiz, int scoremdp, int scoredecrypt){
+	public ResultatsFinauxGraphic(MainController mainController, Fenetre fenetre, int scorequiz, int scoremdp, int scoredecrypt, boolean motFinalFound){
 		super();
 		// System.out.println("rfg");
 		this.mainController = mainController;
@@ -51,6 +51,19 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		zoneCentrale = new ZoneTexte("", 200, 100, 600, 350);
 		this.add(zoneCentrale, new Integer(1));
 
+		
+		int scoreQuizWidth;
+
+		if(scorequiz == 100){
+			scoreQuizWidth = 65;
+		} else {
+			if(scorequiz > 9){
+				scoreQuizWidth = 55;
+			} else {
+				scoreQuizWidth = 45;
+			}
+		}
+
 		int intituleQuizWidth = 80;
 		intituleQuiz = new JTextArea("1. Quiz");
 		intituleQuiz.setBounds(zoneCentrale.getX()+zoneCentrale.getWidth()/2-intituleQuizWidth/2, zoneCentrale.getY()+paddingHeight, intituleQuizWidth, intituleHeight);
@@ -59,14 +72,25 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		intituleQuiz.setFont(intituleFont);
 		this.add(intituleQuiz, new Integer(2));
 
-		scoreQuiz = new JTextArea(" "+scorequiz+"/100");
-		scoreQuiz.setBounds(zoneCentrale.getX()+zoneCentrale.getWidth()/2-scoreWidth/2, intituleQuiz.getY()+intituleQuiz.getHeight()+paddingHeight, scoreWidth, scoreHeight);
+		scoreQuiz = new JTextArea(scorequiz+"/100");
+		scoreQuiz.setBounds(zoneCentrale.getX()+zoneCentrale.getWidth()/2-scoreQuizWidth/2, intituleQuiz.getY()+intituleQuiz.getHeight()+paddingHeight, scoreQuizWidth, scoreHeight);
 		scoreQuiz.setForeground(scoreForeground);
 		scoreQuiz.setBackground(scoreBackground);
 		scoreQuiz.setFont(scoreFont);
 		this.add(scoreQuiz, new Integer(2));
 
 		int intituleMdpWidth = 200;
+		int scoreMdpWidth;
+		if(scoremdp == 100){
+			scoreMdpWidth = 65;
+		} else {
+			if(scoremdp > 9){
+				scoreMdpWidth = 55;
+			} else {
+				scoreMdpWidth = 45;
+			}
+		}
+
 		intituleMdp = new JTextArea("2. Mots de passe");
 		intituleMdp.setBounds(zoneCentrale.getX()+zoneCentrale.getWidth()/2-intituleMdpWidth/2, scoreQuiz.getY()+scoreQuiz.getHeight()+paddingHeight, intituleMdpWidth, intituleHeight);
 		intituleMdp.setForeground(intituleForeground);
@@ -74,14 +98,24 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		intituleMdp.setFont(intituleFont);
 		this.add(intituleMdp, new Integer(2));
 
-		scoreMdp = new JTextArea(" "+scoremdp+"/100");
-		scoreMdp.setBounds(zoneCentrale.getX()+zoneCentrale.getWidth()/2-scoreWidth/2, intituleMdp.getY()+intituleMdp.getHeight()+paddingHeight, scoreWidth, scoreHeight);
+		scoreMdp = new JTextArea(scoremdp+"/100");
+		scoreMdp.setBounds(zoneCentrale.getX()+zoneCentrale.getWidth()/2-scoreMdpWidth/2, intituleMdp.getY()+intituleMdp.getHeight()+paddingHeight, scoreMdpWidth, scoreHeight);
 		scoreMdp.setForeground(scoreForeground);
 		scoreMdp.setBackground(scoreBackground);
 		scoreMdp.setFont(scoreFont);
 		this.add(scoreMdp, new Integer(2));
 
 		int intituleDechiffrementWidth = 200;
+		int scoreDecryptWidth;
+		if(scoredecrypt == 100){
+			scoreDecryptWidth = 65;
+		} else {
+			if(scoredecrypt > 9){
+				scoreDecryptWidth = 55;
+			} else {
+				scoreDecryptWidth = 45;
+			}
+		}
 		intituleDechiffrement = new JTextArea("3. Dechiffrement");
 		intituleDechiffrement.setBounds(zoneCentrale.getX()+zoneCentrale.getWidth()/2-intituleDechiffrementWidth/2, scoreMdp.getY()+scoreMdp.getHeight()+paddingHeight, intituleDechiffrementWidth, intituleHeight);
 		intituleDechiffrement.setForeground(intituleForeground);
@@ -89,8 +123,8 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		intituleDechiffrement.setFont(intituleFont);
 		this.add(intituleDechiffrement, new Integer(2));
 
-		scoreDechiffrement = new JTextArea(" "+scoredecrypt+"/100");
-		scoreDechiffrement.setBounds(zoneCentrale.getX()+zoneCentrale.getWidth()/2-scoreWidth/2, intituleDechiffrement.getY()+intituleDechiffrement.getHeight()+paddingHeight, scoreWidth, scoreHeight);
+		scoreDechiffrement = new JTextArea(scoredecrypt+"/100");
+		scoreDechiffrement.setBounds(zoneCentrale.getX()+zoneCentrale.getWidth()/2-scoreDecryptWidth/2, intituleDechiffrement.getY()+intituleDechiffrement.getHeight()+paddingHeight, scoreDecryptWidth, scoreHeight);
 		scoreDechiffrement.setForeground(scoreForeground);
 		scoreDechiffrement.setBackground(scoreBackground);
 		scoreDechiffrement.setFont(scoreFont);
@@ -104,8 +138,19 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		intituleFinal.setFont(intituleFont);
 		this.add(intituleFinal, new Integer(2));
 
-		resultatFinal = new JTextArea(" Trouvé");
-		resultatFinal.setBounds(zoneCentrale.getX()+zoneCentrale.getWidth()/2-30, intituleFinal.getY()+intituleFinal.getHeight()+paddingHeight, 60, scoreHeight);
+		String titreIntituleFinal = "";
+		int resultatFinalWidth;
+
+		if(motFinalFound){
+			titreIntituleFinal = "Trouvé";
+			resultatFinalWidth = 55;
+		} else {
+			titreIntituleFinal = "Pas trouvé";
+			resultatFinalWidth = 90;
+		}
+
+		resultatFinal = new JTextArea(titreIntituleFinal);
+		resultatFinal.setBounds(zoneCentrale.getX()+zoneCentrale.getWidth()/2-resultatFinalWidth/2, intituleFinal.getY()+intituleFinal.getHeight()+paddingHeight, resultatFinalWidth, scoreHeight);
 		resultatFinal.setForeground(scoreForeground);
 		resultatFinal.setBackground(scoreBackground);
 		resultatFinal.setFont(scoreFont);
@@ -117,8 +162,7 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		boutonMenu.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e){
-				// Methode retour menu
-				System.out.println("Menu Principal");
+				mainController.retourMenuPrincipal();
 			}
 		});
 		this.add(boutonMenu, new Integer(1));

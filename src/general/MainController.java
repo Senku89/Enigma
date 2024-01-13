@@ -50,7 +50,8 @@ public class MainController{
 
 		// Lancer le Menu Principal
 		public void startMenuPrincipal(){
-			f.setPanel(rfg);
+			// f.setPanel(mpg);
+			startResultatFinaux();
 		}
 
 		public void startJeuQuiz(){
@@ -67,20 +68,15 @@ public class MainController{
 
 		public void startJeuFinal(){
 			f.setPanel(jfg);
-
-
-		// Lancer le Menu Principal
-		public void startMenuPrincipal(){
-			f.setPanelActif(jdg);
 		}
 
 		public void startResultatFinaux(){
+			rfg = new ResultatsFinauxGraphic(this, f, jqg.getScore(), jmg.getScore(), jdg.getScore(), jfg.isMotTrouve());
 			f.setPanel(rfg);
 		}
 		
 		//Retour Menu Principal
 		public void retourMenuPrincipal(){
-			rfg = new ResultatsFinauxGraphic(this, f, jqg.getScore(), jmg.getScore(), jdg.getScore(), jfg.isMotTrouve());
 			f.setPanel(mpg);
 			resetAndCreateNewScore();
 		}

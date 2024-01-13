@@ -36,7 +36,7 @@ public class JeuPassword extends Minijeu {
     }
 
     // SauvegardeRésultat
-    public int getResultat(ArrayList<ArrayList<String>> resultats){
+    public void getResultat(ArrayList<ArrayList<String>> resultats){
         int scoreTmp = 0, niveau = 1;
 
         for(ArrayList<String> liste : resultats){
@@ -50,7 +50,7 @@ public class JeuPassword extends Minijeu {
 
         this.score = (int)(((double)scoreTmp/listPasswords.size())*100);
 
-        System.out.println(finalscore+"/100");
+        System.out.println(score+"/100");
 
         // Methode setScore()
     }

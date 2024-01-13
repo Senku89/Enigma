@@ -25,6 +25,6 @@ public class Init{
 	public static String texteIntro = "Welcome Everyone";
 
 	public static String getCle(int num){
-		return "resources/images/cle"+num+".png";
+		return resourcepath+"images/cle"+num+".png";
 	}
 }

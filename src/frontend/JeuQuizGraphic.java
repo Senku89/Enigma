@@ -72,7 +72,7 @@ public class JeuQuizGraphic extends MiniJeuGraphic{
 				// Methode choix réponse A
 				index=jeuQuiz.gererReponse(repA.getText(), index);
 				// Sauter question Suivant
-				System.out.println("A");
+				// System.out.println("A");
 			}
 		});
 
@@ -82,7 +82,7 @@ public class JeuQuizGraphic extends MiniJeuGraphic{
 				// Methode choix réponse B
 				index=jeuQuiz.gererReponse(repB.getText(), index);
 				// Sauter question Suivant
-				System.out.println("B");
+				// System.out.println("B");
 			}
 		});
 
@@ -92,7 +92,7 @@ public class JeuQuizGraphic extends MiniJeuGraphic{
 				// Methode choix réponse C
 				index=jeuQuiz.gererReponse(repC.getText(), index);
 				// Sauter question Suivant
-				System.out.println("C");
+				// System.out.println("C");
 			}
 		});
 
@@ -102,7 +102,7 @@ public class JeuQuizGraphic extends MiniJeuGraphic{
 				// Methode choix réponse D
 				index=jeuQuiz.gererReponse(repD.getText(), index);
 				// Sauter question Suivant
-				System.out.println("D");
+				// System.out.println("D");
 			}
 		});
 
@@ -113,6 +113,6 @@ public class JeuQuizGraphic extends MiniJeuGraphic{
 	}
 
 	public int getScore(){
-		jeuQuiz.getScore();
+		return jeuQuiz.getScore();
 	}
 }
