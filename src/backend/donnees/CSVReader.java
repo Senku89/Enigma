@@ -113,8 +113,8 @@ public class CSVReader {
                     String dechiffre = ligne[0].trim();
                     String image = Init.getCle(indiceCle);
 
-                    System.out.println(dechiffre);
-                    System.out.println(image);
+                    /*System.out.println(dechiffre);
+                    System.out.println(image);*/
 
                     // Create a new DataInstance and store the columns
                     Message message = new Message(dechiffre, image);

@@ -9,7 +9,7 @@ public class Init{
 	public static String imagefondmenuprincipal = resourcepath+"images/menu.png";
 	public static String imagefondjeuquiz = resourcepath+"images/question.png";
 	public static String imagefondjeumdp = resourcepath+"images/mdp.png";
-	public static String imagefondjeudecrypt = resourcepath+"resources/images/decryp.png";
+	public static String imagefondjeudecrypt = resourcepath+"images/decryp.png";
 	public static String iconetimer = resourcepath+"images/stopwatch.png";
 	public static String tableaualphabetsymboles = resourcepath+"images/tableau.png";
 

@@ -51,7 +51,8 @@ public class MainController{
 		// Lancer le Menu Principal
 		public void startMenuPrincipal(){
 			// f.setPanel(mpg);
-			startResultatFinaux();
+			// startJeuQuiz();
+			startJeuDecrypt();
 		}
 
 		public void startJeuQuiz(){
