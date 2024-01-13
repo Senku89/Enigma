@@ -77,5 +77,9 @@ public class JeuDecryptGraphic extends MiniJeuGraphic{
 			}
 		});
 		this.add(boutonValider, new Integer(1));
+	}
+
+	public int getScore(){
+		jeu.getScore();
 	}	
 }

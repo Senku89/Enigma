@@ -108,9 +108,6 @@ public class CSVReader {
                 // Vérifier si la ligne a le bon nombre de colonnes
                 if (ligne.length >= 2) {
 
-                    String dechiffre = ligne[0].trim();
-                    String image = ligne[1].trim();
-
                     indiceCle++;
 
                     String dechiffre = ligne[0].trim();

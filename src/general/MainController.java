@@ -24,6 +24,7 @@ public class MainController{
 
 
 
+
 		// Constructeur
 		public MainController() {
 			
@@ -66,6 +67,11 @@ public class MainController{
 
 		public void startJeuFinal(){
 			f.setPanel(jfg);
+
+
+		// Lancer le Menu Principal
+		public void startMenuPrincipal(){
+			f.setPanelActif(jdg);
 		}
 
 		public void startResultatFinaux(){

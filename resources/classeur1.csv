@@ -1,7 +1,16 @@
 ﻿mots à trouver;mots crypté
+<<<<<<< HEAD
 CLE;resources/images/cle1.png
 INFORMATIQUE;resources/images/cle2.png
 CRYPTOLOGIE;resources/images/cle3.png
 CODE;resources/images/cle4.png
 JEU;resources/images/cle5.png
 ENIGMA;resources/images/cle6.png
+=======
+CLE;cle1.png
+INFORMATIQUE;cle2.png
+CRYPTOLOGIE;cle3.png
+CODE;cle4.png
+JEU;cle5.png
+ENIGMA;cle6.png
+>>>>>>> f2859ea9d447473d6797b3f8949df8b34f9d2db7
