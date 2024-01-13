@@ -13,7 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class JeuDecryptGraphic extends MiniJeuGraphic{
-	JeuDechiffrement jeuDechiffrement = new JeuDechiffrement("resources/classeur1.csv");
+	
+	JeuDechiffrement jeuDechiffrement = new JeuDechiffrement(Init.classeur1csv);
 
 	// Fenetre fenetreRef;
 	// JLabel bgImage;
@@ -80,6 +81,10 @@ public class JeuDecryptGraphic extends MiniJeuGraphic{
 	}
 
 	public int getScore(){
+<<<<<<< HEAD
 		jeu.getScore();
+=======
+		return jeuDechiffrement.getScore();
+>>>>>>> debug pour liaison frontback des ResultatFinaux
 	}	
 }
