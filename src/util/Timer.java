@@ -1,7 +1,7 @@
 package util;
 
 import java.util.logging.Logger;
-
+import general.MainController;
 public class Timer {
     private int timeSeconds;
     private boolean enCours;
@@ -30,6 +30,7 @@ public class Timer {
                         logger.severe("Thread Timer interrompu: " + e.getMessage());
                     }
                     timeSeconds--;
+                    MainController.timerIsUpdated(timeSeconds);
                 }
 
                 // Ajouter une action à effectuer lorsque le temps est écoulé

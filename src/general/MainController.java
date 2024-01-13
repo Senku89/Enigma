@@ -88,4 +88,8 @@ public class MainController{
 			// Remplacer le score actuel avec un nouvel score
 			score = newScore;
 		}
+
+		public static void timerIsUpdated(int timeSeconds){
+			System.out.println("TIMER IS BEING UPDATED");
+		}
 }
