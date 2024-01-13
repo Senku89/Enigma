@@ -46,7 +46,7 @@ public class MainController{
 
 		// Lancer le Menu Principal
 		public void startMenuPrincipal(){
-			f.setPanel(mpg);
+			f.setPanel(rfg);
 		}
 
 		public void startJeuQuiz(){
@@ -71,7 +71,7 @@ public class MainController{
 		
 		//Retour Menu Principal
 		public void retourMenuPrincipal(){
-			rfg = new ResultatsFinauxGraphic(this, f, jqg.getScore(), jmg.getScore(), jdg.getScore());
+			rfg = new ResultatsFinauxGraphic(this, f, jqg.getScore(), jmg.getScore(), jdg.getScore(), jfg.isMotTrouve());
 			f.setPanel(mpg);
 			resetAndCreateNewScore();
 		}
