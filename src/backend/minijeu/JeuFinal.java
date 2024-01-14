@@ -56,11 +56,6 @@ public class JeuFinal extends Minijeu {
         }
     }
 
-    // Non utilisable
-    public void nextIndice() {
-        choisirIndiceRandom();
-    }
-
     public Indice getCurrentIndice() {
         return currentIndice;
     }

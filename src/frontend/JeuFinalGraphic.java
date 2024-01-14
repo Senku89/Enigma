@@ -45,6 +45,8 @@ public class JeuFinalGraphic extends MiniJeuGraphic{
 		this.setOpaque(false);
 		this.setBounds(0, 0, fenetre.getWidth(), fenetre.getHeight());
 
+		super.setupGraphic();
+
 		bgImage = new JLabel(new ImageIcon(Init.imagefondjeuquiz));
 		bgImage.setBounds(0, 0, fenetre.getWidth(), fenetre.getHeight());
 
@@ -85,7 +87,7 @@ public class JeuFinalGraphic extends MiniJeuGraphic{
 
 		zoneIndice1 = new JTextArea(jeuFinal.getCurrentIndice().getTxt1());
 		zoneIndice1.setBounds(zoneCentrale.getX()+paddingWidth, textIndice1.getY()+textIndice1.getHeight()+beetweenIntituleAndIndice, zoneCentrale.getWidth()-paddingWidth*2, indiceHeight);
-		if(jeuFinal.ifIndiceTrouveQuiz(0, 800)){
+		if(jeuFinal.ifIndiceTrouveQuiz(0, 50)){
 			zoneIndice1.setForeground(foregroundIndiceTrouve);
 			zoneIndice1.setBackground(backgroundIndiceTrouve);
 		}else{
@@ -105,7 +107,7 @@ public class JeuFinalGraphic extends MiniJeuGraphic{
 
 		zoneIndice2 = new JTextArea(jeuFinal.getCurrentIndice().getTxt2());
 		zoneIndice2.setBounds(zoneCentrale.getX()+paddingWidth, textIndice2.getY()+textIndice1.getHeight()+beetweenIntituleAndIndice, zoneCentrale.getWidth()-paddingWidth*2, indiceHeight);
-		if(jeuFinal.ifIndiceTrouveQuiz(1, 800)){
+		if(jeuFinal.ifIndiceTrouveQuiz(1, 50)){
 			zoneIndice2.setForeground(foregroundIndiceTrouve);
 			zoneIndice2.setBackground(backgroundIndiceTrouve);
 		}else{
@@ -125,7 +127,7 @@ public class JeuFinalGraphic extends MiniJeuGraphic{
 
 		zoneIndice3 = new JTextArea(jeuFinal.getCurrentIndice().getTxt3());
 		zoneIndice3.setBounds(zoneCentrale.getX()+paddingWidth, textIndice3.getY()+textIndice1.getHeight()+beetweenIntituleAndIndice, zoneCentrale.getWidth()-paddingWidth*2, indiceHeight);
-		if(jeuFinal.ifIndiceTrouveQuiz(2, 100)){
+		if(jeuFinal.ifIndiceTrouveQuiz(2, 50)){
 			zoneIndice3.setForeground(foregroundIndiceTrouve);
 			zoneIndice3.setBackground(backgroundIndiceTrouve);
 		}else{
