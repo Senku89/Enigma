@@ -44,7 +44,6 @@ public class JeuQuiz extends Minijeu {
         //questionIndex++;
         if (checkReponse(reponse, questionIndex)){
             System.out.println("Reponse Correcte");
-            //Augmenter score
         }else
             System.out.println("Reponse Incorrecte");
         return questionIndex;

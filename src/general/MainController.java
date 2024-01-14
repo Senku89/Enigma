@@ -29,7 +29,6 @@ public class MainController{
 			f = new Fenetre();
 
 			mpg = new MenuPrincipalGraphic(this, f);
-
 			jqg = new JeuQuizGraphic(this, f);
 			jmg = new JeuMdpGraphic(this, f);
 			jdg = new JeuDecryptGraphic(this, f);
@@ -65,10 +64,14 @@ public class MainController{
 		//Retour Menu Principal
 		public void retourMenuPrincipal(){
 			f.setPanel(mpg);
-			resetAndCreateNewScore();
+			reset();
 		}
 		
-		public static void resetAndCreateNewScore() {
+		public void reset() {
+			this.jqg = new JeuQuizGraphic(this, f);
+			this.jmg = new JeuMdpGraphic(this, f);
+			this.jdg = new JeuDecryptGraphic(this, f);
+			this.jfg = new JeuFinalGraphic(this, f);
 			// Creer un nouvel Score
 			Score newScore = new Score();
 			// Remplacer le score actuel avec un nouvel score

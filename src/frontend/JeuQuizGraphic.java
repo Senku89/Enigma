@@ -23,7 +23,7 @@ public class JeuQuizGraphic extends MiniJeuGraphic{
 	private Bouton repA, repB, repC, repD;
 
 	int paddingWidth = 30, paddingHeight = 22, repHeight = 40;
-	int boutonFontSize = 18;
+	int boutonFontSize = 13;
 
 	public JeuQuizGraphic(MainController mainController, Fenetre fenetre){
 		super(mainController, fenetre);
@@ -121,7 +121,7 @@ public class JeuQuizGraphic extends MiniJeuGraphic{
 			fenetre.repaintFenetre();
 		} else {
 			System.out.println("Fin jeu Quiz");
-			// ##### Passage jeu password
+			mainController.startJeuMDP();
 		}
 	}
 

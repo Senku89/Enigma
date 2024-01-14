@@ -152,7 +152,7 @@ public class JeuFinalGraphic extends MiniJeuGraphic{
 				String reponse = zoneMotFinal.getText().toLowerCase();
 				// Methode Valider avec comme paramètre la réponse
 				jeuFinal.validerMotFinal(reponse);
-				System.out.println("Valider : "+reponse);
+				mainController.startResultatFinaux();
 			}
 		});
 		this.add(boutonValider, new Integer(1));

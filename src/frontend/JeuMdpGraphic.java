@@ -46,6 +46,10 @@ public class JeuMdpGraphic extends MiniJeuGraphic{
 		this.setBounds(0, 0, fenetre.getWidth(), fenetre.getHeight());
 		// this.addMouseListener(new SourisListener(this));
 
+		setupGraphic();
+	}
+
+	public void setupGraphic(){
 		super.setupGraphic();
 
 		bgImage = new JLabel(new ImageIcon(Init.imagefondjeumdp));
@@ -122,6 +126,8 @@ public class JeuMdpGraphic extends MiniJeuGraphic{
 				jeuPassword.getResultat(reponses);
 
 				// ##### methode jeuSuivant
+
+				mainController.startJeuDecrypt();
 			}
 		});
 		this.add(boutonValider, new Integer(1));

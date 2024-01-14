@@ -50,7 +50,7 @@ public class JeuPassword extends Minijeu {
 
         this.score = (int)(((double)scoreTmp/listPasswords.size())*100);
 
-        System.out.println(score+"/100 > "+scoreTmp+"/"+listPasswords.size());
+        // System.out.println(score+"/100 > "+scoreTmp+"/"+listPasswords.size());
 
         // Methode setScore()
     }

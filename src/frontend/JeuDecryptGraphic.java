@@ -82,7 +82,7 @@ public class JeuDecryptGraphic extends MiniJeuGraphic{
 	public void nextMessage(){
 		jeuDechiffrement.nextMessage();
 		if(jeuDechiffrement.showImageCle().isEmpty()){
-			fenetre.dispose();
+			mainController.startJeuFinal();
 		} else {
 			this.removeAll();
 			setupGraphic();
@@ -92,5 +92,5 @@ public class JeuDecryptGraphic extends MiniJeuGraphic{
 
 	public int getScore(){
 		return jeuDechiffrement.getScore();
-	}	
+	}
 }
