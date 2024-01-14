@@ -43,11 +43,6 @@ public class MainController{
 			f = new Fenetre();
 
 			mpg = new MenuPrincipalGraphic(this, f);
-			jqg = new JeuQuizGraphic(this, f);
-			jmg = new JeuMdpGraphic(this, f);
-			jdg = new JeuDecryptGraphic(this, f);
-			jfg = new JeuFinalGraphic(this, f);
-
 		}
 
 		// Lancer le Menu Principal
@@ -57,21 +52,25 @@ public class MainController{
 
 		public void startJeuQuiz(){
 			timer.startTimer();
+			jqg = new JeuQuizGraphic(this, f);
 			f.setPanel(jqg);
 			jeuActif = (MiniJeuGraphic)f.getPanel();
 		}
 
 		public void startJeuMDP(){
+			jmg = new JeuMdpGraphic(this, f);
 			f.setPanel(jmg);
 			jeuActif = (MiniJeuGraphic)f.getPanel();
 		}
 
 		public void startJeuDecrypt(){
+			jdg = new JeuDecryptGraphic(this, f);
 			f.setPanel(jdg);
 			jeuActif = (MiniJeuGraphic)f.getPanel();
 		}
 
 		public void startJeuFinal(){
+			jfg = new JeuFinalGraphic(this, f);
 			f.setPanel(jfg);
 			jeuActif = (MiniJeuGraphic)f.getPanel();
 		}
@@ -91,20 +90,10 @@ public class MainController{
 		}
 		
 		public void reset() {
-			this.jqg = null;
-			this.jmg = null;
-			this.jdg = null;
-			this.jfg = null;
-
 			jeuActif = null;
 			timer.stopTimer();
-
 			timer = new Timer(this, tempsDeJeu);
-			// Recréation des graphics
-			this.jqg = new JeuQuizGraphic(this, f);
-			this.jmg = new JeuMdpGraphic(this, f);
-			this.jdg = new JeuDecryptGraphic(this, f);
-			this.jfg = new JeuFinalGraphic(this, f);
+
 			// Creer un nouvel Score
 			Score newScore = new Score();
 			// Remplacer le score actuel avec un nouvel score
