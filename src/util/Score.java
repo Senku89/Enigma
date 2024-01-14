@@ -15,14 +15,22 @@ public class Score {
         return nbscore;
     }
 
-    public int setScore(int score) {
-        return score;
+    public void setScore(int score) {
+        nbscore = score;
     }
+
     public void increaseScore(int points) {
         nbscore += points;
     }
 
     public void resetScore() {
         nbscore = 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Score{" +
+                "nbscore=" + nbscore +
+                '}';
     }
 }

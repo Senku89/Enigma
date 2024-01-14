@@ -2,9 +2,12 @@ package backend.minijeu;
 
 import backend.donnees.CSVReader;
 import backend.donnees.Password;
+import util.Score;
 
 import java.util.List;
 import java.util.ArrayList;
+
+import static util.Score.listeScore;
 
 public class JeuPassword extends Minijeu {
     List<Password> listPasswords;
@@ -13,7 +16,6 @@ public class JeuPassword extends Minijeu {
     public JeuPassword(String filePath) {
         listPasswords = CSVReader.readCSVPassword(filePath);
     }
-
     // Methode pour test si le password a le bon niveau
     public boolean testNiveauPassword(String mdp, int pNiveau) {
         for (Password password : listPasswords) {
@@ -48,11 +50,19 @@ public class JeuPassword extends Minijeu {
             niveau++;
         }
 
-        this.score = (int)(((double)scoreTmp/listPasswords.size())*100);
-
-        // System.out.println(score+"/100 > "+scoreTmp+"/"+listPasswords.size());
-
+        int calcul = (int)(((double)scoreTmp/listPasswords.size())*100);
         // Methode setScore()
+        this.score.setScore(calcul);
+
+        System.out.println(getScore()); // A virer apres
+
+        // Ajout score sur la liste de score
+        listeScore.add(score);
+
+        for (Score score : listeScore) {
+            System.out.println("Lets see: "+score.toString()); //A virer apres
+            // Indice 0 Pour jeuQuiz sur la listeScore
+        }
     }
 
 }

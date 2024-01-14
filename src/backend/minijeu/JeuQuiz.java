@@ -2,15 +2,16 @@ package backend.minijeu;
 
 import backend.donnees.CSVReader;
 import backend.donnees.Question;
-import frontend.JeuQuizGraphic;
+import util.Score;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static util.Score.listeScore;
+
 public class JeuQuiz extends Minijeu {
-    // Si besoin : private JeuQuizGraphic jeuQuizGraphic;
-    public static List<Question> listQuestions;
+    protected static List<Question> listQuestions;
     private int nQuestion;
 
     // Constructeur pour initialiser le JeuQuiz avec les données dans le fichier CSV
@@ -41,11 +42,22 @@ public class JeuQuiz extends Minijeu {
     }
 
     public int gererReponse(String reponse, int questionIndex) {
-        //questionIndex++;
-        if (checkReponse(reponse, questionIndex)){
-            System.out.println("Reponse Correcte");
-        }else
-            System.out.println("Reponse Incorrecte");
+        if (checkReponse(reponse, questionIndex)) {
+            //Update Score
+            score.increaseScore(10);
+            System.out.println("Reponse Correcte : " + score.getScore()); //A virer apres
+        } else
+            System.out.println("Reponse Incorrecte : " + score.getScore()); //A virer apres
+
+        // SauvegardeRésultat
+        // Si on arrive a la derniere reponse alors on envoye le resultat sur la liste statique
+        if (questionIndex == listQuestions.size()-1){
+            listeScore.add(score);
+            for (Score score : listeScore) {
+                System.out.println("Lets see: "+score.toString()); //A virer apres
+                // Indice 0 Pour jeuQuiz sur la listeScore
+            }
+        }
         return questionIndex;
     }
 
@@ -77,8 +89,6 @@ public class JeuQuiz extends Minijeu {
         // Retourner la liste complète
         return quiz;
     }
-
-    // SauvegardeRésultat
 
     public int getNQuestion() {
         return nQuestion;

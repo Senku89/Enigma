@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+import static util.Score.listeScore;
+
 public class MainController{
 		Logger logger = Logger.getLogger(getClass().getName());
 		private static Score score;
@@ -76,6 +78,9 @@ public class MainController{
 			Score newScore = new Score();
 			// Remplacer le score actuel avec un nouvel score
 			score = newScore;
+			// Supprimer tous les elements score
+			listeScore.clear();
+
 		}
 
 		public static void timerIsUpdated(int timeSeconds){

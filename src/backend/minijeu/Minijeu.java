@@ -1,19 +1,19 @@
 package backend.minijeu;
 
+import util.Score;
+
 public class Minijeu {
 
-    // Attribut Score et Timer?
+    // Attribut Timer?
 
-    protected int score;
-
-    //Constructeur avec objet Score et objet Timer?
+    protected Score score = new Score();
 
     public int getScore(){
-        return 100;
+        return score.getScore();
     }
 
     public void setScore(int score){
-        this.score = score;
+        this.score.setScore(score);
     }
 
 }

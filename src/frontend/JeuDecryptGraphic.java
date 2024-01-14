@@ -1,7 +1,6 @@
 package frontend;
 
 import backend.minijeu.JeuDechiffrement;
-
 import general.Init;
 import general.MainController;
 
