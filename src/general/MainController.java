@@ -9,6 +9,8 @@ import general.Init;
 import util.Score;
 import util.Timer;
 
+import java.awt.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -26,6 +28,8 @@ public class MainController{
 		private JeuDecryptGraphic jdg;
 		private JeuFinalGraphic jfg;
 		private ResultatsFinauxGraphic rfg;
+
+		private MiniJeuGraphic jeuActif;
 
 		// Constructeur
 		public MainController() {
@@ -52,35 +56,49 @@ public class MainController{
 		public void startJeuQuiz(){
 			timer.startTimer();
 			f.setPanel(jqg);
+			jeuActif = (MiniJeuGraphic)f.getPanel();
 		}
 
 		public void startJeuMDP(){
 			f.setPanel(jmg);
+			jeuActif = (MiniJeuGraphic)f.getPanel();
 		}
 
 		public void startJeuDecrypt(){
 			f.setPanel(jdg);
+			jeuActif = (MiniJeuGraphic)f.getPanel();
 		}
 
 		public void startJeuFinal(){
 			f.setPanel(jfg);
+			jeuActif = (MiniJeuGraphic)f.getPanel();
 		}
 
 		public void startResultatFinaux(){
 			timer.stopTimer();
 			rfg = new ResultatsFinauxGraphic(this, f, jqg.getScore(), jmg.getScore(), jdg.getScore(), jfg.isMotTrouve());
 			f.setPanel(rfg);
+			jeuActif = null;
 		}
 		
 		//Retour Menu Principal
 		public void retourMenuPrincipal(){
-			timer.stopTimer();
-			timer = new Timer(this, tempsDeJeu);
+			
 			f.setPanel(mpg);
 			reset();
 		}
 		
 		public void reset() {
+			this.jqg = null;
+			this.jmg = null;
+			this.jdg = null;
+			this.jfg = null;
+
+			jeuActif = null;
+			timer.stopTimer();
+
+			timer = new Timer(this, tempsDeJeu);
+			// Recréation des graphics
 			this.jqg = new JeuQuizGraphic(this, f);
 			this.jmg = new JeuMdpGraphic(this, f);
 			this.jdg = new JeuDecryptGraphic(this, f);
@@ -89,6 +107,8 @@ public class MainController{
 			Score newScore = new Score();
 			// Remplacer le score actuel avec un nouvel score
 			score = newScore;
+
+			
 		}
 
 		public String getTime(){
@@ -99,9 +119,6 @@ public class MainController{
 			int secondes = timeSeconds%60;
 			
 			minutesStr = ""+minutes;
-			if(minutes < 10){
-				minutesStr = "0"+minutesStr;
-			}
 
 			secondesStr = ""+secondes;
 			if(secondes < 10){
@@ -117,16 +134,17 @@ public class MainController{
 			int secondes = timeSeconds%60;
 			
 			minutesStr = ""+minutes;
-			/*if(minutes < 10){
-				minutesStr = "0"+minutesStr;
-			}*/
 
 			secondesStr = ""+secondes;
 			if(secondes < 10){
 				secondesStr = "0"+secondesStr;
 			}
 
-			System.out.println(minutesStr+":"+secondesStr);
+			jeuActif.updateTimer(minutesStr+":"+secondesStr);
+
+			Component timerGraphic = jeuActif.getTimer();
+
+			f.repaint(timerGraphic.getX(), timerGraphic.getY(), timerGraphic.getWidth(), timerGraphic.getHeight());
 		}
 
 		public void outOfTime(){

@@ -61,7 +61,18 @@ public class MiniJeuGraphic extends JLayeredPane{
 		this.add(iconeTimer, new Integer(2));
 	}
 
-	/*public void updateTimer(){
-		this.remove(zoneTimer);
-	}*/
+	public JTextArea getTimer(){
+		return this.timer;
+	}
+
+	public void updateTimer(String time){
+		this.remove(timer);
+
+		timer = new JTextArea(time);
+		timer.setBounds(zoneTimer.getX()+40, zoneTimer.getY()+2, zoneTimer.getWidth()-40, zoneTimer.getHeight()-4);
+		timer.setForeground(Color.BLACK);
+		timer.setBackground(new Color(0, 0, 0, 0));
+		timer.setFont(new Font("Helvetica", Font.BOLD, 28));
+		this.add(timer, new Integer(2));
+	}
 }

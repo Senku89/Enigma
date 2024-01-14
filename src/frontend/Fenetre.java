@@ -41,6 +41,6 @@ public class Fenetre extends JFrame{
 	}
 
 	public void repaintFenetre(){		
-		this.repaint(0, 0, 0, 1000, 600);
+		this.repaint(0, 0, 1000, 600);
 	}
 }
