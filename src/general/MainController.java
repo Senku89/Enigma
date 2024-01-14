@@ -108,11 +108,8 @@ public class MainController{
 			// Creer un nouvel Score
 			Score newScore = new Score();
 			// Remplacer le score actuel avec un nouvel score
-			score = newScore;
-
 			// Supprimer tous les elements score
 			listeScore.clear();
-
 		}
 
 		public String getTime(){
