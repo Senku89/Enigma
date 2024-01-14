@@ -14,6 +14,9 @@ import static util.Score.listeScore;
 public class MainController{
 		Logger logger = Logger.getLogger(getClass().getName());
 		private static Score score;
+		private Timer timer;
+		private final int tempsDeJeu = 10;
+
 
 		private Timer timer;
 		private final int tempsDeJeu = 600;
@@ -22,6 +25,7 @@ public class MainController{
 		private MenuPrincipalGraphic mpg;
 		private JeuQuizGraphic jqg;
 		private JeuMdpGraphic jmg;
+
 		private JeuDechiffGraphic jdg;
 		private JeuFinalGraphic jfg;
 		private ResultatsFinauxGraphic rfg;
@@ -78,7 +82,8 @@ public class MainController{
 		
 		//Retour Menu Principal
 		public void retourMenuPrincipal(){
-			
+			timer.stopTimer();
+			timer = new Timer(this, tempsDeJeu);
 			f.setPanel(mpg);
 			reset();
 		}
@@ -129,6 +134,44 @@ public class MainController{
 			Component timerGraphic = jeuActif.getTimer();
 
 			f.repaint(timerGraphic.getX(), timerGraphic.getY(), timerGraphic.getWidth(), timerGraphic.getHeight());
+		}
+
+		public String getTime(){
+			int timeSeconds = timer.getTimeSeconds();
+
+			String minutesStr, secondesStr;
+			int minutes = timeSeconds/60;
+			int secondes = timeSeconds%60;
+			
+			minutesStr = ""+minutes;
+			if(minutes < 10){
+				minutesStr = "0"+minutesStr;
+			}
+
+			secondesStr = ""+secondes;
+			if(secondes < 10){
+				secondesStr = "0"+secondesStr;
+			}
+
+			return minutesStr+":"+secondesStr;
+		}
+
+		public void timerIsUpdated(int timeSeconds){
+			String minutesStr, secondesStr;
+			int minutes = timeSeconds/60;
+			int secondes = timeSeconds%60;
+			
+			minutesStr = ""+minutes;
+			/*if(minutes < 10){
+				minutesStr = "0"+minutesStr;
+			}*/
+
+			secondesStr = ""+secondes;
+			if(secondes < 10){
+				secondesStr = "0"+secondesStr;
+			}
+
+			System.out.println(minutesStr+":"+secondesStr);
 		}
 
 		public void outOfTime(){

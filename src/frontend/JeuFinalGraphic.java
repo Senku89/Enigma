@@ -54,7 +54,8 @@ public class JeuFinalGraphic extends MiniJeuGraphic{
 		this.add(bgImage, Integer.valueOf(0));
 
 		titre = new Titre("4. Découvre le Mot Final", 70, 30, 410, 35);
-		this.add(titre, Integer.valueOf(1));
+		
+		this.add(titre, new Integer(1));
 
 		zoneCentrale = new ZoneTexte("", titre.getX(), titre.getY()+titre.getHeight()+spacingHeight,zoneTimer.getX()+zoneTimer.getWidth()-titre.getX(), hauteurZoneCentrale);
 		this.add(zoneCentrale, Integer.valueOf(1));
