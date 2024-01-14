@@ -55,7 +55,7 @@ public class JeuDechiffrement extends Minijeu {
     public void checkResultat(String decryptedText) {
         if (isDechiffCorrect(decryptedText)) {
             System.out.println("Dechiffrement correct!");
-            // score = score + 1
+            score.setScore(score.getScore()+1);
         } else {
             System.out.println("Dechiffrement incorrect!");
             // Garder le résultat incorrect SCORE 0

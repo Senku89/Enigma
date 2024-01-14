@@ -153,5 +153,4 @@ public class JeuFinalGraphic extends MiniJeuGraphic{
 		this.add(boutonValider, Integer.valueOf(1));
 
 	}
-
 }

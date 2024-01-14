@@ -9,7 +9,7 @@ public class Init{
 	public static int minMDP = 0; // Add in Init
 	public static int minDechiff = 0; // Add in Init
 
-	public static String resourcepath = "resources/";
+	public static String resourcepath = "../resources/";
 
 	public static String imagefondmenuprincipal = resourcepath+"images/menu.png";
 	public static String imagefondjeuquiz = resourcepath+"images/question.png";
