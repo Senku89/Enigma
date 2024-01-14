@@ -40,8 +40,6 @@ public class JeuQuizGraphic extends MiniJeuGraphic{
 	public void setupGraphic(){
 		super.setupGraphic();
 
-		System.out.println("index = "+index);
-
 		bgImage = new JLabel(new ImageIcon(Init.imagefondjeuquiz));
 		bgImage.setBounds(0, 0, fenetre.getWidth(), fenetre.getHeight());
 		this.add(bgImage, new Integer(0));

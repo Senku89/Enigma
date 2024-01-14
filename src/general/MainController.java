@@ -32,8 +32,8 @@ public class MainController{
 
 			jqg = new JeuQuizGraphic(this, f);
 			// jmg = new JeuMdpGraphic(this, f);
-			jdg = new JeuDecryptGraphic(this, f);
-			jfg = new JeuFinalGraphic(this, f);
+			// jdg = new JeuDecryptGraphic(this, f);
+			// jfg = new JeuFinalGraphic(this, f);
 		}
 
 		// Lancer le Menu Principal

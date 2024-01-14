@@ -27,6 +27,10 @@ public class MiniJeuGraphic extends JLayeredPane{
 		this.mainController = mainController;
 		this.fenetre = fenetre;
 
+		// System.out.println(timerIcone);
+	}
+
+	public void setupGraphic(){
 		boutonQuitter = new Bouton("Quitter", 813, 500, 150, 40);
 		boutonQuitter.setFont(new Font("Helvetica", Font.BOLD, 20));
 		boutonQuitter.addActionListener(new ActionListener(){
@@ -45,6 +49,6 @@ public class MiniJeuGraphic extends JLayeredPane{
 		iconeTimer = new JLabel(new ImageIcon(Init.iconetimer));
 		iconeTimer.setBounds(825, 30, 35, 35);
 
-		// System.out.println(timerIcone);
+		
 	}
 }
