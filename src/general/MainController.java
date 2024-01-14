@@ -20,7 +20,7 @@ public class MainController{
 		Logger logger = Logger.getLogger(getClass().getName());
 		private static Score score;
 		private Timer timer;
-		private final int tempsDeJeu = 10;
+		private final int tempsDeJeu = 600;
 
 
 		private Timer timer;
