@@ -13,10 +13,13 @@ import static util.Score.listeScore;
 public class JeuDechiffrement extends Minijeu {
     public static List<Message> listMessages;
     private static Message currentMessage;
+    private int sizeListMess;
 
     public JeuDechiffrement(String filePath) {
         listMessages = CSVReader.readCSVMessage(filePath);
+        sizeListMess = listMessages.size();
         choisirMessageRandom(); // Message aléatoire au debut
+        score.setScore(0);
     }
 
     // Choisir le message à déchiffrer de manière aléatoire
@@ -30,13 +33,17 @@ public class JeuDechiffrement extends Minijeu {
             listMessages.remove(randomIndex);
         }else{
             currentMessage = null;
-            System.out.println("Fin jeu !"); // a virer apres
+
+                //Calcul score sur 100
+                int calcul = (int) (( ((double) score.getScore()) / getSizeListMess()) * 100);
+                setScore(calcul);
+
             listeScore.add(score); // Indice 2 Pour jeuDechiffrement sur la listeScore
 
             for (Score score : listeScore) {
                 System.out.println("Lets see: "+score.toString()); //A virer apres
             }
-
+            System.out.println("Fin jeu !"); // a virer apres
         }
     }
 
@@ -58,7 +65,7 @@ public class JeuDechiffrement extends Minijeu {
             score.setScore(score.getScore()+1);
         } else {
             System.out.println("Dechiffrement incorrect!");
-            // Garder le résultat incorrect SCORE 0
+            // Résultat incorrect SCORE 0
         }
     }
 
@@ -72,5 +79,13 @@ public class JeuDechiffrement extends Minijeu {
             return "";
         }
         return currentMessage.getPathImage();
+    }
+
+    public int getSizeListMess() {
+        return sizeListMess;
+    }
+
+    public void setSizeListMess(int sizeListMess) {
+        this.sizeListMess = sizeListMess;
     }
 }
