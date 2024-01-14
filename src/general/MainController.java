@@ -31,7 +31,7 @@ public class MainController{
 			mpg = new MenuPrincipalGraphic(this, f);
 
 			jqg = new JeuQuizGraphic(this, f);
-			// jmg = new JeuMdpGraphic(this, f);
+			jmg = new JeuMdpGraphic(this, f);
 			jdg = new JeuDecryptGraphic(this, f);
 			// jfg = new JeuFinalGraphic(this, f);
 		}
@@ -40,7 +40,8 @@ public class MainController{
 		public void startMenuPrincipal(){
 			// f.setPanel(mpg);
 			// startJeuQuiz();
-			startJeuDecrypt();
+			startJeuMDP();
+			// startJeuDecrypt();
 			// startJeuFinal();
 		}
 

@@ -21,7 +21,9 @@ public class CSVReader {
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
-            while ((line = br.readLine()) != null) {
+            int nbPasswordMax = 14;
+            int i = 0;
+            while (i < nbPasswordMax && (line = br.readLine()) != null) {
                 // Split le csv en colonnes
                 String[] ligne = line.split(";");
 
@@ -33,6 +35,8 @@ public class CSVReader {
                     // Create a new DataInstance and store the columns
                     Password passwords = new Password(mot, level);
                     listPasswords.add(passwords);
+
+                    i++;
 
                 } else {
                     // Gérer le cas où la ligne n'a pas le bon nombre de colonnes

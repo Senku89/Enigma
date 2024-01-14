@@ -32,7 +32,7 @@ public class JeuMdpGraphic extends MiniJeuGraphic{
 
 	private int zoneHeight = 350, spacingWidthSmall = 10, spacingWidthLarge = 50, spacingHeight = 50; 
 	private int smallZoneWidth = 150, largeZoneWidth = 370;
-	private int libelleTitreHeight = 35, mdpWidth = 140, mdpHeight = 20;
+	private int libelleTitreHeight = 35, mdpWidth = 140, mdpHeight = 20, fontMdp = 10;
 	private int spacingHeightMdp = 20, spacingWidthMdp = 50, marginZoneMdps = 20;
 	private int marginZones = 5, paddingZonesHeight = 10; 
 
@@ -45,6 +45,8 @@ public class JeuMdpGraphic extends MiniJeuGraphic{
 		this.setOpaque(false);
 		this.setBounds(0, 0, fenetre.getWidth(), fenetre.getHeight());
 		// this.addMouseListener(new SourisListener(this));
+
+		super.setupGraphic();
 
 		bgImage = new JLabel(new ImageIcon(Init.imagefondjeumdp));
 		bgImage.setBounds(0, 0, fenetre.getWidth(), fenetre.getHeight());
@@ -138,7 +140,7 @@ public class JeuMdpGraphic extends MiniJeuGraphic{
 			nouveauMdp.setBounds(xTmp, yTmp, mdpWidth, mdpHeight);
 			nouveauMdp.setForeground(Color.BLACK);
 			nouveauMdp.setBackground(Color.WHITE);
-			nouveauMdp.setFont(new Font("Helvetica", Font.PLAIN, 15));
+			nouveauMdp.setFont(new Font("Helvetica", Font.PLAIN, fontMdp));
 			nouveauMdp.addMouseListener(new SourisListener(this, nouveauMdp));
 
 			yTmp += mdpHeight + spacingHeightMdp;
