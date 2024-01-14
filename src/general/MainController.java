@@ -7,6 +7,11 @@ import util.Timer;
 
 import java.awt.Component;
 
+<<<<<<< HEAD
+=======
+import java.util.ArrayList;
+import java.util.List;
+>>>>>>> Actualisation du timer terminée
 import java.util.logging.Logger;
 
 import static util.Score.listeScore;
@@ -82,8 +87,7 @@ public class MainController{
 		
 		//Retour Menu Principal
 		public void retourMenuPrincipal(){
-			timer.stopTimer();
-			timer = new Timer(this, tempsDeJeu);
+			
 			f.setPanel(mpg);
 			reset();
 		}
@@ -144,9 +148,6 @@ public class MainController{
 			int secondes = timeSeconds%60;
 			
 			minutesStr = ""+minutes;
-			if(minutes < 10){
-				minutesStr = "0"+minutesStr;
-			}
 
 			secondesStr = ""+secondes;
 			if(secondes < 10){
@@ -162,16 +163,17 @@ public class MainController{
 			int secondes = timeSeconds%60;
 			
 			minutesStr = ""+minutes;
-			/*if(minutes < 10){
-				minutesStr = "0"+minutesStr;
-			}*/
 
 			secondesStr = ""+secondes;
 			if(secondes < 10){
 				secondesStr = "0"+secondesStr;
 			}
 
-			System.out.println(minutesStr+":"+secondesStr);
+			jeuActif.updateTimer(minutesStr+":"+secondesStr);
+
+			Component timerGraphic = jeuActif.getTimer();
+
+			f.repaint(timerGraphic.getX(), timerGraphic.getY(), timerGraphic.getWidth(), timerGraphic.getHeight());
 		}
 
 		public void outOfTime(){
