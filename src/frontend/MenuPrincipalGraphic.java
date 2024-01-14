@@ -52,7 +52,8 @@ public class MenuPrincipalGraphic extends JLayeredPane{
 			public void actionPerformed(ActionEvent e){
 				// Methode lancer le jeu
 				//mainController.nextJeu(0);
-				System.out.println("Jouer");
+				// System.out.println("Jouer");
+				mainController.startJeuQuiz();
 			}
 		});
 
@@ -61,7 +62,7 @@ public class MenuPrincipalGraphic extends JLayeredPane{
 			@Override
 			public void actionPerformed(ActionEvent e){
 				// Methode pour tout arrêter
-				System.out.println("Quitter");
+				// System.out.println("Quitter");
 				fenetre.dispose();
 			}
 		});
