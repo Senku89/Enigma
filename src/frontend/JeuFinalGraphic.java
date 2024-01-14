@@ -17,7 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.JTextField;
 
 public class JeuFinalGraphic extends MiniJeuGraphic{
-	public JeuFinal jeuFinal = new JeuFinal("resources/jeufinal.csv");
+	public JeuFinal jeuFinal = new JeuFinal(Init.jeufinalcsv);
 	ZoneTexte zoneCentrale;
 	JTextArea textIndices, textIndice1, textIndice2, textIndice3;
 	JTextArea zoneIndices, zoneIndice1, zoneIndice2, zoneIndice3;

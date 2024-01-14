@@ -23,7 +23,9 @@ public class JeuDechiffrement extends Minijeu{
             currentMessage = listMessages.get(randomIndex);
             //System.out.println(currentMessage.getDechiffre());
             //System.out.println(currentMessage.getPathImage());
+            listMessages.remove(randomIndex);
         }else{
+            currentMessage = null;
             System.out.println("La liste des Messages a dechiffrer est vide !");
         }
     }
@@ -43,7 +45,7 @@ public class JeuDechiffrement extends Minijeu{
     public void checkResultat(String decryptedText) {
         if (isDechiffCorrect(decryptedText)) {
             System.out.println("Dechiffrement correct!");
-            // Garder le résultat correct SCORE 100
+            // score = score + 1
         } else {
             System.out.println("Dechiffrement incorrect!");
             // Garder le résultat incorrect SCORE 0
@@ -59,7 +61,9 @@ public class JeuDechiffrement extends Minijeu{
     }
 
     public static String showImageCle(){
+        if(currentMessage == null){
+            return "";
+        }
         return currentMessage.getPathImage();
     }
-
 }

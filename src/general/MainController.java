@@ -32,15 +32,15 @@ public class MainController{
 
 			jqg = new JeuQuizGraphic(this, f);
 			// jmg = new JeuMdpGraphic(this, f);
-			// jdg = new JeuDecryptGraphic(this, f);
+			jdg = new JeuDecryptGraphic(this, f);
 			// jfg = new JeuFinalGraphic(this, f);
 		}
 
 		// Lancer le Menu Principal
 		public void startMenuPrincipal(){
 			// f.setPanel(mpg);
-			startJeuQuiz();
-			// startJeuDecrypt();
+			// startJeuQuiz();
+			startJeuDecrypt();
 			// startJeuFinal();
 		}
 

@@ -1,6 +1,7 @@
 package frontend;
 
 import backend.minijeu.JeuDechiffrement;
+
 import general.Init;
 import general.MainController;
 
@@ -16,13 +17,6 @@ public class JeuDecryptGraphic extends MiniJeuGraphic{
 
 	JeuDechiffrement jeuDechiffrement = new JeuDechiffrement(Init.classeur1csv);
 
-	// Fenetre fenetreRef;
-	// JLabel bgImage;
-	// Bouton boutonQuitter;
-	// JLabel iconeTimer;
-	// ZoneTexte zoneTimer; 
-	// Titre titre;
-	// JTextArea zoneScore;
 	JLabel tableau, chiffre;
 	JTextField devine;
 	Bouton boutonValider;
@@ -35,6 +29,13 @@ public class JeuDecryptGraphic extends MiniJeuGraphic{
 		this.setOpaque(false);
 		this.setBounds(0, 0, fenetre.getWidth(), fenetre.getHeight());
 
+		setupGraphic();
+	}
+
+	public void setupGraphic(){
+
+		super.setupGraphic();
+
 		bgImage = new JLabel(new ImageIcon(Init.imagefondjeudecrypt));
 		bgImage.setBounds(0, 0, fenetre.getWidth(), fenetre.getHeight());
 
@@ -44,11 +45,8 @@ public class JeuDecryptGraphic extends MiniJeuGraphic{
 		this.add(titre, new Integer(1));
 
 		this.add(boutonQuitter, new Integer(1));
-
 		this.add(zoneScore, new Integer(1));
-
 		this.add(zoneTimer, new Integer(1));
-
 		this.add(iconeTimer, new Integer(2));
 
 		tableau = new JLabel(new ImageIcon(Init.tableaualphabetsymboles));
@@ -74,10 +72,22 @@ public class JeuDecryptGraphic extends MiniJeuGraphic{
 				String reponse = devine.getText().toLowerCase();
 				// Methode Valider avec comme paramètre la réponse
 				jeuDechiffrement.checkResultat(reponse);
-				System.out.println("Valider : "+reponse);
+				nextMessage();
+				// System.out.println("Valider : "+reponse);
 			}
 		});
 		this.add(boutonValider, new Integer(1));
+	}
+
+	public void nextMessage(){
+		jeuDechiffrement.nextMessage();
+		if(jeuDechiffrement.showImageCle().isEmpty()){
+			fenetre.dispose();
+		} else {
+			this.removeAll();
+			setupGraphic();
+			fenetre.repaintFenetre();
+		}
 	}
 
 	public int getScore(){

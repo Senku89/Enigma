@@ -21,4 +21,14 @@ public class Bouton extends JButton{
 		this.setBackground(Init.couleurfondbouton);
 		this.setFont(new Font("Helvetica", Font.BOLD, 20));
 	}
+
+	public Bouton(String name, int x, int y, int width, int height, int fontsize){
+		super(name);
+		this.setBounds(x, y, width, height);
+		this.x = x;
+		this.y = y;
+		this.setForeground(Init.couleurtextbouton);
+		this.setBackground(Init.couleurfondbouton);
+		this.setFont(new Font("Helvetica", Font.BOLD, fontsize));
+	}
 }
