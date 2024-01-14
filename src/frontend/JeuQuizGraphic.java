@@ -15,14 +15,15 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class JeuQuizGraphic extends MiniJeuGraphic{
-	JeuQuiz jeuQuiz = new JeuQuiz(Init.questionsreponsescsv);
-	int index=0; // A modifier apres pour charger chaque question
-	ZoneTexte zoneNum;
-	ZoneTexte zoneCentrale;
-	ZoneTexte zoneQuestion;
-	Bouton repA, repB, repC, repD;
+	private JeuQuiz jeuQuiz = new JeuQuiz(Init.questionsreponsescsv);
+	private int index; // A modifier apres pour charger chaque question
+	private ZoneTexte zoneNum;
+	private ZoneTexte zoneCentrale;
+	private ZoneTexte zoneQuestion;
+	private Bouton repA, repB, repC, repD;
 
 	int paddingWidth = 30, paddingHeight = 22, repHeight = 40;
+	int boutonFontSize = 18;
 
 	public JeuQuizGraphic(MainController mainController, Fenetre fenetre){
 		super(mainController, fenetre);
@@ -31,9 +32,18 @@ public class JeuQuizGraphic extends MiniJeuGraphic{
 		this.setOpaque(false);
 		this.setBounds(0, 0, fenetre.getWidth(), fenetre.getHeight());
 
+		this.index = 0;
+
+		setupGraphic();
+	}
+
+	public void setupGraphic(){
+		super.setupGraphic();
+
+		System.out.println("index = "+index);
+
 		bgImage = new JLabel(new ImageIcon(Init.imagefondjeuquiz));
 		bgImage.setBounds(0, 0, fenetre.getWidth(), fenetre.getHeight());
-
 		this.add(bgImage, new Integer(0));
 
 		titre = new Titre("1. Quiz", 70, 30, 120, 35);
@@ -44,13 +54,18 @@ public class JeuQuizGraphic extends MiniJeuGraphic{
 		this.add(zoneTimer, new Integer(1));
 		this.add(iconeTimer, new Integer(2));
 
-		zoneNum = new ZoneTexte(" 1/10", 70, 190, 45, 20);
-		zoneNum.setFont(new Font("Helvetica", Font.BOLD, 15));
-		this.add(zoneNum, new Integer(1));
-
 		// Charger les questions
 		List list = new ArrayList<String>();
 		list.addAll(jeuQuiz.affichageQuestion(index));
+
+		int zoneNumWidth = 45;
+		if(index == 9){
+			zoneNumWidth = 55;
+		}
+
+		zoneNum = new ZoneTexte(" "+(index+1)+"/10", 70, 190, zoneNumWidth, 20);
+		zoneNum.setFont(new Font("Helvetica", Font.BOLD, 15));
+		this.add(zoneNum, new Integer(1));
 
 		// Énonce
 		zoneQuestion = new ZoneTexte((String) list.get(0), titre.getX(), titre.getY()+titre.getHeight()+espacement, zoneTimer.getX()+zoneTimer.getWidth()-titre.getX(), zoneNum.getY()-paddingHeight-titre.getY()-titre.getHeight());
@@ -61,48 +76,36 @@ public class JeuQuizGraphic extends MiniJeuGraphic{
 		this.add(zoneCentrale, new Integer(1));
 
 		// Reponses
-		repA = new Bouton((String) list.get(1), zoneCentrale.getX()+paddingWidth, zoneCentrale.getY()+paddingHeight, zoneCentrale.getWidth()-2*30, repHeight);
-		repB = new Bouton((String) list.get(2), repA.getX(), repA.getY()+repHeight+paddingHeight, repA.getWidth(), repHeight);
-		repC = new Bouton((String) list.get(3), repA.getX(), repB.getY()+repHeight+paddingHeight, repA.getWidth(), repHeight);
-		repD = new Bouton((String) list.get(4), repA.getX(), repC.getY()+repHeight+paddingHeight, repA.getWidth(), repHeight);
+		repA = new Bouton((String) list.get(1), zoneCentrale.getX()+paddingWidth, zoneCentrale.getY()+paddingHeight, zoneCentrale.getWidth()-2*30, repHeight, boutonFontSize);
+		repB = new Bouton((String) list.get(2), repA.getX(), repA.getY()+repHeight+paddingHeight, repA.getWidth(), repHeight, boutonFontSize);
+		repC = new Bouton((String) list.get(3), repA.getX(), repB.getY()+repHeight+paddingHeight, repA.getWidth(), repHeight, boutonFontSize);
+		repD = new Bouton((String) list.get(4), repA.getX(), repC.getY()+repHeight+paddingHeight, repA.getWidth(), repHeight, boutonFontSize);
 	
 		repA.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e){
-				// Methode choix réponse A
-				index=jeuQuiz.gererReponse(repA.getText(), index);
-				// Sauter question Suivant
-				// System.out.println("A");
+				nextQuestion(repA.getText());
 			}
 		});
 
 		repB.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e){
-				// Methode choix réponse B
-				index=jeuQuiz.gererReponse(repB.getText(), index);
-				// Sauter question Suivant
-				// System.out.println("B");
+				nextQuestion(repB.getText());
 			}
 		});
 
 		repC.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e){
-				// Methode choix réponse C
-				index=jeuQuiz.gererReponse(repC.getText(), index);
-				// Sauter question Suivant
-				// System.out.println("C");
+				nextQuestion(repC.getText());
 			}
 		});
 
 		repD.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e){
-				// Methode choix réponse D
-				index=jeuQuiz.gererReponse(repD.getText(), index);
-				// Sauter question Suivant
-				// System.out.println("D");
+				nextQuestion(repD.getText());
 			}
 		});
 
@@ -110,6 +113,26 @@ public class JeuQuizGraphic extends MiniJeuGraphic{
 		this.add(repB, new Integer(2));
 		this.add(repC, new Integer(2));
 		this.add(repD, new Integer(2));
+	}
+
+	public void nextQuestion(String reponse){
+		jeuQuiz.gererReponse(reponse, index);
+		index++;
+		if(index < 10){
+			reset();
+			fenetre.repaintFenetre();
+		} else {
+			System.out.println("Fin jeu Quiz");
+			// ##### Passage jeu password
+		}
+	}
+
+	public void reset(){
+		this.removeAll();
+		/*repA = null; repB = null; repC = null; repD = null;
+		zoneNum = null; zoneQuestion = null; zoneCentrale = null;*/
+		this.setupGraphic();
+		/*fenetre.repaintFenetre();*/
 	}
 
 	public int getScore(){

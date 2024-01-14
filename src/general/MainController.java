@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.logging.Logger;
 
 public class MainController{
-		private static List<Minijeu> listeMinijeux = new ArrayList<>();
 		Logger logger = Logger.getLogger(getClass().getName());
 		private static Score score;
 
@@ -22,20 +21,9 @@ public class MainController{
 		JeuFinalGraphic jfg;
 		ResultatsFinauxGraphic rfg;
 
-
-
-
 		// Constructeur
 		public MainController() {
 			
-			/*try {
-				listeMinijeux.add(new JeuQuiz(Init.questionsreponsescsv));
-				listeMinijeux.add(new JeuPassword(Init.mdpcsv));
-				listeMinijeux.add(new JeuDechiffrement(Init.classeur1csv));
-				listeMinijeux.add(new JeuFinal(Init.jeufinalcsv));
-			}catch(Exception e){
-				logger.severe("Error sur l'initialisation des Mini-jeux : " + e.getMessage());
-			}*/
 			score = new Score();
 
 			f = new Fenetre();
@@ -43,7 +31,7 @@ public class MainController{
 			mpg = new MenuPrincipalGraphic(this, f);
 
 			jqg = new JeuQuizGraphic(this, f);
-			jmg = new JeuMdpGraphic(this, f);
+			// jmg = new JeuMdpGraphic(this, f);
 			jdg = new JeuDecryptGraphic(this, f);
 			jfg = new JeuFinalGraphic(this, f);
 		}
@@ -51,8 +39,9 @@ public class MainController{
 		// Lancer le Menu Principal
 		public void startMenuPrincipal(){
 			// f.setPanel(mpg);
-			// startJeuQuiz();
-			startJeuFinal();
+			startJeuQuiz();
+			// startJeuDecrypt();
+			// startJeuFinal();
 		}
 
 		public void startJeuQuiz(){
