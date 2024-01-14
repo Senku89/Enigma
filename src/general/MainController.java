@@ -22,10 +22,6 @@ public class MainController{
 		private Timer timer;
 		private final int tempsDeJeu = 600;
 
-
-		private Timer timer;
-		private final int tempsDeJeu = 600;
-
 		private Fenetre f;
 		private MenuPrincipalGraphic mpg;
 		private JeuQuizGraphic jqg;
