@@ -43,11 +43,6 @@ public class JeuDecryptGraphic extends MiniJeuGraphic{
 		titre = new Titre("3. Déchiffrer le Message Secret", 70, 30, 700, 35);
 		this.add(titre, new Integer(1));
 
-		this.add(boutonQuitter, new Integer(1));
-		this.add(zoneScore, new Integer(1));
-		this.add(zoneTimer, new Integer(1));
-		this.add(iconeTimer, new Integer(2));
-
 		tableau = new JLabel(new ImageIcon(Init.tableaualphabetsymboles));
 		tableau.setBounds(450, 120, 520, 320);
 		this.add(tableau, new Integer(1));

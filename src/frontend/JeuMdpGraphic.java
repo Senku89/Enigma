@@ -60,14 +60,6 @@ public class JeuMdpGraphic extends MiniJeuGraphic{
 		titre = new Titre("2. Tri des Mots de Passe", 70, 30, 420, 35);
 		this.add(titre, new Integer(1));
 
-		this.add(boutonQuitter, new Integer(1));
-
-		this.add(zoneScore, new Integer(1));
-
-		this.add(zoneTimer, new Integer(1));
-
-		this.add(iconeTimer, new Integer(2));
-
 		zoneMdpFaible = new ZoneTexte("", titre.getX(), titre.getY()+titre.getHeight()+spacingHeight, smallZoneWidth, zoneHeight);
 		this.add(zoneMdpFaible, new Integer(1));
 
