@@ -1,18 +1,12 @@
 package general;
 
-import backend.minijeu.*;
-
 import frontend.*;
-
-import general.Init;
 
 import util.Score;
 import util.Timer;
 
 import java.awt.Component;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Logger;
 
 import static util.Score.listeScore;
@@ -28,7 +22,7 @@ public class MainController{
 		private MenuPrincipalGraphic mpg;
 		private JeuQuizGraphic jqg;
 		private JeuMdpGraphic jmg;
-		private JeuDecryptGraphic jdg;
+		private JeuDechiffGraphic jdg;
 		private JeuFinalGraphic jfg;
 		private ResultatsFinauxGraphic rfg;
 
@@ -64,7 +58,7 @@ public class MainController{
 		}
 
 		public void startJeuDecrypt(){
-			jdg = new JeuDecryptGraphic(this, f);
+			jdg = new JeuDechiffGraphic(this, f);
 			f.setPanel(jdg);
 			jeuActif = (MiniJeuGraphic)f.getPanel();
 		}

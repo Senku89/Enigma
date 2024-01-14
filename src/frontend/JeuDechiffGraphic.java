@@ -4,7 +4,6 @@ import backend.minijeu.JeuDechiffrement;
 import general.Init;
 import general.MainController;
 
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,7 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class JeuDecryptGraphic extends MiniJeuGraphic{
+public class JeuDechiffGraphic extends MiniJeuGraphic{
 
 	JeuDechiffrement jeuDechiffrement = new JeuDechiffrement(Init.classeur1csv);
 
@@ -21,7 +20,7 @@ public class JeuDecryptGraphic extends MiniJeuGraphic{
 	Bouton boutonValider;
 	ZoneTexte zoneChiffre;
 
-	public JeuDecryptGraphic(MainController mainController, Fenetre fenetre){
+	public JeuDechiffGraphic(MainController mainController, Fenetre fenetre){
 		super(mainController, fenetre);
 		// System.out.println("mpg graphic");
 		this.setLayout(null);
