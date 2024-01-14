@@ -57,11 +57,10 @@ public class JeuPassword extends Minijeu {
         System.out.println(getScore()); // A virer apres
 
         // Ajout score sur la liste de score
-        listeScore.add(score);
+        listeScore.add(score); // Indice 1 Pour jeuPassword sur la listeScore
 
         for (Score score : listeScore) {
             System.out.println("Lets see: "+score.toString()); //A virer apres
-            // Indice 0 Pour jeuQuiz sur la listeScore
         }
     }
 

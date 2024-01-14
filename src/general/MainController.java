@@ -14,7 +14,6 @@ import static util.Score.listeScore;
 public class MainController{
 		Logger logger = Logger.getLogger(getClass().getName());
 		private static Score score;
-
 		Fenetre f;
 		MenuPrincipalGraphic mpg;
 		JeuQuizGraphic jqg;
@@ -59,7 +58,7 @@ public class MainController{
 		}
 
 		public void startResultatFinaux(){
-			rfg = new ResultatsFinauxGraphic(this, f, jqg.getScore(), jmg.getScore(), jdg.getScore(), jfg.isMotTrouve());
+			rfg = new ResultatsFinauxGraphic(this, f, listeScore.get(0).getScore(), listeScore.get(1).getScore(), listeScore.get(2).getScore(), jfg.jeuFinal.getMotTrouve());
 			f.setPanel(rfg);
 		}
 		

@@ -14,6 +14,8 @@ public class JeuFinal extends Minijeu {
     private Indice currentIndice;
     private Score finalScore;
 
+    private Boolean motTrouve = false;
+
     public JeuFinal(String filePath) {
         listIndices = CSVReader.readCSVIndice(filePath);
         choisirIndiceRandom();
@@ -31,29 +33,35 @@ public class JeuFinal extends Minijeu {
     // Valider le mot final
     public boolean validerMotFinal(String motFinal) {
         if (currentIndice != null) {
-            String motCorrect = currentIndice.getTxtReponse().toLowerCase();
-            boolean reponse = motCorrect.equals(motFinal);
-            if(reponse){
-                System.out.println("CORRECTO AMIGO"); //TEST A EFFACER APRES
-                // Sauvegarder le Résultat si mot correct pour afficher que c'est trouve pour les resultats finaux
-                return reponse;
+            String motCorrect = currentIndice.getTxtReponse();
+            boolean reponse = motCorrect.equalsIgnoreCase(motFinal);
+
+            if (reponse) {
+                // Sauvegarder le Résultat si mot correct pour afficher que c'est trouvé pour les résultats finaux
+                setMotTrouve(true);
+                System.out.println("CORRECTO AMIGO"); // TEST A EFFACER APRES
+            } else {
+                System.out.println("NO ES CORRECTO AMIGO"); // TEST A EFFACER APRES
             }
-            System.out.println("NO ES CORRECTO AMIGO"); //TEST A EFFACER APRES
+
             return reponse;
         }
+
         return false;
     }
 
     // Calcul seuil pour livrer l'indice dans l'interface
-    public boolean ifIndiceTrouveQuiz(int indice, int minScore) {
-        // Check if the index is valid before accessing the list
-        if (indice >= 0 && indice < listeScore.size()) {
-            Score jeuScore = listeScore.get(indice);
-            return (jeuScore.getScore() >= minScore);
-        } else {
-            // Handle the case where the index is out of bounds
+    public boolean ifIndiceTrouve(int indice, int minScore) {
+        // Check if the indice is out of bounds
+        if (indice >= listeScore.size() || indice < 0) {
+            System.out.println("Invalid indice: " + indice); // A RETIRER APRES
             return false;
         }
+
+        Score jeuScore = listeScore.get(indice);
+        System.out.println("SCORE " + indice + " Comparant avec le minimum : " + minScore); // A RETIRER APRES
+
+        return jeuScore.getScore() >= minScore;
     }
 
     public Indice getCurrentIndice() {
@@ -70,5 +78,13 @@ public class JeuFinal extends Minijeu {
 
     public void setFinalScore(Score finalScore) {
         this.finalScore = finalScore;
+    }
+
+    public Boolean getMotTrouve() {
+        return motTrouve;
+    }
+
+    public void setMotTrouve(Boolean motTrouve) {
+        this.motTrouve = motTrouve;
     }
 }

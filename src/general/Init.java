@@ -3,7 +3,12 @@ package general;
 import java.awt.Color;
 
 public class Init{
-	
+
+	// Ici on introduit les score minimum pour avoir l'indice
+	public static int minQuiz = 0; // Add in Init
+	public static int minMDP = 0; // Add in Init
+	public static int minDechiff = 0; // Add in Init
+
 	public static String resourcepath = "resources/";
 
 	public static String imagefondmenuprincipal = resourcepath+"images/menu.png";

@@ -43,13 +43,13 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 
 		bgImage = new JLabel(new ImageIcon(Init.imagefondmenuprincipal));
 		bgImage.setBounds(0, 0, fenetre.getWidth(), fenetre.getHeight());
-		this.add(bgImage, new Integer(0));
+		this.add(bgImage, Integer.valueOf(0));
 
 		titre = new Titre("5. Résultats Finaux");
-		this.add(titre, new Integer(1));
+		this.add(titre, Integer.valueOf(1));
 
 		zoneCentrale = new ZoneTexte("", 200, 100, 600, 350);
-		this.add(zoneCentrale, new Integer(1));
+		this.add(zoneCentrale, Integer.valueOf(1));
 
 		
 		int scoreQuizWidth;
@@ -70,14 +70,14 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		intituleQuiz.setForeground(intituleForeground);
 		intituleQuiz.setBackground(intituleBackground);
 		intituleQuiz.setFont(intituleFont);
-		this.add(intituleQuiz, new Integer(2));
+		this.add(intituleQuiz, Integer.valueOf(2));
 
 		scoreQuiz = new JTextArea(scorequiz+"/100");
 		scoreQuiz.setBounds(zoneCentrale.getX()+zoneCentrale.getWidth()/2-scoreQuizWidth/2, intituleQuiz.getY()+intituleQuiz.getHeight()+paddingHeight, scoreQuizWidth, scoreHeight);
 		scoreQuiz.setForeground(scoreForeground);
 		scoreQuiz.setBackground(scoreBackground);
 		scoreQuiz.setFont(scoreFont);
-		this.add(scoreQuiz, new Integer(2));
+		this.add(scoreQuiz, Integer.valueOf(2));
 
 		int intituleMdpWidth = 200;
 		int scoreMdpWidth;
@@ -96,14 +96,14 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		intituleMdp.setForeground(intituleForeground);
 		intituleMdp.setBackground(intituleBackground);
 		intituleMdp.setFont(intituleFont);
-		this.add(intituleMdp, new Integer(2));
+		this.add(intituleMdp, Integer.valueOf(2));
 
 		scoreMdp = new JTextArea(scoremdp+"/100");
 		scoreMdp.setBounds(zoneCentrale.getX()+zoneCentrale.getWidth()/2-scoreMdpWidth/2, intituleMdp.getY()+intituleMdp.getHeight()+paddingHeight, scoreMdpWidth, scoreHeight);
 		scoreMdp.setForeground(scoreForeground);
 		scoreMdp.setBackground(scoreBackground);
 		scoreMdp.setFont(scoreFont);
-		this.add(scoreMdp, new Integer(2));
+		this.add(scoreMdp, Integer.valueOf(2));
 
 		int intituleDechiffrementWidth = 200;
 		int scoreDecryptWidth;
@@ -121,14 +121,14 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		intituleDechiffrement.setForeground(intituleForeground);
 		intituleDechiffrement.setBackground(intituleBackground);
 		intituleDechiffrement.setFont(intituleFont);
-		this.add(intituleDechiffrement, new Integer(2));
+		this.add(intituleDechiffrement, Integer.valueOf(2));
 
 		scoreDechiffrement = new JTextArea(scoredecrypt+"/100");
 		scoreDechiffrement.setBounds(zoneCentrale.getX()+zoneCentrale.getWidth()/2-scoreDecryptWidth/2, intituleDechiffrement.getY()+intituleDechiffrement.getHeight()+paddingHeight, scoreDecryptWidth, scoreHeight);
 		scoreDechiffrement.setForeground(scoreForeground);
 		scoreDechiffrement.setBackground(scoreBackground);
 		scoreDechiffrement.setFont(scoreFont);
-		this.add(scoreDechiffrement, new Integer(2));
+		this.add(scoreDechiffrement, Integer.valueOf(2));
 	
 		int intituleFinalWidth = 100;
 		intituleFinal = new JTextArea("4. Final");
@@ -136,7 +136,7 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		intituleFinal.setForeground(intituleForeground);
 		intituleFinal.setBackground(intituleBackground);
 		intituleFinal.setFont(intituleFont);
-		this.add(intituleFinal, new Integer(2));
+		this.add(intituleFinal, Integer.valueOf(2));
 
 		String titreIntituleFinal = "";
 		int resultatFinalWidth;
@@ -154,7 +154,7 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		resultatFinal.setForeground(scoreForeground);
 		resultatFinal.setBackground(scoreBackground);
 		resultatFinal.setFont(scoreFont);
-		this.add(resultatFinal, new Integer(2));
+		this.add(resultatFinal, Integer.valueOf(2));
 
 		int boutonMenuWidth = 300;
 		boutonMenu = new Bouton("Menu Principal", zoneCentrale.getX()+zoneCentrale.getWidth()/2-boutonMenuWidth/2, zoneCentrale.getY()+zoneCentrale.getHeight()+spacingHeight, boutonMenuWidth, 40);
@@ -165,6 +165,6 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 				mainController.retourMenuPrincipal();
 			}
 		});
-		this.add(boutonMenu, new Integer(1));
+		this.add(boutonMenu, Integer.valueOf(1));
 	}
 }

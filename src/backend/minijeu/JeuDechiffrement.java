@@ -12,11 +12,11 @@ import static util.Score.listeScore;
 
 public class JeuDechiffrement extends Minijeu {
     public static List<Message> listMessages;
-    private static Message currentMessage; // Message aléatoire
+    private static Message currentMessage;
 
     public JeuDechiffrement(String filePath) {
         listMessages = CSVReader.readCSVMessage(filePath);
-        choisirMessageRandom(); //message aleatoire
+        choisirMessageRandom(); // Message aléatoire au debut
     }
 
     // Choisir le message à déchiffrer de manière aléatoire
@@ -25,17 +25,18 @@ public class JeuDechiffrement extends Minijeu {
             Random random = new Random();
             int randomIndex = random.nextInt(listMessages.size());
             currentMessage = listMessages.get(randomIndex);
-            //System.out.println(currentMessage.getDechiffre());
-            //System.out.println(currentMessage.getPathImage());
+            //System.out.println(currentMessage.getDechiffre()); // A retirer apres
+            //System.out.println(currentMessage.getPathImage()); // A retirer apres
             listMessages.remove(randomIndex);
         }else{
             currentMessage = null;
             System.out.println("Fin jeu !"); // a virer apres
-            listeScore.add(score);
+            listeScore.add(score); // Indice 2 Pour jeuDechiffrement sur la listeScore
+
             for (Score score : listeScore) {
                 System.out.println("Lets see: "+score.toString()); //A virer apres
-                // Indice 2 Pour jeuDechiffrement sur la listeScore
             }
+
         }
     }
 

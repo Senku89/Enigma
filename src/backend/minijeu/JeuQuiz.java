@@ -52,11 +52,13 @@ public class JeuQuiz extends Minijeu {
         // SauvegardeRésultat
         // Si on arrive a la derniere reponse alors on envoye le resultat sur la liste statique
         if (questionIndex == listQuestions.size()-1){
-            listeScore.add(score);
+            listeScore.add(score); // Indice 0 Pour jeuQuiz sur la listeScore
+
             for (Score score : listeScore) {
                 System.out.println("Lets see: "+score.toString()); //A virer apres
                 // Indice 0 Pour jeuQuiz sur la listeScore
             }
+
         }
         return questionIndex;
     }
