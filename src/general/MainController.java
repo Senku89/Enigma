@@ -7,11 +7,6 @@ import util.Timer;
 
 import java.awt.Component;
 
-<<<<<<< HEAD
-=======
-import java.util.ArrayList;
-import java.util.List;
->>>>>>> Actualisation du timer terminée
 import java.util.logging.Logger;
 
 import static util.Score.listeScore;
@@ -28,6 +23,7 @@ public class MainController{
 		private JeuMdpGraphic jmg;
 
 		private JeuDechiffGraphic jdg;
+
 		private JeuFinalGraphic jfg;
 		private ResultatsFinauxGraphic rfg;
 
@@ -98,42 +94,6 @@ public class MainController{
 			// Remplacer le score actuel avec un nouvel score
 			// Supprimer tous les elements score
 			listeScore.clear();
-		}
-
-		public String getTime(){
-			int timeSeconds = timer.getTimeSeconds();
-
-			String minutesStr, secondesStr;
-			int minutes = timeSeconds/60;
-			int secondes = timeSeconds%60;
-			
-			minutesStr = ""+minutes;
-
-			secondesStr = ""+secondes;
-			if(secondes < 10){
-				secondesStr = "0"+secondesStr;
-			}
-
-			return minutesStr+":"+secondesStr;
-		}
-
-		public void timerIsUpdated(int timeSeconds){
-			String minutesStr, secondesStr;
-			int minutes = timeSeconds/60;
-			int secondes = timeSeconds%60;
-			
-			minutesStr = ""+minutes;
-
-			secondesStr = ""+secondes;
-			if(secondes < 10){
-				secondesStr = "0"+secondesStr;
-			}
-
-			jeuActif.updateTimer(minutesStr+":"+secondesStr);
-
-			Component timerGraphic = jeuActif.getTimer();
-
-			f.repaint(timerGraphic.getX(), timerGraphic.getY(), timerGraphic.getWidth(), timerGraphic.getHeight());
 		}
 
 		public String getTime(){
