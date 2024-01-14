@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public class Fenetre extends JFrame{
 
-	// menu principal
-	// JLayeredPane panelActif;
+	// panel actif sur la fenêtre
+	JLayeredPane panel;
 	
 	// image de fond 
 	JLabel bgImage;
@@ -29,7 +29,12 @@ public class Fenetre extends JFrame{
 		}
 	}
 
+	public JLayeredPane getPanel(){
+		return this.panel;
+	}
+
 	public void setPanel(JLayeredPane panel){
+		this.panel = panel;
 		this.add(panel);
 		this.setContentPane(panel);
 		this.repaintFenetre();
@@ -37,6 +42,5 @@ public class Fenetre extends JFrame{
 
 	public void repaintFenetre(){		
 		this.repaint(0, 0, 0, 1000, 600);
-		// System.out.println("repaintFenetre");
 	}
 }

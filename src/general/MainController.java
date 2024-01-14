@@ -1,9 +1,13 @@
 package general;
 
 import backend.minijeu.*;
+
 import frontend.*;
+
 import general.Init;
+
 import util.Score;
+import util.Timer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,19 +16,22 @@ import java.util.logging.Logger;
 public class MainController{
 		Logger logger = Logger.getLogger(getClass().getName());
 		private static Score score;
+		private Timer timer;
+		private final int tempsDeJeu = 10;
 
-		Fenetre f;
-		MenuPrincipalGraphic mpg;
-		JeuQuizGraphic jqg;
-		JeuMdpGraphic jmg;
-		JeuDecryptGraphic jdg;
-		JeuFinalGraphic jfg;
-		ResultatsFinauxGraphic rfg;
+		private Fenetre f;
+		private MenuPrincipalGraphic mpg;
+		private JeuQuizGraphic jqg;
+		private JeuMdpGraphic jmg;
+		private JeuDecryptGraphic jdg;
+		private JeuFinalGraphic jfg;
+		private ResultatsFinauxGraphic rfg;
 
 		// Constructeur
 		public MainController() {
-			
+
 			score = new Score();
+			timer = new Timer(this, tempsDeJeu);
 
 			f = new Fenetre();
 
@@ -33,6 +40,8 @@ public class MainController{
 			jmg = new JeuMdpGraphic(this, f);
 			jdg = new JeuDecryptGraphic(this, f);
 			jfg = new JeuFinalGraphic(this, f);
+
+
 		}
 
 		// Lancer le Menu Principal
@@ -41,6 +50,7 @@ public class MainController{
 		}
 
 		public void startJeuQuiz(){
+			timer.startTimer();
 			f.setPanel(jqg);
 		}
 
@@ -57,12 +67,15 @@ public class MainController{
 		}
 
 		public void startResultatFinaux(){
+			timer.stopTimer();
 			rfg = new ResultatsFinauxGraphic(this, f, jqg.getScore(), jmg.getScore(), jdg.getScore(), jfg.isMotTrouve());
 			f.setPanel(rfg);
 		}
 		
 		//Retour Menu Principal
 		public void retourMenuPrincipal(){
+			timer.stopTimer();
+			timer = new Timer(this, tempsDeJeu);
 			f.setPanel(mpg);
 			reset();
 		}
@@ -78,7 +91,45 @@ public class MainController{
 			score = newScore;
 		}
 
-		public static void timerIsUpdated(int timeSeconds){
-			System.out.println("TIMER IS BEING UPDATED");
+		public String getTime(){
+			int timeSeconds = timer.getTimeSeconds();
+
+			String minutesStr, secondesStr;
+			int minutes = timeSeconds/60;
+			int secondes = timeSeconds%60;
+			
+			minutesStr = ""+minutes;
+			if(minutes < 10){
+				minutesStr = "0"+minutesStr;
+			}
+
+			secondesStr = ""+secondes;
+			if(secondes < 10){
+				secondesStr = "0"+secondesStr;
+			}
+
+			return minutesStr+":"+secondesStr;
+		}
+
+		public void timerIsUpdated(int timeSeconds){
+			String minutesStr, secondesStr;
+			int minutes = timeSeconds/60;
+			int secondes = timeSeconds%60;
+			
+			minutesStr = ""+minutes;
+			/*if(minutes < 10){
+				minutesStr = "0"+minutesStr;
+			}*/
+
+			secondesStr = ""+secondes;
+			if(secondes < 10){
+				secondesStr = "0"+secondesStr;
+			}
+
+			System.out.println(minutesStr+":"+secondesStr);
+		}
+
+		public void outOfTime(){
+			retourMenuPrincipal();
 		}
 }

@@ -47,11 +47,6 @@ public class JeuQuizGraphic extends MiniJeuGraphic{
 		titre = new Titre("1. Quiz", 70, 30, 120, 35);
 		this.add(titre, new Integer(1));
 
-		this.add(boutonQuitter, new Integer(1));
-		this.add(zoneScore, new Integer(1));
-		this.add(zoneTimer, new Integer(1));
-		this.add(iconeTimer, new Integer(2));
-
 		// Charger les questions
 		List list = new ArrayList<String>();
 		list.addAll(jeuQuiz.affichageQuestion(index));

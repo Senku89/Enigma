@@ -3,12 +3,14 @@ package util;
 import java.util.logging.Logger;
 import general.MainController;
 public class Timer {
+    private MainController mainController;
     private int timeSeconds;
     private boolean enCours;
     private Logger logger = Logger.getLogger(getClass().getName());
     private Thread timerThread;
 
-    public Timer(int initialTime) {
+    public Timer(MainController mainController, int initialTime) {
+        this.mainController = mainController;
         this.timeSeconds = initialTime;
         this.enCours = false;
     }
@@ -30,7 +32,7 @@ public class Timer {
                         logger.severe("Thread Timer interrompu: " + e.getMessage());
                     }
                     timeSeconds--;
-                    MainController.timerIsUpdated(timeSeconds);
+                    mainController.timerIsUpdated(timeSeconds);
                 }
 
                 // Ajouter une action à effectuer lorsque le temps est écoulé
@@ -64,6 +66,7 @@ public class Timer {
     // Ajouter une méthode à appeler lorsque le temps est écoulé
     private void timerExpired() {
         logger.info("Temps écoulé!");
+        mainController.outOfTime();
         // Actions supplémentaires à effectuer lorsque le temps est écoulé
     }
 }
