@@ -31,8 +31,12 @@ public class Timer {
                     } catch (InterruptedException e) {
                         logger.severe("Thread Timer interrompu: " + e.getMessage());
                     }
-                    timeSeconds--;
-                    mainController.timerIsUpdated(timeSeconds);
+                    timeSeconds--;    
+                    try{
+                        mainController.timerIsUpdated(timeSeconds);
+                    }catch(NullPointerException npe){
+                        // Exception causée mais non bloquante
+                    }
                 }
 
                 // Ajouter une action à effectuer lorsque le temps est écoulé

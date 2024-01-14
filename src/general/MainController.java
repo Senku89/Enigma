@@ -107,8 +107,6 @@ public class MainController{
 			Score newScore = new Score();
 			// Remplacer le score actuel avec un nouvel score
 			score = newScore;
-
-			
 		}
 
 		public String getTime(){
