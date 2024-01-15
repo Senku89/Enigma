@@ -6,8 +6,6 @@ import general.Init;
 import general.MainController;
 
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +25,6 @@ public class JeuQuizGraphic extends MiniJeuGraphic{
 
 	public JeuQuizGraphic(MainController mainController, Fenetre fenetre){
 		super(mainController, fenetre);
-		// System.out.println("mpg graphic");
 		this.setLayout(null);
 		this.setOpaque(false);
 		this.setBounds(0, 0, fenetre.getWidth(), fenetre.getHeight());
@@ -37,18 +34,19 @@ public class JeuQuizGraphic extends MiniJeuGraphic{
 		setupGraphic();
 	}
 
+	@Override
 	public void setupGraphic(){
 		super.setupGraphic();
 
 		bgImage = new JLabel(new ImageIcon(Init.imagefondjeuquiz));
 		bgImage.setBounds(0, 0, fenetre.getWidth(), fenetre.getHeight());
-		this.add(bgImage, new Integer(0));
+		this.add(bgImage, Integer.valueOf(0));
 
 		titre = new Titre("1. Quiz", 70, 30, 120, 35);
-		this.add(titre, new Integer(1));
+		this.add(titre, Integer.valueOf(1));
 
 		// Charger les questions
-		List list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		list.addAll(jeuQuiz.affichageQuestion(index));
 
 		int zoneNumWidth = 45;
@@ -58,54 +56,34 @@ public class JeuQuizGraphic extends MiniJeuGraphic{
 
 		zoneNum = new ZoneTexte(" "+(index+1)+"/10", 70, 190, zoneNumWidth, 20);
 		zoneNum.setFont(new Font("Helvetica", Font.BOLD, 15));
-		this.add(zoneNum, new Integer(1));
+		this.add(zoneNum, Integer.valueOf(1));
 
 		// Énonce
-		zoneQuestion = new ZoneTexte((String) list.get(0), titre.getX(), titre.getY()+titre.getHeight()+espacement, zoneTimer.getX()+zoneTimer.getWidth()-titre.getX(), zoneNum.getY()-paddingHeight-titre.getY()-titre.getHeight());
+		zoneQuestion = new ZoneTexte( list.get(0), titre.getX(), titre.getY()+titre.getHeight()+espacement, zoneTimer.getX()+zoneTimer.getWidth()-titre.getX(), zoneNum.getY()-paddingHeight-titre.getY()-titre.getHeight());
 		zoneQuestion.setFont(new Font("Helvetica", Font.BOLD, 20));
-		this.add(zoneQuestion, new Integer(1));
+		this.add(zoneQuestion, Integer.valueOf(1));
 
 		zoneCentrale = new ZoneTexte("", 195, 220, 620, 270);
-		this.add(zoneCentrale, new Integer(1));
+		this.add(zoneCentrale, Integer.valueOf(1));
 
 		// Reponses
-		repA = new Bouton((String) list.get(1), zoneCentrale.getX()+paddingWidth, zoneCentrale.getY()+paddingHeight, zoneCentrale.getWidth()-2*30, repHeight, boutonFontSize);
-		repB = new Bouton((String) list.get(2), repA.getX(), repA.getY()+repHeight+paddingHeight, repA.getWidth(), repHeight, boutonFontSize);
-		repC = new Bouton((String) list.get(3), repA.getX(), repB.getY()+repHeight+paddingHeight, repA.getWidth(), repHeight, boutonFontSize);
-		repD = new Bouton((String) list.get(4), repA.getX(), repC.getY()+repHeight+paddingHeight, repA.getWidth(), repHeight, boutonFontSize);
+		repA = new Bouton( list.get(1), zoneCentrale.getX()+paddingWidth, zoneCentrale.getY()+paddingHeight, zoneCentrale.getWidth()-2*30, repHeight, boutonFontSize);
+		repB = new Bouton( list.get(2), repA.getX(), repA.getY()+repHeight+paddingHeight, repA.getWidth(), repHeight, boutonFontSize);
+		repC = new Bouton( list.get(3), repA.getX(), repB.getY()+repHeight+paddingHeight, repA.getWidth(), repHeight, boutonFontSize);
+		repD = new Bouton( list.get(4), repA.getX(), repC.getY()+repHeight+paddingHeight, repA.getWidth(), repHeight, boutonFontSize);
 	
-		repA.addActionListener(new ActionListener(){
-			@Override
-			public void actionPerformed(ActionEvent e){
-				nextQuestion(repA.getText());
-			}
-		});
+		repA.addActionListener(e -> nextQuestion(repA.getText()));
 
-		repB.addActionListener(new ActionListener(){
-			@Override
-			public void actionPerformed(ActionEvent e){
-				nextQuestion(repB.getText());
-			}
-		});
+		repB.addActionListener(e -> nextQuestion(repB.getText()));
 
-		repC.addActionListener(new ActionListener(){
-			@Override
-			public void actionPerformed(ActionEvent e){
-				nextQuestion(repC.getText());
-			}
-		});
+		repC.addActionListener(e -> nextQuestion(repC.getText()));
 
-		repD.addActionListener(new ActionListener(){
-			@Override
-			public void actionPerformed(ActionEvent e){
-				nextQuestion(repD.getText());
-			}
-		});
+		repD.addActionListener(e -> nextQuestion(repD.getText()));
 
-		this.add(repA, new Integer(2));
-		this.add(repB, new Integer(2));
-		this.add(repC, new Integer(2));
-		this.add(repD, new Integer(2));
+		this.add(repA, Integer.valueOf(2));
+		this.add(repB, Integer.valueOf(2));
+		this.add(repC, Integer.valueOf(2));
+		this.add(repD, Integer.valueOf(2));
 	}
 
 	public void nextQuestion(String reponse){
@@ -116,17 +94,15 @@ public class JeuQuizGraphic extends MiniJeuGraphic{
 			reset();
 			fenetre.repaintFenetre();
 		} else {
-			System.out.println("Fin jeu Quiz");
+			// Debut prochain jeu
 			mainController.startJeuMDP();
 		}
 	}
 
 	public void reset(){
 		this.removeAll();
-		/*repA = null; repB = null; repC = null; repD = null;
-		zoneNum = null; zoneQuestion = null; zoneCentrale = null;*/
+
 		this.setupGraphic();
-		/*fenetre.repaintFenetre();*/
 	}
 
 	public int getScore(){

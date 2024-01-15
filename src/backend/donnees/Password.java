@@ -18,7 +18,7 @@ public class Password {
         return lvl;
     }
 
-    // Setters si besoin
+    // Getters et Setters si besoin
 
     @Override
     public String toString() {

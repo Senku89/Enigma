@@ -17,7 +17,7 @@ public class Message {
             return pathImage;
         }
 
-    // Setters si besoin
+    // Getter et Setters si besoin
 
     @Override
     public String toString() {

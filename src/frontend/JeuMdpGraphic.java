@@ -7,9 +7,6 @@ import general.MainController;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -40,15 +37,14 @@ public class JeuMdpGraphic extends MiniJeuGraphic{
 		super(mainController, fenetre);
 
 		jeuPassword = new JeuPassword(Init.mdpcsv);
-		// System.out.println("mpg graphic");
 		this.setLayout(null);
 		this.setOpaque(false);
 		this.setBounds(0, 0, fenetre.getWidth(), fenetre.getHeight());
-		// this.addMouseListener(new SourisListener(this));
 
 		setupGraphic();
 	}
 
+	@Override
 	public void setupGraphic(){
 		super.setupGraphic();
 
@@ -57,81 +53,76 @@ public class JeuMdpGraphic extends MiniJeuGraphic{
 		bgImage = new JLabel(new ImageIcon(Init.imagefondjeumdp));
 		bgImage.setBounds(0, 0, fenetre.getWidth(), fenetre.getHeight());
 
-		this.add(bgImage, new Integer(0));
+		this.add(bgImage, Integer.valueOf(0));
 
 		titre = new Titre("2. Tri des Mots de Passe", 70, 30, 420, 35);
-		this.add(titre, new Integer(1));
+		this.add(titre, Integer.valueOf(1));
 
 		zoneMdpFaible = new ZoneTexte("", titre.getX(), titre.getY()+titre.getHeight()+spacingHeight, smallZoneWidth, zoneHeight);
-		this.add(zoneMdpFaible, new Integer(1));
+		this.add(zoneMdpFaible, Integer.valueOf(1));
 
 		zoneLibelleFaible = new ZoneTexte("       Faible", zoneMdpFaible.getX(), zoneMdpFaible.getY(), smallZoneWidth, libelleTitreHeight);
 		zoneLibelleFaible.setForeground(Color.WHITE);
 		zoneLibelleFaible.setBackground(new Color(255, 130, 130));
 		zoneLibelleFaible.setFont(new Font("Helvetica", Font.PLAIN, 20));
-		this.add(zoneLibelleFaible, new Integer(2));
+		this.add(zoneLibelleFaible, Integer.valueOf(2));
 
 		zoneMdpMoyen = new ZoneTexte("", zoneMdpFaible.getX()+zoneMdpFaible.getWidth()+spacingWidthSmall, zoneMdpFaible.getY(), smallZoneWidth, zoneHeight);
-		this.add(zoneMdpMoyen, new Integer(1));
+		this.add(zoneMdpMoyen, Integer.valueOf(1));
 
 		zoneLibelleMoyen = new ZoneTexte("       Moyen", zoneMdpMoyen.getX(), zoneMdpMoyen.getY(), smallZoneWidth, libelleTitreHeight);
 		zoneLibelleMoyen.setForeground(Color.WHITE);
 		zoneLibelleMoyen.setBackground(new Color(250, 205, 100));
 		zoneLibelleMoyen.setFont(new Font("Helvetica", Font.PLAIN, 20));
-		this.add(zoneLibelleMoyen, new Integer(2));
+		this.add(zoneLibelleMoyen, Integer.valueOf(2));
 
 		zoneMdpFort = new ZoneTexte("", zoneMdpMoyen.getX()+zoneMdpMoyen.getWidth()+spacingWidthSmall, zoneMdpMoyen.getY(), smallZoneWidth, zoneHeight);
-		this.add(zoneMdpFort, new Integer(1));
+		this.add(zoneMdpFort, Integer.valueOf(1));
 
 		zoneLibelleFort = new ZoneTexte("         Fort", zoneMdpFort.getX(), zoneMdpFort.getY(), smallZoneWidth, libelleTitreHeight);
 		zoneLibelleFort.setForeground(Color.WHITE);
 		zoneLibelleFort.setBackground(new Color(100, 200, 100));
 		zoneLibelleFort.setFont(new Font("Helvetica", Font.PLAIN, 20));
-		this.add(zoneLibelleFort, new Integer(2));
+		this.add(zoneLibelleFort, Integer.valueOf(2));
 
 		zoneTousMdp = new ZoneTexte("", zoneMdpFort.getX()+zoneMdpFort.getWidth()+spacingWidthLarge, zoneMdpFort.getY(), largeZoneWidth, zoneHeight); 
-		this.add(zoneTousMdp, new Integer(1));
+		this.add(zoneTousMdp, Integer.valueOf(1));
 
 		zoneLibelleTousMdp = new ZoneTexte("                    Mots de passe", zoneTousMdp.getX(), zoneTousMdp.getY(), largeZoneWidth, libelleTitreHeight);
 		zoneLibelleTousMdp.setForeground(Color.WHITE);
 		zoneLibelleTousMdp.setBackground(Color.BLACK);
 		zoneLibelleTousMdp.setFont(new Font("Helvetica", Font.PLAIN, 20));
-		this.add(zoneLibelleTousMdp, new Integer(2));
+		this.add(zoneLibelleTousMdp, Integer.valueOf(2));
 
 		boutonValider = new Bouton("Valider", zoneMdpMoyen.getX()-5, zoneScore.getY(), zoneMdpMoyen.getWidth()+10, 40);
-		boutonValider.addActionListener(new ActionListener(){
-			@Override
-			public void actionPerformed(ActionEvent e){
+		boutonValider.addActionListener(e -> {
 
-				ArrayList<ArrayList<String>> reponses = new ArrayList<>();
+            ArrayList<ArrayList<String>> reponses = new ArrayList<>();
 
-				int indice = 0;
+            int indice = 0;
 
-				for(ArrayList<JButton> liste : tableauResultat){
-					reponses.add(new ArrayList<>());
+            for(ArrayList<JButton> liste : tableauResultat){
+                reponses.add(new ArrayList<>());
 
-					for(JButton mdp : liste){
-						reponses.get(indice).add(mdp.getText());
-					}
+                for(JButton mdp : liste){
+                    reponses.get(indice).add(mdp.getText());
+                }
 
-					indice++;
-				}
+                indice++;
+            }
 
-				jeuPassword.getResultat(reponses);
+            jeuPassword.getResultat(reponses);
 
-				// ##### methode jeuSuivant
-
-				mainController.startJeuDecrypt();
-			}
-		});
-		this.add(boutonValider, new Integer(1));
+            // jeuSuivant
+            mainController.startJeuDecrypt();
+        });
+		this.add(boutonValider, Integer.valueOf(1));
 
 		motsDePasseListe = new ArrayList<>();
 
 		int xTmp = zoneTousMdp.getX()+marginZoneMdps;
 		int yTmp = zoneTousMdp.getY()+libelleTitreHeight+spacingHeightMdp;
 
-		int nbMdps = 12;
 		int cpt = 0;
 
 		for(String mdp : jeuPassword.getPasswords()){
@@ -155,7 +146,7 @@ public class JeuMdpGraphic extends MiniJeuGraphic{
 				cpt = 0;
 			}
 
-			this.add(nouveauMdp, new Integer(2));
+			this.add(nouveauMdp, Integer.valueOf(2));
 		}
 
 		zones = new ArrayList<>();

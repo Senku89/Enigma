@@ -33,7 +33,7 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 
 	public ResultatsFinauxGraphic(MainController mainController, Fenetre fenetre, int scorequiz, int scoremdp, int scoredecrypt, boolean motFinalFound){
 		super();
-		// System.out.println("rfg");
+
 		this.mainController = mainController;
 		this.fenetre = fenetre;
 
@@ -159,12 +159,9 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		int boutonMenuWidth = 300;
 		boutonMenu = new Bouton("Menu Principal", zoneCentrale.getX()+zoneCentrale.getWidth()/2-boutonMenuWidth/2, zoneCentrale.getY()+zoneCentrale.getHeight()+spacingHeight, boutonMenuWidth, 40);
 		boutonMenu.setFont(new Font("Helvetica", Font.BOLD, 20));
-		boutonMenu.addActionListener(new ActionListener(){
-			@Override
-			public void actionPerformed(ActionEvent e){
-				mainController.retourMenuPrincipal();
-			}
-		});
+
+		boutonMenu.addActionListener(e -> mainController.retourMenuPrincipal());
+
 		this.add(boutonMenu, Integer.valueOf(1));
 	}
 }

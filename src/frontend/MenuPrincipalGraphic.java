@@ -5,9 +5,6 @@ import general.MainController;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -24,7 +21,6 @@ public class MenuPrincipalGraphic extends JLayeredPane{
 
 	public MenuPrincipalGraphic(MainController mainController, Fenetre fenetre){
 		super();
-		// System.out.println("mpg graphic");
 
 		this.mainController = mainController;
 		this.fenetre = fenetre;
@@ -36,7 +32,7 @@ public class MenuPrincipalGraphic extends JLayeredPane{
 		bgImage = new JLabel(new ImageIcon(Init.imagefondmenuprincipal));
 		bgImage.setBounds(0, 0, this.getWidth(), this.getHeight());
 
-		this.add(bgImage, new Integer(0));
+		this.add(bgImage, Integer.valueOf(0));
 
 		title = new JLabel("Déchiffrez Enigma");
 		title.setBounds(225, 60, 550, 100);
@@ -47,29 +43,20 @@ public class MenuPrincipalGraphic extends JLayeredPane{
 		textIntro.setFont(new Font("Helvetica", Font.PLAIN, 20));
 
 		boutonJouer = new Bouton("Jouer", 250, 450, 150, 30);
-		boutonJouer.addActionListener(new ActionListener(){
-			@Override
-			public void actionPerformed(ActionEvent e){
-				// Methode lancer le jeu
-				//mainController.nextJeu(0);
-				// System.out.println("Jouer");
-				mainController.startJeuQuiz();
-			}
-		});
+		boutonJouer.addActionListener(e -> {
+            // Methode lancer le jeu suivant
+            mainController.startJeuQuiz();
+        });
 
 		boutonQuitter = new Bouton("Sortir", 600, 450, 150, 30);
-		boutonQuitter.addActionListener(new ActionListener(){
-			@Override
-			public void actionPerformed(ActionEvent e){
-				// Methode pour tout arrêter
-				// System.out.println("Quitter");
-				fenetre.dispose();
-			}
-		});
+		boutonQuitter.addActionListener(e -> {
+            // Quitter le jeu
+            fenetre.dispose();
+        });
 
-		this.add(title, new Integer(1));
-		this.add(textIntro, new Integer(1));
-		this.add(boutonJouer, new Integer(1));
-		this.add(boutonQuitter, new Integer(1));
+		this.add(title, Integer.valueOf(1));
+		this.add(textIntro, Integer.valueOf(1));
+		this.add(boutonJouer, Integer.valueOf(1));
+		this.add(boutonQuitter, Integer.valueOf(1));
 	}
 }

@@ -2,6 +2,7 @@ package backend.donnees;
 
 import java.util.List;
 
+// Cette class sert a tester CSVReader.java
 public class TestDonnees {
         public static void TestCSV() {
             String filePath;

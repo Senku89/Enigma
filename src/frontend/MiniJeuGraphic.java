@@ -5,8 +5,6 @@ import general.MainController;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -35,13 +33,8 @@ public class MiniJeuGraphic extends JLayeredPane{
 	public void setupGraphic(){
 		boutonQuitter = new Bouton("Quitter", 813, 500, 150, 40);
 		boutonQuitter.setFont(new Font("Helvetica", Font.BOLD, 20));
-		boutonQuitter.addActionListener(new ActionListener(){
-			@Override
-			public void actionPerformed(ActionEvent e){
-				mainController.retourMenuPrincipal();
-			}
-		});
-		this.add(boutonQuitter, new Integer(1));
+		boutonQuitter.addActionListener(e -> mainController.retourMenuPrincipal());
+		this.add(boutonQuitter, Integer.valueOf(1));
 
 		int scoreWidth = 130;
 		if(score == 0){
@@ -50,21 +43,21 @@ public class MiniJeuGraphic extends JLayeredPane{
 
 		zoneScore = new ZoneTexte(" "+score+" / 100 points", 70, 500, scoreWidth, 20);
 		zoneScore.setFont(new Font("Helvetica", Font.BOLD, 15));
-		this.add(zoneScore, new Integer(1));
+		this.add(zoneScore, Integer.valueOf(1));
 
 		zoneTimer = new ZoneTexte("", 820, 30, 130, 35);
-		this.add(zoneTimer, new Integer(1));
+		this.add(zoneTimer, Integer.valueOf(1));
 
 		timer = new JTextArea(mainController.getTime());
 		timer.setBounds(zoneTimer.getX()+40, zoneTimer.getY()+2, zoneTimer.getWidth()-40, zoneTimer.getHeight()-4);
 		timer.setForeground(Color.BLACK);
 		timer.setBackground(new Color(0, 0, 0, 0));
 		timer.setFont(new Font("Helvetica", Font.BOLD, 28));
-		this.add(timer, new Integer(2));
+		this.add(timer, Integer.valueOf(2));
 
 		iconeTimer = new JLabel(new ImageIcon(Init.iconetimer));
 		iconeTimer.setBounds(821, 30, 35, 35);
-		this.add(iconeTimer, new Integer(2));
+		this.add(iconeTimer, Integer.valueOf(2));
 	}
 
 	public JTextArea getTimer(){
@@ -79,6 +72,6 @@ public class MiniJeuGraphic extends JLayeredPane{
 		timer.setForeground(Color.BLACK);
 		timer.setBackground(new Color(0, 0, 0, 0));
 		timer.setFont(new Font("Helvetica", Font.BOLD, 28));
-		this.add(timer, new Integer(2));
+		this.add(timer, Integer.valueOf(2));
 	}
 }

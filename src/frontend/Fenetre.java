@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Fenetre extends JFrame{
 
-	// panel actif sur la fenêtre
+	// Panel actif sur la fenêtre
 	JLayeredPane panel;
 	
 	// image de fond 
@@ -15,7 +15,6 @@ public class Fenetre extends JFrame{
 	public Fenetre(){
 		super("CryptoGame");
 		try{
-			// System.out.println("fenetre");
 			this.setLocation(340, 240);
 			this.setSize(1000, 600);
 

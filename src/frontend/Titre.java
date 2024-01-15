@@ -8,9 +8,7 @@ import java.awt.Font;
 import javax.swing.JTextArea;
 
 public class Titre extends JTextArea{
-	
 	public int x, y;
-
 	public Titre(String name){
 		super(name);
 		this.setBounds(70, 30, 410, 35);

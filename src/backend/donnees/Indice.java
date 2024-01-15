@@ -27,7 +27,7 @@ public class Indice {
             return txt3;
     }
 
-    // Setters si besoin
+    // Getters et Setters si besoin
 
     @Override
     public String toString() {

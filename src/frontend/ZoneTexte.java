@@ -8,7 +8,6 @@ import java.awt.Color;
 import javax.swing.JTextArea;
 
 public class ZoneTexte extends JTextArea{
-	
 	public int x, y;
 
 	public ZoneTexte(String name, int x, int y, int width, int height){

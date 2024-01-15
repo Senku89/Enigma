@@ -4,8 +4,6 @@ import util.Score;
 
 public class Minijeu {
 
-    // Attribut Timer?
-
     protected Score score = new Score();
 
     public int getScore(){

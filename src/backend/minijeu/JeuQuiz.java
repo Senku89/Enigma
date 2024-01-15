@@ -17,6 +17,8 @@ public class JeuQuiz extends Minijeu {
     // Constructeur pour initialiser le JeuQuiz avec les données dans le fichier CSV
     public JeuQuiz(String filePath) {
         listQuestions = CSVReader.readCSVQuestion(filePath);
+        // Randomiser la liste des Questions
+        Collections.shuffle(listQuestions);
         nQuestion = 0;
     }
 
@@ -45,19 +47,12 @@ public class JeuQuiz extends Minijeu {
         if (checkReponse(reponse, questionIndex)) {
             //Update Score
             score.increaseScore(10);
-            System.out.println("Reponse Correcte : " + score.getScore()); //A virer apres
-        } else
-            System.out.println("Reponse Incorrecte : " + score.getScore()); //A virer apres
+        }
 
         // SauvegardeRésultat
         // Si on arrive a la derniere reponse alors on envoye le resultat sur la liste statique
         if (questionIndex == listQuestions.size()-1){
             listeScore.add(score); // Indice 0 Pour jeuQuiz sur la listeScore
-
-            for (Score score : listeScore) {
-                System.out.println("Lets see: "+score.toString()); //A virer apres
-                // Indice 0 Pour jeuQuiz sur la listeScore
-            }
 
         }
         return questionIndex;

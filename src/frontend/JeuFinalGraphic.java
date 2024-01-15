@@ -1,19 +1,15 @@
 package frontend;
 
-import backend.donnees.Indice;
 import backend.minijeu.JeuFinal;
 import general.Init;
 import general.MainController;
 
 import java.awt.Font;
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.JTextField;
 
 public class JeuFinalGraphic extends MiniJeuGraphic{
@@ -41,7 +37,6 @@ public class JeuFinalGraphic extends MiniJeuGraphic{
 	public JeuFinalGraphic(MainController mainController, Fenetre fenetre){
 		super(mainController, fenetre);
 
-		// System.out.println("mpg graphic");
 		this.setLayout(null);
 		this.setOpaque(false);
 		this.setBounds(0, 0, fenetre.getWidth(), fenetre.getHeight());
@@ -55,7 +50,7 @@ public class JeuFinalGraphic extends MiniJeuGraphic{
 
 		titre = new Titre("4. Découvre le Mot Final", 70, 30, 410, 35);
 		
-		this.add(titre, new Integer(1));
+		this.add(titre, Integer.valueOf(1));
 
 		zoneCentrale = new ZoneTexte("", titre.getX(), titre.getY()+titre.getHeight()+spacingHeight,zoneTimer.getX()+zoneTimer.getWidth()-titre.getX(), hauteurZoneCentrale);
 		this.add(zoneCentrale, Integer.valueOf(1));
@@ -142,15 +137,12 @@ public class JeuFinalGraphic extends MiniJeuGraphic{
 		this.add(zoneMotFinal, Integer.valueOf(1));
 
 		boutonValider = new Bouton("Valider", zoneCentrale.getX()+zoneCentrale.getWidth()/2-boutonQuitter.getWidth()/2, boutonQuitter.getY(), boutonQuitter.getWidth(), boutonQuitter.getHeight());
-		boutonValider.addActionListener(new ActionListener(){
-			@Override
-			public void actionPerformed(ActionEvent e){
-				String reponse = zoneMotFinal.getText().toLowerCase();
-				// Methode Valider avec comme paramètre la réponse
-				jeuFinal.validerMotFinal(reponse);
-				mainController.startResultatFinaux();
-			}
-		});
+		boutonValider.addActionListener(e -> {
+            String reponse = zoneMotFinal.getText().toLowerCase();
+            // Methode Valider avec comme paramètre la réponse
+            jeuFinal.validerMotFinal(reponse);
+            mainController.startResultatFinaux();
+        });
 		this.add(boutonValider, Integer.valueOf(1));
 
 	}

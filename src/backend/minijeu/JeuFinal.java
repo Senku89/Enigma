@@ -39,9 +39,6 @@ public class JeuFinal extends Minijeu {
             if (reponse) {
                 // Sauvegarder le Résultat si mot correct pour afficher que c'est trouvé pour les résultats finaux
                 setMotTrouve(true);
-                System.out.println("CORRECTO AMIGO"); // TEST A EFFACER APRES
-            } else {
-                System.out.println("NO ES CORRECTO AMIGO"); // TEST A EFFACER APRES
             }
 
             return reponse;
@@ -54,12 +51,10 @@ public class JeuFinal extends Minijeu {
     public boolean ifIndiceTrouve(int indice, int minScore) {
         // Check if the indice is out of bounds
         if (indice >= listeScore.size() || indice < 0) {
-            System.out.println("Invalid indice: " + indice); // A RETIRER APRES
             return false;
         }
 
         Score jeuScore = listeScore.get(indice);
-        System.out.println("SCORE " + indice + " Comparant avec le minimum : " + minScore); // A RETIRER APRES
 
         return jeuScore.getScore() >= minScore;
     }

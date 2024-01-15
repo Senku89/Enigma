@@ -4,6 +4,7 @@ import backend.donnees.CSVReader;
 import backend.donnees.Password;
 import util.Score;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -15,6 +16,8 @@ public class JeuPassword extends Minijeu {
     // Constructeur pour initialiser le JeuPassword avec les données du fichier CSV
     public JeuPassword(String filePath) {
         listPasswords = CSVReader.readCSVPassword(filePath);
+        // Avoir la liste des Passwords randomise
+        Collections.shuffle(listPasswords);
     }
     // Methode pour test si le password a le bon niveau
     public boolean testNiveauPassword(String mdp, int pNiveau) {
@@ -54,14 +57,9 @@ public class JeuPassword extends Minijeu {
         // Methode setScore()
         this.score.setScore(calcul);
 
-        System.out.println(getScore()); // A virer apres
-
         // Ajout score sur la liste de score
         listeScore.add(score); // Indice 1 Pour jeuPassword sur la listeScore
 
-        for (Score score : listeScore) {
-            System.out.println("Lets see: "+score.toString()); //A virer apres
-        }
     }
 
 }
