@@ -31,7 +31,7 @@ public class Init{
 			"1. Un quiz comportant 10 questions sur la cryptographie\n" +
 			"2. Classifier les mots de passe en trois niveaux\n" +
 			"3. Déchiffrer les messages secrets\n" +
-			"Enigma : Trouvez le mot mystère en fonction des indices que vous avez récoltés\nBonne chance et bon déchiffrage !\n";
+			"Enigma : Trouvez le mot mystère en fonction des indices que vous avez récoltés ! Bonne chance et bon déchiffrage !\n";
 
 	public static String getCle(int num){
 		return resourcepath+"images/cle"+num+".png";
