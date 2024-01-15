@@ -50,17 +50,16 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 
 		zoneCentrale = new ZoneTexte("", 200, 100, 600, 350);
 		this.add(zoneCentrale, Integer.valueOf(1));
-
 		
 		int scoreQuizWidth;
 
 		if(scorequiz == 100){
-			scoreQuizWidth = 65;
+			scoreQuizWidth = 121;
 		} else {
 			if(scorequiz > 9){
-				scoreQuizWidth = 55;
+				scoreQuizWidth = 111;
 			} else {
-				scoreQuizWidth = 45;
+				scoreQuizWidth = 101;
 			}
 		}
 
@@ -112,12 +111,12 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		int intituleDechiffrementWidth = 200;
 		int scoreDecryptWidth;
 		if(scoredecrypt == 100){
-			scoreDecryptWidth = 65;
+			scoreDecryptWidth = 121;
 		} else {
 			if(scoredecrypt > 9){
-				scoreDecryptWidth = 55;
+				scoreDecryptWidth = 111;
 			} else {
-				scoreDecryptWidth = 45;
+				scoreDecryptWidth = 101;
 			}
 		}
 		intituleDechiffrement = new JTextArea("3. Dechiffrement");

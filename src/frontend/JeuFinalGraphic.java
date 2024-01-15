@@ -43,6 +43,8 @@ public class JeuFinalGraphic extends MiniJeuGraphic{
 
 		super.setupGraphic();
 
+		this.remove(zoneScore);
+
 		bgImage = new JLabel(new ImageIcon(Init.imagefondjeuquiz));
 		bgImage.setBounds(0, 0, fenetre.getWidth(), fenetre.getHeight());
 
