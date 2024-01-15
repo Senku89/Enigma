@@ -65,6 +65,8 @@ public class JeuDechiffGraphic extends MiniJeuGraphic{
 				String reponse = devine.getText().toLowerCase();
 				// Methode Valider avec comme paramètre la réponse
 				jeuDechiffrement.checkResultat(reponse);
+				score = jeuDechiffrement.getScore();
+				score = (int)(((double)score/6)*100);
 				nextMessage();
 				// System.out.println("Valider : "+reponse);
 			}

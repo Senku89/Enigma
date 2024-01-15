@@ -23,6 +23,7 @@ public class MiniJeuGraphic extends JLayeredPane{
 	protected Titre titre;
 	protected Bouton boutonQuitter;
 	protected ZoneTexte zoneScore;
+	protected int score = 0;
 
 	int espacement = 10;
 
@@ -42,7 +43,12 @@ public class MiniJeuGraphic extends JLayeredPane{
 		});
 		this.add(boutonQuitter, new Integer(1));
 
-		zoneScore = new ZoneTexte(" 0 / 100 points", 70, 500, 120, 20);
+		int scoreWidth = 130;
+		if(score == 0){
+			scoreWidth = 120;
+		}
+
+		zoneScore = new ZoneTexte(" "+score+" / 100 points", 70, 500, scoreWidth, 20);
 		zoneScore.setFont(new Font("Helvetica", Font.BOLD, 15));
 		this.add(zoneScore, new Integer(1));
 

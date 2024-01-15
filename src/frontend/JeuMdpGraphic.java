@@ -52,6 +52,8 @@ public class JeuMdpGraphic extends MiniJeuGraphic{
 	public void setupGraphic(){
 		super.setupGraphic();
 
+		this.remove(zoneScore);
+
 		bgImage = new JLabel(new ImageIcon(Init.imagefondjeumdp));
 		bgImage.setBounds(0, 0, fenetre.getWidth(), fenetre.getHeight());
 

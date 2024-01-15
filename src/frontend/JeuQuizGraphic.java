@@ -110,6 +110,7 @@ public class JeuQuizGraphic extends MiniJeuGraphic{
 
 	public void nextQuestion(String reponse){
 		jeuQuiz.gererReponse(reponse, index);
+		score = jeuQuiz.getScore();
 		index++;
 		if(index < 10){
 			reset();
