@@ -29,7 +29,7 @@ public class Timer {
                         // Pause une seconde
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
-                        logger.severe("Thread Timer interrompu: " + e.getMessage());
+                        // logger.severe("Thread Timer interrompu: " + e.getMessage());
                     }
                     timeSeconds--;    
                     try{
