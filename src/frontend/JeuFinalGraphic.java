@@ -142,7 +142,6 @@ public class JeuFinalGraphic extends MiniJeuGraphic{
 		zoneMotFinal.setForeground(Color.BLACK);
 		zoneMotFinal.setBackground(Color.WHITE);
 		zoneMotFinal.setFont(fontIndice);
-		zoneMotFinal.setEditable(false);
 		this.add(zoneMotFinal, Integer.valueOf(1));
 
 		boutonValider = new Bouton("Valider", zoneCentrale.getX()+zoneCentrale.getWidth()/2-boutonQuitter.getWidth()/2, boutonQuitter.getY(), boutonQuitter.getWidth(), boutonQuitter.getHeight());
