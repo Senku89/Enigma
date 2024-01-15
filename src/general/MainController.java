@@ -72,7 +72,7 @@ public class MainController{
 
 		public void startResultatFinaux(){
 			timer.stopTimer();
-			rfg = new ResultatsFinauxGraphic(this, f, listeScore.get(0).getScore(), listeScore.get(1).getScore(), listeScore.get(2).getScore(), jfg.jeuFinal.getMotTrouve());
+			rfg = new ResultatsFinauxGraphic(this, f, listeScore.get(0).getScore(), listeScore.get(1).getScore(), listeScore.get(2).getScore(), jfg.jeuFinal.getMotTrouve(), jfg.jeuFinal.getCurrentIndice().getTxtReponse());
 			f.setPanel(rfg);
 			jeuActif = null;
 		}
