@@ -53,6 +53,7 @@ public class MiniJeuGraphic extends JLayeredPane{
 		timer.setForeground(Color.BLACK);
 		timer.setBackground(new Color(0, 0, 0, 0));
 		timer.setFont(new Font("Helvetica", Font.BOLD, 28));
+		timer.setEditable(false);
 		this.add(timer, Integer.valueOf(2));
 
 		iconeTimer = new JLabel(new ImageIcon(Init.iconetimer));
@@ -72,6 +73,7 @@ public class MiniJeuGraphic extends JLayeredPane{
 		timer.setForeground(Color.BLACK);
 		timer.setBackground(new Color(0, 0, 0, 0));
 		timer.setFont(new Font("Helvetica", Font.BOLD, 28));
+		timer.setEditable(false);
 		this.add(timer, Integer.valueOf(2));
 	}
 }
