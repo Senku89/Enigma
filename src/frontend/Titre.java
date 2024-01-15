@@ -17,6 +17,7 @@ public class Titre extends JTextArea{
 		this.setForeground(Color.WHITE);
 		this.setBackground(new Color(0, 0, 0, 0));
 		this.setFont(new Font("Helvetica", Font.BOLD, 30));
+		this.setEditable(false);
 	}
 
 	public Titre(String name, int x, int y, int width, int height){
@@ -27,5 +28,6 @@ public class Titre extends JTextArea{
 		this.setForeground(Color.WHITE);
 		this.setBackground(new Color(0, 0, 0, 0));
 		this.setFont(new Font("Helvetica", Font.BOLD, 30));
+		this.setEditable(false);
 	}
 }

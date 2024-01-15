@@ -20,5 +20,6 @@ public class ZoneTexte extends JTextArea{
 		this.setLineWrap(true);
 		this.setWrapStyleWord(true);
 		this.setFont(new Font("Helvetica", Font.BOLD, 15));
+		this.setEditable(false);
 	};
 }
