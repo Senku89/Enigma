@@ -60,6 +60,7 @@ public class JeuFinalGraphic extends MiniJeuGraphic{
 		textIndices.setForeground(foregroundIntituleIndice);
 		textIndices.setBackground(backgroundIntituleIndice);
 		textIndices.setFont(fontIntituleIndice);
+		textIndices.setEditable(false);
 		this.add(textIndices, Integer.valueOf(2));
 
 		zoneIndices = new JTextArea(jeuFinal.getCurrentIndice().getTxt0());
@@ -67,6 +68,7 @@ public class JeuFinalGraphic extends MiniJeuGraphic{
 		zoneIndices.setForeground(foregroundIndiceTrouve);
 		zoneIndices.setBackground(backgroundIndiceTrouve);
 		zoneIndices.setFont(fontIndice);
+		zoneIndices.setEditable(false);
 		this.add(zoneIndices, Integer.valueOf(2));
 
 		textIndice1 = new JTextArea("Indice Quiz");
@@ -74,6 +76,7 @@ public class JeuFinalGraphic extends MiniJeuGraphic{
 		textIndice1.setForeground(foregroundIntituleIndice);
 		textIndice1.setBackground(backgroundIntituleIndice);
 		textIndice1.setFont(fontIntituleIndice);
+		textIndice1.setEditable(false);
 		this.add(textIndice1, Integer.valueOf(2));
 
 		zoneIndice1 = new JTextArea(jeuFinal.getCurrentIndice().getTxt1());
@@ -87,6 +90,7 @@ public class JeuFinalGraphic extends MiniJeuGraphic{
 			zoneIndice1.setBackground(backgroundIndicePasTrouve);
 		}
 		zoneIndice1.setFont(fontIndice);
+		zoneIndice1.setEditable(false);
 		this.add(zoneIndice1, Integer.valueOf(2));
 
 		textIndice2 = new JTextArea("Indice Mots de Passe");
@@ -94,6 +98,7 @@ public class JeuFinalGraphic extends MiniJeuGraphic{
 		textIndice2.setForeground(foregroundIntituleIndice);
 		textIndice2.setBackground(backgroundIntituleIndice);
 		textIndice2.setFont(fontIntituleIndice);
+		textIndice2.setEditable(false);
 		this.add(textIndice2, Integer.valueOf(2));
 
 		zoneIndice2 = new JTextArea(jeuFinal.getCurrentIndice().getTxt2());
@@ -107,6 +112,7 @@ public class JeuFinalGraphic extends MiniJeuGraphic{
 			zoneIndice2.setBackground(backgroundIndicePasTrouve);
 		}
 		zoneIndice2.setFont(fontIndice);
+		zoneIndice2.setEditable(false);
 		this.add(zoneIndice2, Integer.valueOf(2));
 
 		textIndice3 = new JTextArea("Indice Déchiffrements");
@@ -114,6 +120,7 @@ public class JeuFinalGraphic extends MiniJeuGraphic{
 		textIndice3.setForeground(foregroundIntituleIndice);
 		textIndice3.setBackground(backgroundIntituleIndice);
 		textIndice3.setFont(fontIntituleIndice);
+		textIndice3.setEditable(false);
 		this.add(textIndice3, Integer.valueOf(2));
 
 		zoneIndice3 = new JTextArea(jeuFinal.getCurrentIndice().getTxt3());
@@ -127,6 +134,7 @@ public class JeuFinalGraphic extends MiniJeuGraphic{
 			zoneIndice3.setBackground(backgroundIndicePasTrouve);
 		}
 		zoneIndice3.setFont(fontIndice);
+		zoneIndice3.setEditable(false);
 		this.add(zoneIndice3, Integer.valueOf(2));
 
 		zoneMotFinal = new JTextField();
@@ -134,6 +142,7 @@ public class JeuFinalGraphic extends MiniJeuGraphic{
 		zoneMotFinal.setForeground(Color.BLACK);
 		zoneMotFinal.setBackground(Color.WHITE);
 		zoneMotFinal.setFont(fontIndice);
+		zoneMotFinal.setEditable(false);
 		this.add(zoneMotFinal, Integer.valueOf(1));
 
 		boutonValider = new Bouton("Valider", zoneCentrale.getX()+zoneCentrale.getWidth()/2-boutonQuitter.getWidth()/2, boutonQuitter.getY(), boutonQuitter.getWidth(), boutonQuitter.getHeight());

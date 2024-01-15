@@ -70,6 +70,7 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		intituleQuiz.setForeground(intituleForeground);
 		intituleQuiz.setBackground(intituleBackground);
 		intituleQuiz.setFont(intituleFont);
+		intituleQuiz.setEditable(false);
 		this.add(intituleQuiz, Integer.valueOf(2));
 
 		scoreQuiz = new JTextArea(scorequiz+"/100");
@@ -77,6 +78,7 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		scoreQuiz.setForeground(scoreForeground);
 		scoreQuiz.setBackground(scoreBackground);
 		scoreQuiz.setFont(scoreFont);
+		scoreQuiz.setEditable(false);
 		this.add(scoreQuiz, Integer.valueOf(2));
 
 		int intituleMdpWidth = 200;
@@ -96,6 +98,7 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		intituleMdp.setForeground(intituleForeground);
 		intituleMdp.setBackground(intituleBackground);
 		intituleMdp.setFont(intituleFont);
+		intituleMdp.setEditable(false);
 		this.add(intituleMdp, Integer.valueOf(2));
 
 		scoreMdp = new JTextArea(scoremdp+"/100");
@@ -103,6 +106,7 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		scoreMdp.setForeground(scoreForeground);
 		scoreMdp.setBackground(scoreBackground);
 		scoreMdp.setFont(scoreFont);
+		scoreMdp.setEditable(false);
 		this.add(scoreMdp, Integer.valueOf(2));
 
 		int intituleDechiffrementWidth = 200;
@@ -121,6 +125,7 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		intituleDechiffrement.setForeground(intituleForeground);
 		intituleDechiffrement.setBackground(intituleBackground);
 		intituleDechiffrement.setFont(intituleFont);
+		intituleDechiffrement.setEditable(false);
 		this.add(intituleDechiffrement, Integer.valueOf(2));
 
 		scoreDechiffrement = new JTextArea(scoredecrypt+"/100");
@@ -128,6 +133,7 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		scoreDechiffrement.setForeground(scoreForeground);
 		scoreDechiffrement.setBackground(scoreBackground);
 		scoreDechiffrement.setFont(scoreFont);
+		scoreDechiffrement.setEditable(false);
 		this.add(scoreDechiffrement, Integer.valueOf(2));
 	
 		int intituleFinalWidth = 100;
@@ -136,6 +142,7 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		intituleFinal.setForeground(intituleForeground);
 		intituleFinal.setBackground(intituleBackground);
 		intituleFinal.setFont(intituleFont);
+		intituleFinal.setEditable(false);
 		this.add(intituleFinal, Integer.valueOf(2));
 
 		String titreIntituleFinal = "";
@@ -154,6 +161,7 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		resultatFinal.setForeground(scoreForeground);
 		resultatFinal.setBackground(scoreBackground);
 		resultatFinal.setFont(scoreFont);
+		resultatFinal.setEditable(false);
 		this.add(resultatFinal, Integer.valueOf(2));
 
 		int boutonMenuWidth = 300;
