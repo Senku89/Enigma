@@ -27,11 +27,11 @@ public class Init{
 	public static Color couleurtextbouton = new Color(250, 250, 250);
 	public static Color couleurfondzonetext = new Color(225, 225, 240, 242);
 
-	public static String texteIntro = "Pour cela vous aller passer par 3 mini-jeux qui vous permettront de gagner des indices qui vous aideront au moment de décoder Enigma.\n" +
+	public static String texteIntro = "Pour cela vous aller passer par 3 mini-jeux qui vous permettront de gagner des indices qui vous aideront au moment de décoder Enigma :\n" +
 			"1. Un quiz comportant 10 questions sur la cryptographie\n" +
 			"2. Classifier les mots de passe en trois niveaux\n" +
 			"3. Déchiffrer les messages secrets\n" +
-			"Enigma : Trouve le mot mystère en fonction des indices que vous avez récoltés ! Bon courage !\n";
+			"Enigma : Trouve le mot mystère en fonction des indices que vous avez récoltés ! Bonne chance et bon déchiffrage !\n";
 
 	public static String getCle(int num){
 		return resourcepath+"images/cle"+num+".png";
