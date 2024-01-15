@@ -23,7 +23,7 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 	Titre titre;
 	ZoneTexte zoneCentrale;
 
-	int intituleHeight = 22, scoreWidth = 100, scoreHeight = 15;
+	int intituleHeight = 22, scoreWidth = 100, scoreHeight = 18;
 	int paddingHeight = 20, spacingHeight = 30;
 
 	Color intituleForeground = Color.BLACK, intituleBackground = new Color(0, 0, 0, 0);
@@ -31,7 +31,7 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 
 	Font intituleFont = new Font("Helvetica", Font.BOLD, 20), scoreFont = new Font("Helvetica", Font.BOLD, 15);
 
-	public ResultatsFinauxGraphic(MainController mainController, Fenetre fenetre, int scorequiz, int scoremdp, int scoredecrypt, boolean motFinalFound){
+	public ResultatsFinauxGraphic(MainController mainController, Fenetre fenetre, int scorequiz, int scoremdp, int scoredecrypt, boolean motFinalFound, String motFinal){
 		super();
 
 		this.mainController = mainController;
@@ -149,8 +149,8 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		int resultatFinalWidth;
 
 		if(motFinalFound){
-			titreIntituleFinal = "Trouvé";
-			resultatFinalWidth = 55;
+			titreIntituleFinal = motFinal;
+			resultatFinalWidth = motFinal.length()*9;
 		} else {
 			titreIntituleFinal = "Pas trouvé";
 			resultatFinalWidth = 90;
