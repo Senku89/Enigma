@@ -73,7 +73,7 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		intituleQuiz.setEditable(false);
 		this.add(intituleQuiz, Integer.valueOf(2));
 
-		scoreQuiz = new JTextArea(scorequiz+"/100");
+		scoreQuiz = new JTextArea(scorequiz+"/100 points");
 		scoreQuiz.setBounds(zoneCentrale.getX()+zoneCentrale.getWidth()/2-scoreQuizWidth/2, intituleQuiz.getY()+intituleQuiz.getHeight()+paddingHeight, scoreQuizWidth, scoreHeight);
 		scoreQuiz.setForeground(scoreForeground);
 		scoreQuiz.setBackground(scoreBackground);
@@ -84,12 +84,12 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		int intituleMdpWidth = 200;
 		int scoreMdpWidth;
 		if(scoremdp == 100){
-			scoreMdpWidth = 65;
+			scoreMdpWidth = 121;
 		} else {
 			if(scoremdp > 9){
-				scoreMdpWidth = 55;
+				scoreMdpWidth = 111;
 			} else {
-				scoreMdpWidth = 45;
+				scoreMdpWidth = 101;
 			}
 		}
 
@@ -101,7 +101,7 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		intituleMdp.setEditable(false);
 		this.add(intituleMdp, Integer.valueOf(2));
 
-		scoreMdp = new JTextArea(scoremdp+"/100");
+		scoreMdp = new JTextArea(scoremdp+"/100 points");
 		scoreMdp.setBounds(zoneCentrale.getX()+zoneCentrale.getWidth()/2-scoreMdpWidth/2, intituleMdp.getY()+intituleMdp.getHeight()+paddingHeight, scoreMdpWidth, scoreHeight);
 		scoreMdp.setForeground(scoreForeground);
 		scoreMdp.setBackground(scoreBackground);
@@ -128,7 +128,7 @@ public class ResultatsFinauxGraphic extends JLayeredPane{
 		intituleDechiffrement.setEditable(false);
 		this.add(intituleDechiffrement, Integer.valueOf(2));
 
-		scoreDechiffrement = new JTextArea(scoredecrypt+"/100");
+		scoreDechiffrement = new JTextArea(scoredecrypt+"/100 points");
 		scoreDechiffrement.setBounds(zoneCentrale.getX()+zoneCentrale.getWidth()/2-scoreDecryptWidth/2, intituleDechiffrement.getY()+intituleDechiffrement.getHeight()+paddingHeight, scoreDecryptWidth, scoreHeight);
 		scoreDechiffrement.setForeground(scoreForeground);
 		scoreDechiffrement.setBackground(scoreBackground);
