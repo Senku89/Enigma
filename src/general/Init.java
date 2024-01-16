@@ -5,9 +5,10 @@ import java.awt.Color;
 public class Init{
 
 	// Ici on introduit les score minimum pour avoir l'indice
-	public static int minQuiz = 50; // Add in Init
-	public static int minMDP = 50; // Add in Init
-	public static int minDechiff = 50; // Add in Init
+	public static int minQuiz = 50; // Score minimum pour avoir l'indice sur le jeu Quiz
+	public static int minMDP = 50; // Score minimum pour avoir l'indice sur le jeu MDP
+	public static int minDechiff = 50; // Score minimum pour avoir l'indice sur le jeu Déchiffrement
+	public static final int tempsDeJeu = 1200; // Moidifer pour le temps de jeu - 1200 = 20 min
 
 	public static String resourcepath = "resources/";
 

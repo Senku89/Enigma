@@ -69,7 +69,7 @@ public class Timer {
 
     // Ajouter une méthode à appeler lorsque le temps est écoulé
     private void timerExpired() {
-        logger.info("Temps écoulé!");
+        //logger.info("Temps écoulé!");
         mainController.outOfTime();
         // Actions supplémentaires à effectuer lorsque le temps est écoulé
     }

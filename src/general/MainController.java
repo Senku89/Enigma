@@ -15,7 +15,6 @@ public class MainController{
 		Logger logger = Logger.getLogger(getClass().getName());
 		private static Score score;
 		private Timer timer;
-		private final int tempsDeJeu = 600;
 
 		private Fenetre f;
 		private MenuPrincipalGraphic mpg;
@@ -33,7 +32,7 @@ public class MainController{
 		public MainController() {
 
 			score = new Score();
-			timer = new Timer(this, tempsDeJeu);
+			timer = new Timer(this, Init.tempsDeJeu);
 
 			f = new Fenetre();
 
@@ -79,7 +78,6 @@ public class MainController{
 		
 		//Retour Menu Principal
 		public void retourMenuPrincipal(){
-			
 			f.setPanel(mpg);
 			reset();
 		}
@@ -87,7 +85,7 @@ public class MainController{
 		public void reset() {
 			jeuActif = null;
 			timer.stopTimer();
-			timer = new Timer(this, tempsDeJeu);
+			timer = new Timer(this, Init.tempsDeJeu);
 
 			// Creer un nouvel Score
 			Score newScore = new Score();
