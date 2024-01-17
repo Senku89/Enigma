@@ -39,7 +39,7 @@ public class MenuPrincipalGraphic extends JLayeredPane{
 		title.setForeground(Color.white);
 		title.setFont(new Font("Helvetica", Font.BOLD, 50));
 
-		textIntro = new ZoneTexte(Init.texteIntro, 145, 240, 710, 175);
+		textIntro = new ZoneTexte(Init.texteIntro, 145, 240, 710, 185);
 		textIntro.setFont(new Font("Helvetica", Font.PLAIN, 20));
 
 		boutonJouer = new Bouton("Jouer", 250, 450, 150, 30);
